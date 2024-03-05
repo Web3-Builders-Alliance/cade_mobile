@@ -1,0 +1,30 @@
+import { View, Text, ScrollView } from "react-native";
+import React from "react";
+import Ceiling from "../components/Ceiling";
+import MachineSlider from "../ui/MachineSlider";
+import MachineSliderWithButtons from "../ui/MachineSliderWithButtons";
+import CadeCardSection from "../ui/CadeCardSection";
+import Discover from "../ui/Discover";
+
+const HomeScreen = () => {
+  return (
+    <View style={{ backgroundColor: "#191414" }} className="min-h-screen py-12">
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        <View className="container px-4 md:px-6">
+          <View>
+            <CadeCardSection />
+            <Ceiling />
+            <View className="mt-36">
+              <MachineSliderWithButtons />
+            </View>
+            <View>
+              <Discover/>
+            </View>
+          </View>
+        </View>
+      </ScrollView>
+    </View>
+  );
+};
+
+export default HomeScreen;
