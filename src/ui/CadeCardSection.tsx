@@ -9,10 +9,6 @@ export default function CadeCardSection() {
     <View style={{ backgroundColor: "#191414" }} className="h-64 w-max">
       <View className="flex flex-row justify-between items-center ">
         <MonoText>Welcome User,</MonoText>
-        {/* <Image
-          source={require("../../assets/images/cadenew.png")}
-          className="w-12 h-12 rounded-full bg-gray-500"
-        /> */}
       </View>
       <ButtonGrid />
       <View className="flex justify-center items-center">

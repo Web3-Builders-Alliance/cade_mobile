@@ -16,11 +16,11 @@ const ButtonGrid = () => {
       }}
     >
       <TouchableOpacity
-        className="border-4 border-yellow-400"
+        className="border-2 border-yellow-400"
         style={{
           width: "30%",
           height: 44,
-          borderRadius: 10,
+          borderRadius: 7,
           justifyContent: "center",
           alignItems: "center",
           backgroundColor: "white",
@@ -31,11 +31,11 @@ const ButtonGrid = () => {
         </MonoTextSmall>
       </TouchableOpacity>
       <TouchableOpacity
-        className="border-4 border-yellow-400"
+        className="border-2 border-yellow-400"
         style={{
           width: "30%",
           height: 44,
-          borderRadius: 10,
+          borderRadius: 7,
           justifyContent: "center",
           alignItems: "center",
           backgroundColor: "white",
@@ -46,11 +46,11 @@ const ButtonGrid = () => {
         </MonoTextSmall>
       </TouchableOpacity>
       <TouchableOpacity
-        className="border-4 border-yellow-400"
+        className="border-2 border-yellow-400"
         style={{
           width: "30%",
           height: 44,
-          borderRadius: 10,
+          borderRadius: 7,
           justifyContent: "center",
           alignItems: "center",
           backgroundColor: "white",

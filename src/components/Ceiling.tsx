@@ -13,7 +13,7 @@ import LightBoard from "./LightBoard";
 
 const Ceiling = ({displayNumber , msg} : {displayNumber : boolean, msg : string}) => {
   return (
-    <View className="relative">
+    <View className="relative mt-10">
       <View className=" bg-yellow-200 h-20 w-full rounded-md">
         <View className="absolute top-0 left-0 ml-10">
           <Image
