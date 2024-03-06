@@ -12,7 +12,7 @@ const GridButtonLayout = () => {
             style={{
               width: 85,
               height: 40,
-              borderRadius: 10,
+              borderRadius: 6,
               justifyContent: "center",
               alignItems: "center",
               margin: 2,
@@ -28,7 +28,7 @@ const GridButtonLayout = () => {
             style={{
               width: 85,
               height: 40,
-              borderRadius: 10,
+              borderRadius: 6,
               justifyContent: "center",
               alignItems: "center",
               margin: 2,
@@ -44,7 +44,7 @@ const GridButtonLayout = () => {
             style={{
               width: 85,
               height: 40,
-              borderRadius: 10,
+              borderRadius: 6,
               justifyContent: "center",
               alignItems: "center",
               margin: 2,
@@ -60,7 +60,7 @@ const GridButtonLayout = () => {
             style={{
               width: 85,
               height: 40,
-              borderRadius: 10,
+              borderRadius: 6,
               justifyContent: "center",
               alignItems: "center",
               margin: 2,

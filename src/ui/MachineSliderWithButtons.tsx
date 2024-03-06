@@ -157,7 +157,7 @@ export default function MachineSliderWithButtons({red}) {
       >
         {currentIndex == 0 ? null : (
           <TouchableOpacity
-          className="border-2 border-yellow-400"
+          className="border-2"
             style={{
               width: data.length - 1 == currentIndex ? "100%" : 150,
               height: 45,
@@ -165,6 +165,7 @@ export default function MachineSliderWithButtons({red}) {
               justifyContent: "center",
               alignItems: "center",
               backgroundColor: "white",
+              borderColor : red ? "#EF4444" : "#EAB308"
             }}
             onPress={() => {
               setCurrentIndex(currentIndex - 1);
@@ -179,7 +180,7 @@ export default function MachineSliderWithButtons({red}) {
         )}
         {data.length - 1 == currentIndex ? null : (
           <TouchableOpacity
-            className="border-2 border-yellow-400"
+            className="border-2"
             style={{
               width: currentIndex == 0 ? "100%" : 150,
               height: 45,
@@ -187,6 +188,7 @@ export default function MachineSliderWithButtons({red}) {
               justifyContent: "center",
               alignItems: "center",
               backgroundColor: "white",
+              borderColor : red ? "#EF4444" : "#EAB308"
             }}
             onPress={() => {
               setCurrentIndex(currentIndex + 1);

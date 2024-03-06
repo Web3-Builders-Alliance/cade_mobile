@@ -27,7 +27,7 @@ const GameSection = () => {
             }}
           >
             <TouchableOpacity
-              className="border-4"
+              className="border-2"
               style={{
                 width: "45%",
                 height: 45,
@@ -42,7 +42,7 @@ const GameSection = () => {
             </TouchableOpacity>
 
             <TouchableOpacity
-              className="border-4"
+              className="border-2"
               style={{
                 width: "45%",
                 height: 45,
