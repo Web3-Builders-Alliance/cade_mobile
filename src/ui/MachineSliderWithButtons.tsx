@@ -20,7 +20,7 @@ import TileSurviveImage from "../../assets/images/ca55.png";
 
 const { height, width } = Dimensions.get("window");
 
-export default function MachineSliderWithButtons() {
+export default function MachineSliderWithButtons({red}) {
   const data = [
     {
       img: CoinFlipImage,
@@ -143,7 +143,7 @@ export default function MachineSliderWithButtons() {
         })}
       </View>
       <View className="flex justify-center items-center mt-4">
-        <GameDescription />
+        <GameDescription red={red} />
       </View>
       <View
         style={{
@@ -157,10 +157,10 @@ export default function MachineSliderWithButtons() {
       >
         {currentIndex == 0 ? null : (
           <TouchableOpacity
-          className="border-4 border-yellow-400"
+          className="border-2 border-yellow-400"
             style={{
-              width: data.length - 1 == currentIndex ? "100%" : 100,
-              height: 40,
+              width: data.length - 1 == currentIndex ? "100%" : 150,
+              height: 45,
               borderRadius: 5,
               justifyContent: "center",
               alignItems: "center",
@@ -181,8 +181,8 @@ export default function MachineSliderWithButtons() {
           <TouchableOpacity
             className="border-2 border-yellow-400"
             style={{
-              width: currentIndex == 0 ? "100%" : 100,
-              height: 40,
+              width: currentIndex == 0 ? "100%" : 150,
+              height: 45,
               borderRadius: 5,
               justifyContent: "center",
               alignItems: "center",

@@ -2,11 +2,11 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import { MonoText, MonoTextSmall } from "./StylesText";
 
-const GameDescription = () => {
+const GameDescription = ({red}) => {
   return (
     <View
-      style={{ backgroundColor: "#0F172A", height: 185, width: "auto" }}
-      className="flex justify-center items-center flex-row w-96 border-2 border-yellow-500 mb-3 rounded-lg"
+      style={{ backgroundColor: "#0F172A", height: 185, width: "auto"  , borderColor : red? "#EF4444" : "#EAB308"}}
+      className="flex justify-center items-center flex-row w-96 border-4 border-yellow-500 mb-3 rounded-lg"
     >
       <View className="flex flex-col w-2/5 -translate-y-2">
         <View className="h-3/4">
@@ -24,17 +24,17 @@ const GameDescription = () => {
         </View>
         <View className="h-1/4 items-center">
           <TouchableOpacity
-            className="border-2 border-yellow-500"
+            className="border-2 border-white"
             style={{
               width: 100,
               height: 40,
               borderRadius: 8,
               justifyContent: "center",
               alignItems: "center",
-              backgroundColor: "black",
+              backgroundColor: "white",
             }}
           >
-            <MonoTextSmall style={{ color: "white" }}>Play</MonoTextSmall>
+            <MonoTextSmall style={{ color: "black" }}>Play</MonoTextSmall>
           </TouchableOpacity>
         </View>
       </View>

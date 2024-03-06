@@ -16,7 +16,7 @@ const HomeScreen = () => {
             <CadeCardSection />
             <Ceiling displayNumber={true} msg={"Tower Defence"}/>
             <View className="mt-36">
-              <MachineSliderWithButtons />
+              <MachineSliderWithButtons red={false} />
             </View>
             <View>
               <Discover />

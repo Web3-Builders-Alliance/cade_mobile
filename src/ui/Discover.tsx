@@ -47,15 +47,16 @@ const Discover = () => {
       </View>
       <View>
         <TouchableOpacity
-          className="border-2 border-yellow-400"
+          className="border-2"
           style={{
             width: '100%',
             height: 40,
-            borderRadius: 10,
+            borderRadius: 5,
             justifyContent: "center",
             alignItems: "center",
             backgroundColor: "white",
-            marginTop : 15
+            marginTop : 15,
+            borderColor : "#3B82F6"
           }}
         >
           <MonoTextSmall style={{ color: "black" }}>Next</MonoTextSmall>

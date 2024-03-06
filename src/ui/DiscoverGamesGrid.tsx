@@ -6,14 +6,14 @@ const DiscoverGames = () => {
   const Grid = () => {
     return (
       <>
-        <View className="flex flex-row justify-center items-center mt-7">
+        <View style={{margin : 10 , columnGap : 4}} className="flex flex-row justify-center items-center mt-7">
           <View>
             <Image
               className="border-2 border-white"
               source={require("../../assets/images/tower.jpg")}
               style={{
-                height: 90,
-                width: 90,
+                height: 100,
+                width: 100,
                 borderRadius: 5,
               }}
             />
@@ -24,8 +24,8 @@ const DiscoverGames = () => {
               className="border-2 border-white"
               source={require("../../assets/images/tile.jpg")}
               style={{
-                height: 90,
-                width: 90,
+                height: 100,
+                width: 100,
                 borderRadius: 5,
               }}
             />
@@ -36,8 +36,8 @@ const DiscoverGames = () => {
               className="border-2 border-white"
               source={require("../../assets/images/molegame.jpeg")}
               style={{
-                height: 90,
-                width: 90,
+                height: 100,
+                width: 100,
                 borderRadius: 5,
               }}
             />
@@ -45,14 +45,14 @@ const DiscoverGames = () => {
           </View>
         </View>
 
-        <View className="flex flex-row justify-center items-center mt-7">
+        <View style={{margin : 10 , columnGap : 4}} className="flex flex-row justify-center items-center mt-7">
           <View>
             <Image
               className="border-2 border-white"
               source={require("../../assets/images/sf.png")}
               style={{
-                height: 90,
-                width: 90,
+                height: 100,
+                width: 100,
                 borderRadius: 5,
               }}
             />
@@ -63,8 +63,8 @@ const DiscoverGames = () => {
               className="border-2 border-white"
               source={require("../../assets/images/coinflip.jpg")}
               style={{
-                height: 90,
-                width: 90,
+                height: 100,
+                width: 100,
                 borderRadius: 5,
               }}
             />
@@ -75,8 +75,8 @@ const DiscoverGames = () => {
               className="border-2 border-white"
               source={require("../../assets/images/dice.jpg")}
               style={{
-                height: 90,
-                width: 90,
+                height: 100,
+                width: 100,
                 borderRadius: 5,
               }}
             />

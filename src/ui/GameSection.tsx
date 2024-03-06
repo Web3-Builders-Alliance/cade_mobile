@@ -27,28 +27,30 @@ const GameSection = () => {
             }}
           >
             <TouchableOpacity
-              className="border-4 border-yellow-400"
+              className="border-4"
               style={{
-                width: "40%",
+                width: "45%",
                 height: 45,
                 borderRadius: 5,
                 justifyContent: "center",
                 alignItems: "center",
                 backgroundColor: "white",
+                borderColor : "#F87177"
               }}
             >
               <MonoTextSmall style={{ color: "black" }}>OnChain</MonoTextSmall>
             </TouchableOpacity>
 
             <TouchableOpacity
-              className="border-4 border-yellow-400"
+              className="border-4"
               style={{
-                width: "40%",
+                width: "45%",
                 height: 45,
                 borderRadius: 5,
                 justifyContent: "center",
                 alignItems: "center",
                 backgroundColor: "white",
+                borderColor : "#F87177"
               }}
             >
               <MonoTextSmall style={{ color: "black" }}>Unity</MonoTextSmall>
@@ -57,7 +59,7 @@ const GameSection = () => {
         </View>
       </View>
       <View className="mt-14">
-        <MachineSliderWithButtons />
+        <MachineSliderWithButtons red={true}/>
       </View>
     </View>
   );
