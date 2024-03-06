@@ -11,9 +11,9 @@ const { height, width } = Dimensions.get("window");
 
 import LightBoard from "./LightBoard";
 
-const Ceiling = () => {
+const Ceiling = ({displayNumber , msg}) => {
   return (
-    <View className="relative mt-14">
+    <View className="relative">
       <View className=" bg-yellow-200 h-20 w-full rounded-md">
         <View className="absolute top-0 left-0 ml-10">
           <Image
@@ -34,7 +34,7 @@ const Ceiling = () => {
           />
         </View>
         <View className="absolute left-1/2 -translate-x-1/2 top-1/4 translate-y-1/4">
-          <LightBoard displayNumber={true} msg={"Tower Defence"} />
+          <LightBoard displayNumber={displayNumber} msg={msg} />
         </View>
       </View>
     </View>

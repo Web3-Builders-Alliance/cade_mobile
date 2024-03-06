@@ -3,14 +3,18 @@ import React from "react";
 import Ceiling from "../components/Ceiling";
 import { MonoText, MonoTextSmall } from "../components/StylesText";
 import MachineSliderWithButtons from "./MachineSliderWithButtons";
+import GameSectionCeiling from "../components/GameSectionCeiling";
 const { height, width } = Dimensions.get("window");
 
 const GameSection = () => {
   return (
     <View>
-      <Ceiling />
+      <View className="bg-white w-max h-1 mt-1">
+        <Text></Text>
+      </View>
+      <GameSectionCeiling displayNumber={false} msg={"Game Section"}/>
       <View className="mt-40">
-        <MonoText>OnChain Games</MonoText>
+        <MonoText style={{textDecorationLine:"underline"}}>OnChain Games</MonoText>
         <View className="flex justify-center items-center mt-3">
           <View
             style={{

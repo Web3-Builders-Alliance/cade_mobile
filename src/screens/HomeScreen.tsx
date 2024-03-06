@@ -14,7 +14,7 @@ const HomeScreen = () => {
         <View className="container px-4 md:px-6">
           <View>
             <CadeCardSection />
-            <Ceiling />
+            <Ceiling displayNumber={true} msg={"Tower Defence"}/>
             <View className="mt-36">
               <MachineSliderWithButtons />
             </View>
