@@ -2,10 +2,10 @@ import { View, Text, Image } from "react-native";
 import React from "react";
 import LightBoard from "./LightBoard";
 
-const LeftCeiling = ({ blue, msg }) => {
+const LeftCeiling = ({ blue, msg } : {blue:boolean , msg : string}) => {
   return (
     <View className="relative mt-2">
-      <View className={` ${blue ? 'bg-blue-950' : "bg-yellow-200"} h-20 w-full rounded-md`}>
+      <View className={` ${blue ? 'bg-blue-500' : "bg-yellow-200"} h-20 w-full rounded-md`}>
         <View className="bg-white w-max h-1">
           <Text></Text>
         </View>

@@ -11,7 +11,7 @@ const { height, width } = Dimensions.get("window");
 
 import LightBoard from "./LightBoard";
 
-const Ceiling = ({displayNumber , msg}) => {
+const Ceiling = ({displayNumber , msg} : {displayNumber : boolean, msg : string}) => {
   return (
     <View className="relative">
       <View className=" bg-yellow-200 h-20 w-full rounded-md">

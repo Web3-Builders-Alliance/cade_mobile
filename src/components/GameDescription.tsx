@@ -2,7 +2,7 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import { MonoText, MonoTextSmall } from "./StylesText";
 
-const GameDescription = ({red}) => {
+const GameDescription = ({red} : {red:boolean}) => {
   return (
     <View
       style={{ backgroundColor: "#0F172A", height: 185, width: "auto"  , borderColor : red? "#EF4444" : "#EAB308"}}

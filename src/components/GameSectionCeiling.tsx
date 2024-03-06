@@ -11,7 +11,7 @@ import {
   
   import LightBoard from "./LightBoard";
   
-  const GameSectionCeiling = ({displayNumber , msg}) => {
+  const GameSectionCeiling = ({displayNumber , msg} : {displayNumber : boolean , msg : string}) => {
     return (
       <View className="relative">
         <View style={{backgroundColor : "#F87177"}} className="h-20 w-full rounded-md">

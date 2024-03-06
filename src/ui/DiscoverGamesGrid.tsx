@@ -15,6 +15,7 @@ const DiscoverGames = () => {
                 height: 100,
                 width: 100,
                 borderRadius: 5,
+                margin : 10
               }}
             />
             <MonoTextSmall>GameName</MonoTextSmall>
@@ -27,6 +28,7 @@ const DiscoverGames = () => {
                 height: 100,
                 width: 100,
                 borderRadius: 5,
+                margin : 10
               }}
             />
             <MonoTextSmall>GameName</MonoTextSmall>
@@ -39,6 +41,7 @@ const DiscoverGames = () => {
                 height: 100,
                 width: 100,
                 borderRadius: 5,
+                margin : 10
               }}
             />
             <MonoTextSmall>GameName</MonoTextSmall>
@@ -54,6 +57,7 @@ const DiscoverGames = () => {
                 height: 100,
                 width: 100,
                 borderRadius: 5,
+                margin : 10
               }}
             />
             <MonoTextSmall>GameName</MonoTextSmall>
@@ -66,6 +70,7 @@ const DiscoverGames = () => {
                 height: 100,
                 width: 100,
                 borderRadius: 5,
+                margin : 10
               }}
             />
             <MonoTextSmall>GameName</MonoTextSmall>
@@ -78,6 +83,7 @@ const DiscoverGames = () => {
                 height: 100,
                 width: 100,
                 borderRadius: 5,
+                margin : 10
               }}
             />
             <MonoTextSmall>GameName</MonoTextSmall>

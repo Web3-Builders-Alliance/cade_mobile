@@ -1,7 +1,6 @@
 import { View, Text, ScrollView } from "react-native";
 import React from "react";
 import Ceiling from "../components/Ceiling";
-import MachineSlider from "../ui/MachineSlider";
 import MachineSliderWithButtons from "../ui/MachineSliderWithButtons";
 import CadeCardSection from "../ui/CadeCardSection";
 import Discover from "../ui/Discover";

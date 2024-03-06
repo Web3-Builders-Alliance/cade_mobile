@@ -3,7 +3,7 @@ import React from "react";
 import { useFonts } from "expo-font";
 import { useEffect } from "react";
 
-const LightBoard = ({ displayNumber ,msg}) => {
+const LightBoard = ({ displayNumber ,msg} : {displayNumber : boolean , msg : string}) => {
   let [loaded, error] = useFonts({
     VT323: require("../../assets/fonts/VT323-Regular.ttf"),
   });
@@ -19,7 +19,7 @@ const LightBoard = ({ displayNumber ,msg}) => {
   return (
     <View>
       <View
-        style={{ backgroundColor: "black" }}
+        style={{ backgroundColor: "#262626" }}
         className="relative h-40 w-80 lg:w-96 mb-3 bg-transparent flex items-center justify-center rounded-xl border-4 border-white"
       >
         <View className="flex flex-row justify-center items-center absolute top-0 left-0 right-0 bottom-0">

@@ -20,7 +20,7 @@ import TileSurviveImage from "../../assets/images/ca55.png";
 
 const { height, width } = Dimensions.get("window");
 
-export default function MachineSliderWithButtons({red}) {
+export default function MachineSliderWithButtons({red} : {red:boolean}) {
   const data = [
     {
       img: CoinFlipImage,
