@@ -161,7 +161,7 @@ export default function MachineSliderWithButtons() {
             style={{
               width: data.length - 1 == currentIndex ? "100%" : 100,
               height: 40,
-              borderRadius: 10,
+              borderRadius: 5,
               justifyContent: "center",
               alignItems: "center",
               backgroundColor: "white",
@@ -183,7 +183,7 @@ export default function MachineSliderWithButtons() {
             style={{
               width: currentIndex == 0 ? "100%" : 100,
               height: 40,
-              borderRadius: 10,
+              borderRadius: 5,
               justifyContent: "center",
               alignItems: "center",
               backgroundColor: "white",

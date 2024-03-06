@@ -52,7 +52,7 @@ const DiscoverGames = () => {
               source={require("../../assets/images/sf.png")}
               style={{
                 height: 90,
-                width:90,
+                width: 90,
                 borderRadius: 5,
               }}
             />

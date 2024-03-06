@@ -6,7 +6,7 @@ const GameDescription = () => {
   return (
     <View
       style={{ backgroundColor: "#0F172A", height: 185, width: "auto" }}
-      className="flex justify-center items-center flex-row w-96 border-2 border-yellow-500 mb-3 rounded-xl"
+      className="flex justify-center items-center flex-row w-96 border-2 border-yellow-500 mb-3 rounded-lg"
     >
       <View className="flex flex-col w-2/5 -translate-y-2">
         <View className="h-3/4">

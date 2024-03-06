@@ -20,7 +20,7 @@ const GridButtonLayout = () => {
             }}
           >
             <MonoTextSmall style={{ color: "black", marginBottom: 5 }}>
-              Previous
+              All
             </MonoTextSmall>
           </TouchableOpacity>
           <TouchableOpacity
@@ -36,7 +36,7 @@ const GridButtonLayout = () => {
             }}
           >
             <MonoTextSmall style={{ color: "black", marginBottom: 5 }}>
-              Previous
+              OnChain
             </MonoTextSmall>
           </TouchableOpacity>
           <TouchableOpacity
@@ -52,7 +52,7 @@ const GridButtonLayout = () => {
             }}
           >
             <MonoTextSmall style={{ color: "black", marginBottom: 5 }}>
-              Previous
+              Unity
             </MonoTextSmall>
           </TouchableOpacity>
           <TouchableOpacity
@@ -68,7 +68,7 @@ const GridButtonLayout = () => {
             }}
           >
             <MonoTextSmall style={{ color: "black", marginBottom: 5 }}>
-              Previous
+              Random
             </MonoTextSmall>
           </TouchableOpacity>
         </View>

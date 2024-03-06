@@ -5,6 +5,7 @@ import MachineSlider from "../ui/MachineSlider";
 import MachineSliderWithButtons from "../ui/MachineSliderWithButtons";
 import CadeCardSection from "../ui/CadeCardSection";
 import Discover from "../ui/Discover";
+import GameSection from "../ui/GameSection";
 
 const HomeScreen = () => {
   return (
@@ -18,7 +19,10 @@ const HomeScreen = () => {
               <MachineSliderWithButtons />
             </View>
             <View>
-              <Discover/>
+              <Discover />
+            </View>
+            <View>
+              <GameSection />
             </View>
           </View>
         </View>

@@ -1,9 +1,10 @@
-import { View, Text, Dimensions } from "react-native";
+import { View, Text, Dimensions, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import LeftCeiling from "../components/LeftCeiling";
 import ButtonGrid from "./ButtonGrid";
 import GridButtonLayout from "./DisoverButtonGrid";
-import DiscoverGames from "./DiscoverGames";
+import DiscoverGames from "./DiscoverGamesGrid";
+import { MonoText, MonoTextSmall } from "../components/StylesText";
 const { height, width } = Dimensions.get("window");
 
 const Discover = () => {
@@ -12,7 +13,10 @@ const Discover = () => {
   return (
     <View>
       <LeftCeiling />
-      <View className="flex justify-center items-center mt-36">
+      <View className="flex justify-center items-start mt-36">
+        <View className="ml-5 mt-2">
+          <MonoText style={{textDecorationLine : "underline"}}>All Games</MonoText>
+        </View>
         <GridButtonLayout />
       </View>
       <View className="ml-10 items-center">
@@ -40,6 +44,22 @@ const Discover = () => {
             ></View>
           );
         })}
+      </View>
+      <View>
+        <TouchableOpacity
+          className="border-2 border-yellow-400"
+          style={{
+            width: '100%',
+            height: 40,
+            borderRadius: 10,
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: "white",
+            marginTop : 15
+          }}
+        >
+          <MonoTextSmall style={{ color: "black" }}>Next</MonoTextSmall>
+        </TouchableOpacity>
       </View>
     </View>
   );
