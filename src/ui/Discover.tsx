@@ -12,7 +12,7 @@ const Discover = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   return (
     <View>
-      <LeftCeiling />
+      <LeftCeiling blue={true} msg={"Discover More"} />
       <View className="flex justify-center items-start mt-36">
         <View className="ml-5 mt-2">
           <MonoText style={{textDecorationLine : "underline"}}>All Games</MonoText>

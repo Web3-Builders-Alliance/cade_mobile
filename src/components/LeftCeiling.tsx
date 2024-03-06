@@ -1,25 +1,47 @@
-import { View, Text , Image } from "react-native";
+import { View, Text, Image } from "react-native";
 import React from "react";
 import LightBoard from "./LightBoard";
 
-const LeftCeiling = () => {
+const LeftCeiling = ({ blue, msg }) => {
   return (
     <View className="relative mt-2">
-      <View className=" bg-blue-950 h-20 w-full rounded-md">
+      <View className={` ${blue ? 'bg-blue-950' : "bg-yellow-200"} h-20 w-full rounded-md`}>
         <View className="bg-white w-max h-1">
-            <Text></Text>
+          <Text></Text>
         </View>
         <View className="absolute top-0 left-1/2 -translate-x-20 ml-5">
-          <Image
-            source={require("../../assets/images/bluespotlight.png")}
-            style={{ height: 55, width: 55 }}
-          />
+          {blue ? (
+            <>
+              <Image
+                source={require("../../assets/images/bluespotlight.png")}
+                style={{ height: 55, width: 55 }}
+              />
+            </>
+          ) : (
+            <>
+              <Image
+                source={require("../../assets/images/spotlight.png")}
+                style={{ height: 55, width: 55 }}
+              />
+            </>
+          )}
         </View>
         <View className="absolute top-0 left-1/2 ml-10">
-          <Image
-            source={require("../../assets/images/bluespotlight.png")}
-            style={{ height: 55, width: 55 }}
-          />
+        {blue ? (
+            <>
+              <Image
+                source={require("../../assets/images/bluespotlight.png")}
+                style={{ height: 55, width: 55 }}
+              />
+            </>
+          ) : (
+            <>
+              <Image
+                source={require("../../assets/images/spotlight.png")}
+                style={{ height: 55, width: 55 }}
+              />
+            </>
+          )}
         </View>
         <View className="absolute top-0 left-0 translate-x-1/2">
           <Image
@@ -28,7 +50,7 @@ const LeftCeiling = () => {
           />
         </View>
         <View className="absolute left-0 translate-x-6  top-1/4 translate-y-9">
-          <LightBoard displayNumber={false} msg={"Discover More"}/>
+          <LightBoard displayNumber={false} msg={msg} />
         </View>
       </View>
     </View>
