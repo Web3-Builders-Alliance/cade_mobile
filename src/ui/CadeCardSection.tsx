@@ -8,7 +8,9 @@ export default function CadeCardSection() {
   return (
     <View style={{ backgroundColor: "#191414" }} className="h-64 w-max">
       <View className="flex flex-row justify-between items-center ">
-        <MonoText>Welcome User,</MonoText>
+        <MonoText style={{ textDecorationLine: "underline" }}>
+          Welcome User,
+        </MonoText>
       </View>
       <ButtonGrid />
       <View className="flex justify-center items-center">

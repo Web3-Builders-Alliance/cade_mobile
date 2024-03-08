@@ -1,6 +1,5 @@
 import Ceiling from "@/src/components/Ceiling";
 import HomeScreen from "@/src/screens/HomeScreen";
-import MachineSlider from "@/src/ui/MachineSlider";
 import { Link } from "expo-router";
 import React from "react";
 import { Text, View } from "react-native";

@@ -44,7 +44,7 @@ export default function MachineSliderWithButtons({ red }: { red: boolean }) {
           <Animated.View
             style={{
               width: width - 45,
-              height: height / 2 + 115,
+              height: height / 2 + 135,
               justifyContent: "center",
               alignItems: "center",
             }}
@@ -59,15 +59,15 @@ export default function MachineSliderWithButtons({ red }: { red: boolean }) {
               />
             </View>
             <View
-              className="absolute top-1/2 left-1/2  -translate-x-1/2  bg-blue-500 mr-52 border-4 border-black"
-              style={{ height: 110, width: 300 }}
+              className="absolute top-1/2 left-1/2  -translate-x-1/2  bg-blue-500 border-4 border-black"
+              style={{ height: 100, width: 300 }}
             >
               <View className="absolute top-1/4  bg-red-500 items-center w-full">
                 <MonoText style={{ color: "white" }}>Prize Center</MonoText>
               </View>
             </View>
             <View
-              className="absolute top-1/3 bg-gray-500 border-4 border-black w-full items-center"
+              className="absolute top-1/4 bg-gray-500 border-4 border-black w-full items-center"
               style={{ height: 35, width: 350, marginTop: 110 }}
             >
               <MonoTextSmall>Item Name - GamePass</MonoTextSmall>
