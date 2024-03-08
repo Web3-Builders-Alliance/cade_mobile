@@ -10,6 +10,8 @@ import * as SplashScreen from "expo-splash-screen";
 import { useFonts } from 'expo-font';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { useEffect } from 'react';
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 
 export {
   ErrorBoundary,
@@ -47,11 +49,15 @@ function RootLayoutNav() {
   const colorScheme = useColorScheme();
 
   return (
+    <GestureHandlerRootView style={{ flex: 1 }}>
+       <BottomSheetModalProvider>
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         {/* <Stack.Screen name="modal" options={{ presentation: 'modal' }} /> */}
       </Stack>
     </ThemeProvider>
+    </BottomSheetModalProvider>
+    </GestureHandlerRootView>
   );
 }

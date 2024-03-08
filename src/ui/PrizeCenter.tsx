@@ -1,22 +1,25 @@
 import {
   View,
-  Text,
   FlatList,
   Dimensions,
   TouchableOpacity,
   Animated,
   Image,
   ImageBackground,
-  ScrollView,
+  Text,
 } from "react-native";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useCallback } from "react";
+import BottomSheet, { BottomSheetView } from "@gorhom/bottom-sheet";
+import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import { MonoText, MonoTextSmall } from "../components/StylesText";
-import DiscoverGames from "./DiscoverGamesGrid";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+
 import PrizeGrid from "./PrizesGrid";
 const { height, width } = Dimensions.get("window");
 
 export default function MachineSliderWithButtons({ red }: { red: boolean }) {
   const background_image = require("../../assets/images/brickwall.jpg");
+
   return (
     <View style={{ flex: 1, position: "relative" }}>
       <View
@@ -122,6 +125,7 @@ export default function MachineSliderWithButtons({ red }: { red: boolean }) {
           <MonoTextSmall style={{ color: "black" }}>Proceed</MonoTextSmall>
         </TouchableOpacity>
       </View>
+
     </View>
   );
 }
