@@ -16,55 +16,11 @@ import SkylineSkaddleImage from "../../assets/images/ca33.png";
 import MoleSmashImage from "../../assets/images/ca22.png";
 import TileSurviveImage from "../../assets/images/ca55.png";
 import GameLightBoard from "../components/GameLightBoard";
+import { MonoTextSmall } from "../components/StylesText";
 
 const { height, width } = Dimensions.get("window");
 
 export default function GameMachine({ red }: { red: boolean }) {
-  const data = [
-    {
-      img: CoinFlipImage,
-      name: "Coin Flip",
-      maker: "@marchedev",
-      machineNumber: 4,
-      color: "orange-400",
-    },
-    {
-      img: FourInLineImage,
-      name: "FourInLine",
-      maker: "@marchedev",
-      machineNumber: 6,
-      color: "blue-500",
-    },
-    {
-      img: TowerDefenceImage,
-      name: "Tower Defence",
-      maker: "@marchedev",
-      machineNumber: 1,
-      color: "red-500",
-    },
-    {
-      img: SkylineSkaddleImage,
-      name: "Skyline Skaddle",
-      maker: "@benzonak",
-      machineNumber: 3,
-      color: "green-400",
-    },
-    {
-      img: MoleSmashImage,
-      name: "Mole Smash",
-      maker: "@benzonak",
-      machineNumber: 2,
-      color: "orange-500",
-    },
-    {
-      img: TileSurviveImage,
-      name: "Tile Survive",
-      maker: "@benzonak",
-      machineNumber: 5,
-      color: "green-400",
-    },
-  ];
-
   const background_image = require("../../assets/images/brickwall.jpg");
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -103,6 +59,23 @@ export default function GameMachine({ red }: { red: boolean }) {
             />
           </View>
         </ImageBackground>
+      </View>
+      <View>
+        <TouchableOpacity
+          className="border-2"
+          style={{
+            width: 350,
+            height: 45,
+            borderRadius: 5,
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: "white",
+            borderColor: red ? "#EF4444" : "#EAB308",
+            marginTop : 20
+          }}
+        >
+          <MonoTextSmall style={{ color: "black" }}>Play</MonoTextSmall>
+        </TouchableOpacity>
       </View>
     </View>
   );

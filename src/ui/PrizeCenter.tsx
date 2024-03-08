@@ -12,6 +12,7 @@ import {
 import React, { useRef, useState } from "react";
 import { MonoText, MonoTextSmall } from "../components/StylesText";
 import DiscoverGames from "./DiscoverGamesGrid";
+import PrizeGrid from "./PrizesGrid";
 const { height, width } = Dimensions.get("window");
 
 export default function MachineSliderWithButtons({ red }: { red: boolean }) {
@@ -100,7 +101,7 @@ export default function MachineSliderWithButtons({ red }: { red: boolean }) {
             More Prizes
           </MonoText>
         </View>
-        <DiscoverGames />
+        <PrizeGrid />
       </View>
       <View
         id="button"
