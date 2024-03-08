@@ -7,6 +7,7 @@ import {
   FlatList,
 } from "react-native";
 import React from "react";
+import GameDescription from "./GameDescription";
 const GameScreenCeiling = ({
   displayNumber,
   msg,

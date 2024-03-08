@@ -9,14 +9,9 @@ import {
   ImageBackground,
 } from "react-native";
 import React from "react";
-import CoinFlipImage from "../../assets/images/ca66.png";
-import FourInLineImage from "../../assets/images/ca66.png";
-import TowerDefenceImage from "../../assets/images/ca11.png";
-import SkylineSkaddleImage from "../../assets/images/ca33.png";
-import MoleSmashImage from "../../assets/images/ca22.png";
-import TileSurviveImage from "../../assets/images/ca55.png";
 import GameLightBoard from "../components/GameLightBoard";
 import { MonoTextSmall } from "../components/StylesText";
+import GameDescription from "../components/GameDescription";
 
 const { height, width } = Dimensions.get("window");
 
@@ -26,7 +21,7 @@ export default function GameMachine({ red }: { red: boolean }) {
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       <View
         style={{
-          height: height / 2 + 200,
+          height: height / 2 + 180,
           justifyContent: "center",
           alignItems: "center",
           marginTop: 0,
@@ -44,7 +39,7 @@ export default function GameMachine({ red }: { red: boolean }) {
           <View
             style={{
               width: width - 30,
-              height: height / 2,
+              height: height / 2 - 50,
               justifyContent: "center",
               alignItems: "center",
             }}
@@ -77,6 +72,9 @@ export default function GameMachine({ red }: { red: boolean }) {
           <MonoTextSmall style={{ color: "black" }}>Play</MonoTextSmall>
         </TouchableOpacity>
       </View>
+      {/* <View className="ml-16 mr-16">
+          <GameDescription red={false} />
+        </View> */}
     </View>
   );
 }

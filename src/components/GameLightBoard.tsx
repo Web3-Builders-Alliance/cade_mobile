@@ -13,15 +13,15 @@ const GameLightBoard = () => {
           <View className="flex justify-start items-start">
             <ImageBackground
               className="flex justify-start items-start bg-red-100"
-              style={{ height: 120, width: 62, flex: 1 }}
-              source={require("../../assets/images/pipe.png")}
+              style={{ height: 120, width: 40, flex: 1 }}
+              source={require("../../assets/images/pipenew.png")}
             />
           </View>
           <View className="flex justify-start items-start">
             <ImageBackground
               className="flex justify-start items-start bg-red-100"
-              style={{ height: 120, width: 62, flex: 1 }}
-              source={require("../../assets/images/pipe.png")}
+              style={{ height: 120, width: 40, flex: 1 }}
+              source={require("../../assets/images/pipenew.png")}
             />
           </View>
         </View>
