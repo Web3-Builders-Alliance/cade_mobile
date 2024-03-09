@@ -1,7 +1,7 @@
 import { View, Text, ScrollView } from "react-native";
 import React from "react";
 import Ceiling from "../components/Ceiling";
-import GameMachine from "./GameMachine";
+import GameMachine from "../ui/GameMachine";
 import LightBoard from "../components/LightBoard";
 import GameScreenCeiling from "../components/GameScreenCeiling";
 

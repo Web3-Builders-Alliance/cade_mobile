@@ -3,8 +3,9 @@ import React from "react";
 import PrizeCenter from "../ui/PrizeCenter";
 import { ScrollView } from "react-native";
 import LeftCeiling from "../components/LeftCeiling";
+import BuyCade from "../ui/BuyCade";
 
-const PrizeScreen = () => {
+const BuyCadeScreen = () => {
   return (
     <>
       <View
@@ -14,9 +15,9 @@ const PrizeScreen = () => {
         <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
           <View className="container px-4 md:px-6">
             <View>
-              <LeftCeiling blue={false} msg={"Prize Center"} />
+              <LeftCeiling blue={false} msg={"Buy Cade"} />
               <View className="relative mt-36">
-                <PrizeCenter red={false} />
+                <BuyCade red={false} />
               </View>
             </View>
           </View>
@@ -26,4 +27,4 @@ const PrizeScreen = () => {
   );
 };
 
-export default PrizeScreen;
+export default BuyCadeScreen;

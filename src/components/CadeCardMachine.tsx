@@ -9,13 +9,14 @@ import React from "react";
 import { MonoText, MonoTextSmall } from "./StylesText";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 
-const CadeCardMachine = () => {
+const CadeCardMachine = ({ closeButton , height }: { closeButton: any , height:string }) => {
   return (
     <>
+
       <View
-        style={{ width: "85%", height: "70%", borderWidth: 7, marginTop: 100 }}
+        style={{ width: "85%", borderWidth: 7, marginTop: 100 , height : 550 }}
         className="relative bg-orange-500 items-center flex justify-center rounded-2xl border-white"
-      >
+        >
         <View className="rounded-2xl absolute top-0 left-1/2 -translate-x-1/2 w-64 mt-5 h-8 bg-black">
           <View className="flex flex-row justify-center gap-x-10 mt-1.5">
             <View
@@ -204,6 +205,7 @@ const CadeCardMachine = () => {
                   borderColor: "#EAB308",
                   margin: 5,
                 }}
+                onPress={closeButton}
               >
                 <MonoTextSmall style={{ color: "black" }}>{"❌"}</MonoTextSmall>
               </TouchableOpacity>

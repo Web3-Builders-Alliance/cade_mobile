@@ -37,7 +37,7 @@ export default function GameMachine({ red }: { red: boolean }) {
     (prop: any) =>
       showBackDrop ? (
         <BottomSheetBackdrop
-          appearsOnIndex={0}
+          //appearsOnIndex={0}
           disappearsOnIndex={-1}
           {...prop}
         />
@@ -57,7 +57,7 @@ export default function GameMachine({ red }: { red: boolean }) {
         snapPoints={snapPoints}
       >
         <View className="flex justify-center items-center">
-          <CadeCardMachine />
+          <CadeCardMachine closeButton={handleClosePress}/>
         </View>
       </BottomSheet>
 

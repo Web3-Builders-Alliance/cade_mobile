@@ -1,4 +1,4 @@
-import GameScreen from "@/src/ui/GameScreen";
+import GameScreen from "@/src/screens/GameScreen";
 import MachineSliderWithButtons from "@/src/ui/MachineSliderWithButtons";
 import { Link } from "expo-router";
 import React from "react";
