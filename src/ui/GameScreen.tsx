@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { View, Text, ScrollView } from "react-native";
 import React from "react";
 import Ceiling from "../components/Ceiling";
 import GameMachine from "./GameMachine";
@@ -8,12 +8,14 @@ import GameScreenCeiling from "../components/GameScreenCeiling";
 const GameScreen = () => {
   return (
     <>
-      <View>
-        <GameScreenCeiling displayNumber={true} msg="GameName" />
-      </View>
-      <View className="mt-96">
-        <GameMachine red={false} />
-      </View>
+      <ScrollView>
+        <View>
+          <GameScreenCeiling displayNumber={true} msg="GameName" />
+        </View>
+        <View>
+          <GameMachine red={false} />
+        </View>
+      </ScrollView>
     </>
   );
 };

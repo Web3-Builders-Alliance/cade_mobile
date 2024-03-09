@@ -7,29 +7,46 @@ import {
   ImageBackground,
   Text,
 } from "react-native";
-import React, { useRef, useCallback, useMemo } from "react";
+import React, {
+  useRef,
+  useCallback,
+  useMemo,
+  useEffect,
+  useState,
+} from "react";
 import BottomSheet, { BottomSheetBackdrop } from "@gorhom/bottom-sheet";
 import { MonoText, MonoTextSmall } from "../components/StylesText";
 import PrizeGrid from "./PrizesGrid";
 const { height, width } = Dimensions.get("window");
 
 export default function MachineSliderWithButtons({ red }: { red: boolean }) {
+  const [showBackDrop, setShowBackDrop] = useState(false);
   const background_image = require("../../assets/images/brickwall.jpg");
   const snapPoints = useMemo(() => ["25%", "80%", "70%"], []);
   const bottomSheetRef = useRef<BottomSheet>(null);
 
-  const handleClosePress = () => bottomSheetRef.current?.close();
-  const handleOpenPress = () => bottomSheetRef.current?.expand();
+  const handleOpenPress = () => {
+    setShowBackDrop(true);
+    bottomSheetRef.current?.expand();
+  };
+
+  const handleClosePress = () => {
+    setShowBackDrop(true);
+    bottomSheetRef.current?.close();
+  };
+
   const renderBackdrop = useCallback(
-    (prop: any) => (
-      <BottomSheetBackdrop
-        appearsOnIndex={0}
-        disappearsOnIndex={-1}
-        {...prop}
-      />
-    ),
-    []
+    (prop: any) =>
+      showBackDrop ? (
+        <BottomSheetBackdrop
+          appearsOnIndex={0}
+          disappearsOnIndex={-1}
+          {...prop}
+        />
+      ) : null,
+    [showBackDrop]
   );
+
   return (
     <>
       <BottomSheet
@@ -38,7 +55,7 @@ export default function MachineSliderWithButtons({ red }: { red: boolean }) {
         backdropComponent={renderBackdrop}
         handleIndicatorStyle={{ backgroundColor: "white" }}
         backgroundStyle={{ backgroundColor: "#191414" }}
-        index={1}
+        index={-1}
         snapPoints={snapPoints}
       >
         <View>
