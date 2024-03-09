@@ -58,9 +58,6 @@ export default function MachineSliderWithButtons({ red }: { red: boolean }) {
         index={-1}
         snapPoints={snapPoints}
       >
-         {/* <View className="flex justify-center items-center">
-          <CadeCardMachine />
-        </View> */}
         <View>
           <View>
             <MonoText>Confirm Your Transaction</MonoText>

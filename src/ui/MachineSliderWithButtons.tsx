@@ -20,7 +20,7 @@ import TileSurviveImage from "../../assets/images/ca55.png";
 
 const { height, width } = Dimensions.get("window");
 
-export default function MachineSliderWithButtons({red} : {red:boolean}) {
+export default function MachineSliderWithButtons({ red }: { red: boolean }) {
   const data = [
     {
       img: CoinFlipImage,
@@ -157,7 +157,7 @@ export default function MachineSliderWithButtons({red} : {red:boolean}) {
       >
         {currentIndex == 0 ? null : (
           <TouchableOpacity
-          className="border-2"
+            className="border-2"
             style={{
               width: data.length - 1 == currentIndex ? "100%" : 150,
               height: 45,
@@ -165,7 +165,7 @@ export default function MachineSliderWithButtons({red} : {red:boolean}) {
               justifyContent: "center",
               alignItems: "center",
               backgroundColor: "white",
-              borderColor : red ? "#EF4444" : "#EAB308"
+              borderColor: red ? "#EF4444" : "#EAB308",
             }}
             onPress={() => {
               setCurrentIndex(currentIndex - 1);
@@ -188,7 +188,7 @@ export default function MachineSliderWithButtons({red} : {red:boolean}) {
               justifyContent: "center",
               alignItems: "center",
               backgroundColor: "white",
-              borderColor : red ? "#EF4444" : "#EAB308"
+              borderColor: red ? "#EF4444" : "#EAB308",
             }}
             onPress={() => {
               setCurrentIndex(currentIndex + 1);

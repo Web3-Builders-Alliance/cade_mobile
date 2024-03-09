@@ -13,7 +13,7 @@ const CadeCardMachine = () => {
   return (
     <>
       <View
-        style={{ width: "85%", height: "85%", borderWidth: 7, marginTop: 40 }}
+        style={{ width: "85%", height: "70%", borderWidth: 7, marginTop: 100 }}
         className="relative bg-orange-500 items-center flex justify-center rounded-2xl border-white"
       >
         <View className="rounded-2xl absolute top-0 left-1/2 -translate-x-1/2 w-64 mt-5 h-8 bg-black">
@@ -34,9 +34,9 @@ const CadeCardMachine = () => {
         </View>
         <View
           style={{
-            height: "50%",
+            height: "48%",
             width: "94%",
-            bottom: 60,
+            bottom: 70,
           }}
           className="relative border-4 border-white rounded-2xl bg-blue-500"
         >
