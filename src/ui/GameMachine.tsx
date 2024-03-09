@@ -4,7 +4,6 @@ import {
   TouchableOpacity,
   Image,
   ImageBackground,
-  ScrollView,
 } from "react-native";
 import React, { useCallback, useMemo, useRef, useState } from "react";
 import GameLightBoard from "../components/GameLightBoard";
@@ -57,7 +56,7 @@ export default function GameMachine({ red }: { red: boolean }) {
         snapPoints={snapPoints}
       >
         <View className="flex justify-center items-center">
-          <CadeCardMachine closeButton={handleClosePress}/>
+          <CadeCardMachine closeButton={handleClosePress} />
         </View>
       </BottomSheet>
 
@@ -67,7 +66,7 @@ export default function GameMachine({ red }: { red: boolean }) {
           justifyContent: "center",
           alignItems: "center",
           padding: 20,
-          zIndex :-10
+          zIndex: -10,
         }}
       >
         <View

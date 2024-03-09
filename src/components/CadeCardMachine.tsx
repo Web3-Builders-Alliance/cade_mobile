@@ -9,7 +9,7 @@ import React from "react";
 import { MonoText, MonoTextSmall } from "./StylesText";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 
-const CadeCardMachine = ({ closeButton , height }: { closeButton: any , height:string }) => {
+const CadeCardMachine = ({ closeButton }: { closeButton: any }) => {
   return (
     <>
 

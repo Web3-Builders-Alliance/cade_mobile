@@ -93,8 +93,7 @@ export default function TabLayout() {
           }}
           listeners={({ navigation }) => ({
             tabPress: (e) => {
-              
-              handleClosePress();
+              handleOpenPress();
             },
           })}
         />
