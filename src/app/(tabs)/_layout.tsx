@@ -2,18 +2,20 @@ import React, { useCallback, useMemo, useRef, useState } from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Link, Tabs } from "expo-router";
 import {
-  Button,
+  ImageBackground,
   Pressable,
   ScrollView,
-  Text,
   TouchableOpacity,
   View,
+  Image,
+  Text,
 } from "react-native";
 import Colors from "@/constants/Colors";
 import { useColorScheme } from "react-native";
 import { useClientOnlyValue } from "@/src/components/useClientOnlyValue";
 import BottomSheet from "@/src/components/BottomSheet";
 import { MonoText, MonoTextSmall } from "@/src/components/StylesText";
+import { FontAwesome5 } from "@expo/vector-icons";
 
 function TabBarIcon(props: {
   name: React.ComponentProps<typeof FontAwesome>["name"];
@@ -23,6 +25,7 @@ function TabBarIcon(props: {
 }
 
 export default function TabLayout() {
+  const background_image = require("../../../assets/images/ig2.png");
   const colorScheme = useColorScheme();
   const [bottomSheetVisible, setBottomSheetVisible] = useState(false);
 
@@ -39,23 +42,89 @@ export default function TabLayout() {
       <BottomSheet visible={bottomSheetVisible} onClose={closeBottomSheet}>
         <ScrollView nestedScrollEnabled={true}>
           <View>
-            <MonoText>Testing</MonoText>
+            <MonoText style={{ textDecorationLine: "underline" }}>
+              CadeCard #132
+            </MonoText>
           </View>
-          <TouchableOpacity
-            className="border-2"
+          <View className="mt-2">
+            <Text style={{ color: "white", fontFamily: "VT323", fontSize: 22 }}>
+              Card Type : Premium
+            </Text>
+            <Text style={{ color: "white", fontFamily: "VT323", fontSize: 22 }}>
+              Cade Balance : 100
+            </Text>
+          </View>
+          <View
+            className="relative"
             style={{
-              width: 150,
-              height: 45,
-              borderRadius: 5,
-              justifyContent: "center",
-              alignItems: "center",
-              backgroundColor: "white",
-              borderColor: "red",
+              width: "100%",
+              height: 230,
+              backgroundColor: "gray",
+              marginTop: 20,
+              borderRadius: 7,
+              borderColor: "white",
+              borderWidth: 2,
             }}
-            onPress={() => closeBottomSheet()}
           >
-            <MonoTextSmall style={{ color: "black" }}>Previous</MonoTextSmall>
-          </TouchableOpacity>
+            <ImageBackground
+              style={{ flex: 1 }}
+              borderRadius={5}
+              source={background_image}
+            >
+              <View className="absolute top-0 left-0 ml-5 mt-5">
+                <Image
+                  source={require("../../../assets/images/cadenew.png")}
+                  className="w-12 h-12 rounded-full border border-white"
+                />
+              </View>
+              <View className="absolute right-0 top-0 mr-5 mt-5">
+                <MonoTextSmall>44Su...5nqz</MonoTextSmall>
+              </View>
+              <View className="absolute bottom-0 left-0 ml-5 mb-5">
+                <MonoText style={{ textDecorationLine: "underline" }}>
+                  UserName
+                  <MonoText></MonoText>
+                </MonoText>
+              </View>
+            </ImageBackground>
+          </View>
+          <View className="items-center mt-5">
+            <TouchableOpacity
+              className="border-2"
+              style={{
+                width: "90%",
+                height: 45,
+                borderRadius: 5,
+                justifyContent: "center",
+                alignItems: "center",
+                backgroundColor: "white",
+                borderColor: "red",
+              }}
+              onPress={() => closeBottomSheet()}
+            >
+              <MonoTextSmall style={{ color: "black" }}>
+                Refil Cade{" "}
+                <FontAwesome5 name="gas-pump" size={24} color="black" />
+              </MonoTextSmall>
+            </TouchableOpacity>
+          </View>
+          <View className="items-center mt-5">
+            <TouchableOpacity
+              className="border-2"
+              style={{
+                width: "90%",
+                height: 45,
+                borderRadius: 5,
+                justifyContent: "center",
+                alignItems: "center",
+                backgroundColor: "white",
+                borderColor: "red",
+              }}
+              onPress={() => closeBottomSheet()}
+            >
+              <MonoTextSmall style={{ color: "black" }}>Close</MonoTextSmall>
+            </TouchableOpacity>
+          </View>
         </ScrollView>
       </BottomSheet>
       <Tabs
@@ -100,9 +169,9 @@ export default function TabLayout() {
               <TabBarIcon name="credit-card" color={color} />
             ),
           }}
-          listeners={({ navigation }) => ({
+          listeners={() => ({
             tabPress: (e) => {
-              e.preventDefault()
+              e.preventDefault();
               openBottomSheet();
             },
           })}
