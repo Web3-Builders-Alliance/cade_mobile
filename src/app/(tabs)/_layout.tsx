@@ -1,11 +1,19 @@
-import React, { useCallback, useMemo, useRef } from "react";
+import React, { useCallback, useMemo, useRef, useState } from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Link, Tabs } from "expo-router";
-import { Pressable, Text, View } from "react-native";
-import BottomSheet, { BottomSheetBackdrop } from "@gorhom/bottom-sheet";
+import {
+  Button,
+  Pressable,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import Colors from "@/constants/Colors";
 import { useColorScheme } from "react-native";
 import { useClientOnlyValue } from "@/src/components/useClientOnlyValue";
+import BottomSheet from "@/src/components/BottomSheet";
+import { MonoText, MonoTextSmall } from "@/src/components/StylesText";
 
 function TabBarIcon(props: {
   name: React.ComponentProps<typeof FontAwesome>["name"];
@@ -16,39 +24,40 @@ function TabBarIcon(props: {
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
+  const [bottomSheetVisible, setBottomSheetVisible] = useState(false);
 
-  const snapPoints = useMemo(() => ["25%", "80%", "70%"], []);
-  const bottomSheetRef = useRef<BottomSheet>(null);
+  const openBottomSheet = () => {
+    setBottomSheetVisible(true);
+  };
 
-  const handleClosePress = () => bottomSheetRef.current?.close();
-  const handleOpenPress = () => bottomSheetRef.current?.expand();
-  const renderBackdrop = useCallback(
-    (prop: any) => (
-      <BottomSheetBackdrop
-        appearsOnIndex={0}
-        disappearsOnIndex={-1}
-        {...prop}
-      />
-    ),
-    []
-  );
+  const closeBottomSheet = () => {
+    setBottomSheetVisible(false);
+  };
 
   return (
     <>
-      <BottomSheet
-        ref={bottomSheetRef}
-        enablePanDownToClose={true}
-        backdropComponent={renderBackdrop}
-        handleIndicatorStyle={{ backgroundColor: "white" }}
-        backgroundStyle={{ backgroundColor: "#191414" }}
-        index={1}
-        snapPoints={snapPoints}
-      >
-        <View>
-          <Text>FFF</Text>
-        </View>
+      <BottomSheet visible={bottomSheetVisible} onClose={closeBottomSheet}>
+        <ScrollView nestedScrollEnabled={true}>
+          <View>
+            <MonoText>Testing</MonoText>
+          </View>
+          <TouchableOpacity
+            className="border-2"
+            style={{
+              width: 150,
+              height: 45,
+              borderRadius: 5,
+              justifyContent: "center",
+              alignItems: "center",
+              backgroundColor: "white",
+              borderColor: "red",
+            }}
+            onPress={() => closeBottomSheet()}
+          >
+            <MonoTextSmall style={{ color: "black" }}>Previous</MonoTextSmall>
+          </TouchableOpacity>
+        </ScrollView>
       </BottomSheet>
-
       <Tabs
         screenOptions={{
           tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
@@ -93,7 +102,8 @@ export default function TabLayout() {
           }}
           listeners={({ navigation }) => ({
             tabPress: (e) => {
-              handleOpenPress();
+              e.preventDefault()
+              openBottomSheet();
             },
           })}
         />
