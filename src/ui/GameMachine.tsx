@@ -13,10 +13,13 @@ import LeaderBoard from "../components/LeaderBoard";
 import { BottomSheetBackdrop } from "@gorhom/bottom-sheet";
 import BottomSheet from "@gorhom/bottom-sheet";
 import CadeCardMachine from "../components/CadeCardMachine";
+import ConnectButton from "../Utils/ConnectButton";
+import {useMobileWallet} from '../Utils/useMobileWallet'
 
 const { height, width } = Dimensions.get("window");
 
 export default function GameMachine({ red }: { red: boolean }) {
+  const {connect}  = useMobileWallet()
   const background_image = require("../../assets/images/brickwall.jpg");
   const [showBackDrop, setShowBackDrop] = useState(false);
   const snapPoints = useMemo(() => ["25%", "80%", "70%"], []);
@@ -119,6 +122,7 @@ export default function GameMachine({ red }: { red: boolean }) {
               marginTop: 20,
             }}
             onPress={() => handleOpenPress()}
+            // onPress={() => connect()}
           >
             <MonoTextSmall style={{ color: "black" }}>Play</MonoTextSmall>
           </TouchableOpacity>
@@ -134,6 +138,9 @@ export default function GameMachine({ red }: { red: boolean }) {
           </View>
           <LeaderBoard red={false} />
         </View>
+        {/* <View>
+          <ConnectButton title="Connect"/>
+        </View> */}
       </View>
     </>
   );

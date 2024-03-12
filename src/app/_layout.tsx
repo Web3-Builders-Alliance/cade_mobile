@@ -5,17 +5,18 @@ import {
   DarkTheme,
 } from "@react-navigation/native";
 import { Stack } from "expo-router";
+import { clusterApiUrl } from "@solana/web3.js";
 import { useColorScheme } from "@/src/components/useColorScheme";
 import * as SplashScreen from "expo-splash-screen";
-import { useFonts } from 'expo-font';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { useEffect } from 'react';
+import { useFonts } from "expo-font";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { useEffect } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
+import { ConnectionProvider } from "../Utils/ConnectionProvider";
+import { AuthorizationProvider } from "../Utils/AuthorizationProvider";
 
-export {
-  ErrorBoundary,
-} from "expo-router";
+export { ErrorBoundary } from "expo-router";
 
 export const unstable_settings = {
   initialRouteName: "(tabs)",
@@ -46,18 +47,28 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
+  const DEVNET_ENDPOINT = clusterApiUrl("devnet");
   const colorScheme = useColorScheme();
 
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-       <BottomSheetModalProvider>
-    <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        {/* <Stack.Screen name="modal" options={{ presentation: 'modal' }} /> */}
-      </Stack>
-    </ThemeProvider>
-    </BottomSheetModalProvider>
-    </GestureHandlerRootView>
+    <ConnectionProvider
+      config={{ commitment: "processed" }}
+      endpoint={DEVNET_ENDPOINT}
+    >
+      <AuthorizationProvider>
+        <GestureHandlerRootView style={{ flex: 1 }}>
+          <BottomSheetModalProvider>
+            <ThemeProvider
+              value={colorScheme === "dark" ? DarkTheme : DefaultTheme}
+            >
+              <Stack>
+                <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+                {/* <Stack.Screen name="modal" options={{ presentation: 'modal' }} /> */}
+              </Stack>
+            </ThemeProvider>
+          </BottomSheetModalProvider>
+        </GestureHandlerRootView>
+      </AuthorizationProvider>
+    </ConnectionProvider>
   );
 }

@@ -89,24 +89,26 @@ export default function TabLayout() {
             </ImageBackground>
           </View>
           <View className="items-center mt-5">
-            <TouchableOpacity
-              className="border-2"
-              style={{
-                width: "90%",
-                height: 45,
-                borderRadius: 5,
-                justifyContent: "center",
-                alignItems: "center",
-                backgroundColor: "white",
-                borderColor: "red",
-              }}
-              onPress={() => closeBottomSheet()}
-            >
-              <MonoTextSmall style={{ color: "black" }}>
-                Refil Cade{" "}
-                <FontAwesome5 name="gas-pump" size={24} color="black" />
-              </MonoTextSmall>
-            </TouchableOpacity>
+            {/* <Link href={"/(tabs)/BuyCade"}> */}
+              <TouchableOpacity
+                className="border-2"
+                style={{
+                  width: "90%",
+                  height: 45,
+                  borderRadius: 5,
+                  justifyContent: "center",
+                  alignItems: "center",
+                  backgroundColor: "white",
+                  borderColor: "red",
+                }}
+                onPress={() => closeBottomSheet()}
+              >
+                <MonoTextSmall style={{ color: "black" }}>
+                  Refil Cade{" "}
+                  <FontAwesome5 name="gas-pump" size={24} color="black" />
+                </MonoTextSmall>
+              </TouchableOpacity>
+            {/* </Link> */}
           </View>
           <View className="items-center mt-5">
             <TouchableOpacity
