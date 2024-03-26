@@ -1,0 +1,17 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/OFL.txt",
+      "sha1": "d2915f13f92ec93805efe6f82342556033ad52a1"
+    },
+    {
+      "path": "assets/fonts/SpaceMono-Regular.ttf",
+      "sha1": "fae3a5a43b50e0408fd61e14383d94a023d332b0"
+    },
+    {
+      "path": "assets/fonts/VT323-Regular.ttf",
+      "sha1": "a4cbe89ec9e1bf6ddd26c53c118f587f1b465f25"
+    }
+  ]
+}
