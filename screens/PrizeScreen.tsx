@@ -8,11 +8,11 @@ const PrizeScreen = () => {
   return (
     <>
       <View
-        style={{ backgroundColor: "#191414" }}
+        style={{ backgroundColor: "#191414"  , flex:1}}
         className="min-h-screen"
       >
         <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-          <View className="container px-4 md:px-6 mb-16">
+          <View className="container px-4 md:px-6 mb-20">
             <View>
               <LeftCeiling blue={false} msg={"Prize Center"} />
               <View className="relative mt-36">

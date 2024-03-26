@@ -26,7 +26,8 @@
     "react-native-svg": "^9.13.6",
     "@expo/vector-icons": "^13.0.0",
     "expo-font": "^11.10.3",
-    "react-native-vector-icons": "^10.0.3"
+    "react-native-vector-icons": "^10.0.3",
+    "reanimated-bottom-sheet": "^1.0.0-alpha.22"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

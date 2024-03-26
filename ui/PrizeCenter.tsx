@@ -6,124 +6,117 @@ import {
   Image,
   ImageBackground,
   Text,
+  ScrollView,
 } from 'react-native';
 import React, {useRef, useCallback, useMemo, useEffect, useState} from 'react';
-import BottomSheet, {BottomSheetBackdrop} from '@gorhom/bottom-sheet';
 import {MonoText, MonoTextSmall} from '../components/StylesText';
 import PrizeGrid from './PrizesGrid';
 const {height, width} = Dimensions.get('window');
+import BottomSheet from '../components/BottomSheet';
 
 export default function MachineSliderWithButtons({red}: {red: boolean}) {
-  const [showBackDrop, setShowBackDrop] = useState(false);
   const background_image = require('../assets/images/brickwall.jpg');
-  const snapPoints = useMemo(() => ['25%', '80%', '70%'], []);
-  const bottomSheetRef = useRef<BottomSheet>(null);
+  const [bottomSheetVisible, setBottomSheetVisible] = useState(false);
+  const [image,setImage] = useState()
+  const [name,setName] = useState()
 
-  const handleOpenPress = () => {
-    setShowBackDrop(true);
-    bottomSheetRef.current?.expand();
+  const openBottomSheet = () => {
+    setBottomSheetVisible(true);
   };
 
-  const handleClosePress = () => {
-    setShowBackDrop(true);
-    bottomSheetRef.current?.close();
+  const closeBottomSheet = () => {
+    setBottomSheetVisible(false);
   };
 
-  const renderBackdrop = useCallback(
-    (prop: any) =>
-      showBackDrop ? (
-        <BottomSheetBackdrop
-          appearsOnIndex={0}
-          disappearsOnIndex={-1}
-          {...prop}
-        />
-      ) : null,
-    [showBackDrop],
-  );
+  const renderBottomSheet = () => {
+    return (
+      <>
+        <BottomSheet visible={bottomSheetVisible} onClose={closeBottomSheet}>
+          <ScrollView nestedScrollEnabled={true}>
+            <View>
+              <View>
+                <MonoText>Confirm Your Transaction</MonoText>
+              </View>
+              <View className="flex justify-center items-center mt-10">
+                <Image
+                  style={{height: 300, width: 300}}
+                  source = {image}
+                />
+              </View>
+              <View className="flex flex-row justify-between  ml-2 mr-2">
+                <Text
+                  style={{
+                    color: 'white',
+                    fontFamily: 'VT323-Regular',
+                    fontSize: 25,
+                  }}>
+                  Quantity - 1 {name}
+                </Text>
+                <Text
+                  style={{
+                    color: 'white',
+                    fontFamily: 'VT323-Regular',
+                    fontSize: 25,
+                  }}>
+                  Holder - 100
+                </Text>
+              </View>
+              <View className="mt-3 ml-2">
+                <Text
+                  style={{
+                    color: 'white',
+                    fontFamily: 'VT323-Regular',
+                    fontSize: 25,
+                  }}>
+                  Holder - 100
+                </Text>
+              </View>
+              <View className="flex flex-col items-center mt-5">
+                <TouchableOpacity
+                  className="border-2"
+                  style={{
+                    width: '90%',
+                    height: 45,
+                    borderRadius: 5,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    backgroundColor: 'white',
+                    borderColor: red ? '#EF4444' : '#EAB308',
+                  }}>
+                  <MonoTextSmall style={{color: 'black'}}>
+                    Mint as NFT
+                  </MonoTextSmall>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  className="border-2 mt-5"
+                  style={{
+                    width: '90%',
+                    height: 45,
+                    borderRadius: 5,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    backgroundColor: 'white',
+                    borderColor: red ? '#EF4444' : '#EAB308',
+                  }}
+                  onPress={closeBottomSheet}>
+                  <MonoTextSmall style={{color: 'black'}}>Cancel</MonoTextSmall>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </ScrollView>
+        </BottomSheet>
+      </>
+    );
+  };
 
+  const setDataForBottomSheet = (name:any , image:any) => {
+    setName(name)
+    setImage(image)
+    openBottomSheet()
+  }
   return (
     <>
-      <BottomSheet
-        ref={bottomSheetRef}
-        enablePanDownToClose={true}
-        backdropComponent={renderBackdrop}
-        handleIndicatorStyle={{backgroundColor: 'white'}}
-        backgroundStyle={{backgroundColor: '#191414'}}
-        index={-1}
-        snapPoints={snapPoints}>
-        <View>
-          <View>
-            <MonoText>Confirm Your Transaction</MonoText>
-          </View>
-          <View className="flex justify-center items-center mt-10">
-            <Image
-              style={{height: 300, width: 300}}
-              source={require('../assets/images/freeticket.webp')}
-            />
-          </View>
-          <View className="flex flex-row justify-between  ml-2 mr-2">
-            <Text
-              style={{
-                color: 'white',
-                fontFamily: 'VT323-Regular',
-                fontSize: 25,
-              }}>
-              Quantity - 1
-            </Text>
-            <Text
-              style={{
-                color: 'white',
-                fontFamily: 'VT323-Regular',
-                fontSize: 25,
-              }}>
-              Holder - 100
-            </Text>
-          </View>
-          <View className="mt-3 ml-2">
-            <Text
-              style={{
-                color: 'white',
-                fontFamily: 'VT323-Regular',
-                fontSize: 25,
-              }}>
-              Holder - 100
-            </Text>
-          </View>
-          <View className="flex flex-col items-center mt-5">
-            <TouchableOpacity
-              className="border-2"
-              style={{
-                width: '90%',
-                height: 45,
-                borderRadius: 5,
-                justifyContent: 'center',
-                alignItems: 'center',
-                backgroundColor: 'white',
-                borderColor: red ? '#EF4444' : '#EAB308',
-              }}
-              onPress={() => handleClosePress()}>
-              <MonoTextSmall style={{color: 'black'}}>
-                Mint as NFT
-              </MonoTextSmall>
-            </TouchableOpacity>
-            <TouchableOpacity
-              className="border-2 mt-5"
-              style={{
-                width: '90%',
-                height: 45,
-                borderRadius: 5,
-                justifyContent: 'center',
-                alignItems: 'center',
-                backgroundColor: 'white',
-                borderColor: red ? '#EF4444' : '#EAB308',
-              }}
-              onPress={() => handleClosePress()}>
-              <MonoTextSmall style={{color: 'black'}}>Cancel</MonoTextSmall>
-            </TouchableOpacity>
-          </View>
-        </View>
-      </BottomSheet>
-
+      {renderBottomSheet()}
       <View style={{flex: 1, position: 'relative'}}>
         <View
           style={{
@@ -194,8 +187,8 @@ export default function MachineSliderWithButtons({red}: {red: boolean}) {
               backgroundColor: 'white',
               borderColor: red ? '#EF4444' : '#EAB308',
             }}
-            onPress={() => handleOpenPress()}>
-            <MonoTextSmall style={{color: 'black'}}>Instant Mint</MonoTextSmall>
+            onPress={openBottomSheet}>
+            <MonoTextSmall style={{color: 'black'}}>Preview</MonoTextSmall>
           </TouchableOpacity>
         </View>
         <View style={{zIndex: -10}}>
@@ -208,7 +201,7 @@ export default function MachineSliderWithButtons({red}: {red: boolean}) {
             <PrizeGrid />
           </View>
         </View>
-        <View
+        {/* <View
           id="button"
           style={{
             width: '100%',
@@ -230,7 +223,7 @@ export default function MachineSliderWithButtons({red}: {red: boolean}) {
             onPress={() => handleOpenPress()}>
             <MonoTextSmall style={{color: 'black'}}>Proceed</MonoTextSmall>
           </TouchableOpacity>
-        </View>
+        </View> */}
       </View>
     </>
   );

@@ -67,10 +67,14 @@ function App(): React.JSX.Element {
             component={HomeScreen}
             options={{
               tabBarLabel: 'Home',
-              tabBarIcon: ({color, size}) => {
+              tabBarIcon: ({color, size, focused}) => {
                 return (
                   <>
-                    <Fontisto name="home" size={size} color={color} />
+                    <Fontisto
+                      name="home"
+                      size={size}
+                      color={focused ? 'white' : 'gray'}
+                    />
                     <Text style={{fontFamily: 'VT323-Regular', fontSize: 16}}>
                       Home
                     </Text>
@@ -84,10 +88,14 @@ function App(): React.JSX.Element {
             component={PrizeScreen}
             options={{
               tabBarLabel: 'Prize',
-              tabBarIcon: ({color, size}) => {
+              tabBarIcon: ({color, size, focused}) => {
                 return (
                   <>
-                    <AntDesign name="gift" size={size} color={color} />
+                    <AntDesign
+                      name="gift"
+                      size={size}
+                      color={focused ? 'white' : 'gray'}
+                    />
                     <Text style={{fontFamily: 'VT323-Regular', fontSize: 16}}>
                       Prizes
                     </Text>
@@ -101,10 +109,14 @@ function App(): React.JSX.Element {
             component={BuyCadeScreen}
             options={{
               tabBarLabel: 'BuyCade',
-              tabBarIcon: ({color, size}) => {
+              tabBarIcon: ({color, size, focused}) => {
                 return (
                   <>
-                    <FontAwesome name="dollar" size={size} color={color} />
+                    <FontAwesome
+                      name="dollar"
+                      size={size}
+                      color={focused ? 'white' : 'gray'}
+                    />
                     <Text style={{fontFamily: 'VT323-Regular', fontSize: 16}}>
                       BuyCade
                     </Text>
