@@ -94,7 +94,7 @@ const PrizeGrid = () => {
                     borderColor: '#EAB308',
                   }}>
                   <MonoTextSmall style={{color: 'black'}}>
-                    Mint as NFT
+                    Redeem
                   </MonoTextSmall>
                 </TouchableOpacity>
                 <TouchableOpacity
@@ -125,7 +125,7 @@ const PrizeGrid = () => {
       img: require('../assets/images/drip1.png'),
       price: '5',
       collectionName: 'Drip',
-      collectionImage: '/drip.jpg',
+      collectionImage: require('../assets/images/drip.jpg'),
       info: {
         mint: null,
         config: null,
@@ -136,7 +136,7 @@ const PrizeGrid = () => {
       img: require('../assets/images/drip2.jpg'),
       price: '10',
       collectionName: 'Drip',
-      collectionImage: '/drip.jpg',
+      collectionImage: require('../assets/images/drip.jpg'),
       info: {
         mint: null,
         config: null,
@@ -147,7 +147,7 @@ const PrizeGrid = () => {
       img: require('../assets/images/drip3.png'),
       price: '5',
       collectionName: 'Drip',
-      collectionImage: '/drip.jpg',
+      collectionImage: require('../assets/images/drip.jpg'),
       info: {
         mint: null,
         config: null,
@@ -158,7 +158,7 @@ const PrizeGrid = () => {
       img: require('../assets/images/drip4.jpg'),
       price: '10',
       collectionName: 'Drip',
-      collectionImage: '/drip.jpg',
+      collectionImage: require('../assets/images/drip.jpg'),
       info: {
         mint: null,
         config: null,
@@ -169,7 +169,7 @@ const PrizeGrid = () => {
       img: require('../assets/images/drip5.gif'),
       price: '10',
       collectionName: 'Drip',
-      collectionImage: '/drip.jpg',
+      collectionImage: require('../assets/images/drip.jpg'),
       info: {
         mint: null,
         config: null,
@@ -180,7 +180,7 @@ const PrizeGrid = () => {
       img: require('../assets/images/drip1.png'),
       price: '5',
       collectionName: 'Drip',
-      collectionImage: '/drip.jpg',
+      collectionImage: require('../assets/images/drip.jpg'),
       info: {
         mint: null,
         config: null,
@@ -194,31 +194,31 @@ const PrizeGrid = () => {
       desc: 'Play Again If You Loose',
       price: '2',
       collectionName: 'Cade',
-      collectionImage: '/cade.png',
+      collectionImage: require('../assets/images/cade.png'),
       info: {
         mint: null,
         config: null,
       },
     },
     {
-      name: 'Blind Chest',
+      name: 'Chest',
       img: require('../assets/images/freeticket.webp'),
       desc: 'Open Chest for Exited Suprizes',
       price: '5',
       collectionName: 'Cade',
-      collectionImage: '/cade.png',
+      collectionImage: require('../assets/images/cade.png'),
       info: {
         mint: '',
         config: '',
       },
     },
     {
-      name: 'Cade GamePass',
+      name: 'CadeGamePass',
       img: require('../assets/images/treasure.png'),
       desc: 'Sol Loaded Lottery Tickets for Periodic Drawings',
       price: '3',
       collectionName: 'Cade',
-      collectionImage: '/cade.png',
+      collectionImage: require('../assets/images/cade.png'),
       info: {
         mint: null,
         config: null,
@@ -256,8 +256,19 @@ const PrizeGrid = () => {
                           borderColor: 'white',
                         }}
                       />
-                      <View className="items-center">
-                        <MonoTextSmall>{item.name}</MonoTextSmall>
+                      <View className="flex justify-center flex-row items-center">
+                        <View>
+                          <Image
+                            source={item.collectionImage}
+                            style={{
+                              height: 32,
+                              width: 32,
+                            }}
+                          />
+                        </View>
+                        <View className=''>
+                          <MonoTextSmall>{item.name}</MonoTextSmall>
+                        </View>
                       </View>
                     </TouchableOpacity>
                   </View>
@@ -278,7 +289,6 @@ const PrizeGrid = () => {
       <View className="flex justify-center items-center">
         {renderItems(DripCollectionData)}
       </View>
-      {/* <AccountInfo /> */}
     </>
   );
 };

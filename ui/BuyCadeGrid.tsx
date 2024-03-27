@@ -37,7 +37,7 @@ const BuyCadeGrid = ({showNext, showPrev, currentItem}) => {
       <>
         <View
           style={{height: 230, borderColor: 'white', borderWidth: 5}}
-          className="relative w-full bg-gray-700 mt-5 items-center rounded-xl">
+          className="relative w-full bg-slate-700 mt-5 items-center rounded-xl">
           <View>
             <Text
               style={{

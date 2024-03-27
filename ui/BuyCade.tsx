@@ -133,7 +133,7 @@ export default function BuyCade({red}: {red: boolean}) {
                 justifyContent: 'center',
                 alignItems: 'center',
               }}>
-              <View className="absolute top-0 mt-10 bg-black border-4 border-white rounded-md">
+              <View className="absolute top-0 mt-10 bg-gray-800 border-4 border-white rounded-md">
                 {buyCadeData.map((item, index) => {
                   if (index == currentIndex) {
                     return (

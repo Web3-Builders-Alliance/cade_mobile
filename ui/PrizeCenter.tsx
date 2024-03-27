@@ -16,10 +16,119 @@ import BottomSheet from '../components/BottomSheet';
 import ConnectButton from '../components/SMSComponents/ConnectButton';
 
 export default function MachineSliderWithButtons({red}: {red: boolean}) {
+  const DripCollectionData = [
+    {
+      name: 'havea Stamp',
+      img: require('../assets/images/drip1.png'),
+      price: '5',
+      collectionName: 'Drip',
+      collectionImage: require('../assets/images/drip.jpg'),
+      info: {
+        mint: null,
+        config: null,
+      },
+    },
+    {
+      name: 'Comic NFT',
+      img: require('../assets/images/drip2.jpg'),
+      price: '10',
+      collectionName: 'Drip',
+      collectionImage: require('../assets/images/drip.jpg'),
+      info: {
+        mint: null,
+        config: null,
+      },
+    },
+    {
+      name: 'Lets Stamp',
+      img: require('../assets/images/drip3.png'),
+      price: '5',
+      collectionName: 'Drip',
+      collectionImage: require('../assets/images/drip.jpg'),
+      info: {
+        mint: null,
+        config: null,
+      },
+    },
+    {
+      name: 'Drip Art NFT#1',
+      img: require('../assets/images/drip4.jpg'),
+      price: '10',
+      collectionName: 'Drip',
+      collectionImage: require('../assets/images/drip.jpg'),
+      info: {
+        mint: null,
+        config: null,
+      },
+    },
+    {
+      name: 'Drip Art NFT#2',
+      img: require('../assets/images/drip5.gif'),
+      price: '10',
+      collectionName: 'Drip',
+      collectionImage: require('../assets/images/drip.jpg'),
+      info: {
+        mint: null,
+        config: null,
+      },
+    },
+    {
+      name: 'havea Stamp',
+      img: require('../assets/images/drip1.png'),
+      price: '5',
+      collectionName: 'Drip',
+      collectionImage: require('../assets/images/drip.jpg'),
+      info: {
+        mint: null,
+        config: null,
+      },
+    },
+  ];
+  const CadeStoreData = [
+    {
+      name: 'Cade Life',
+      img: require('../assets/images/heartr.png'),
+      desc: 'Play Again If You Loose',
+      price: '2',
+      collectionName: 'Cade',
+      collectionImage: require('../assets/images/cade.png'),
+      info: {
+        mint: null,
+        config: null,
+      },
+    },
+    {
+      name: 'Chest',
+      img: require('../assets/images/freeticket.webp'),
+      desc: 'Open Chest for Exited Suprizes',
+      price: '5',
+      collectionName: 'Cade',
+      collectionImage: require('../assets/images/cade.png'),
+      info: {
+        mint: '',
+        config: '',
+      },
+    },
+    {
+      name: 'CadeGamePass',
+      img: require('../assets/images/treasure.png'),
+      desc: 'Sol Loaded Lottery Tickets for Periodic Drawings',
+      price: '3',
+      collectionName: 'Cade',
+      collectionImage: require('../assets/images/cade.png'),
+      info: {
+        mint: null,
+        config: null,
+      },
+    },
+  ];
+
   const background_image = require('../assets/images/brickwall.jpg');
   const [bottomSheetVisible, setBottomSheetVisible] = useState(false);
-  const [image,setImage] = useState()
-  const [name,setName] = useState()
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [image, setImage] = useState();
+  const [name, setName] = useState();
+  const [currentCollection, setCurrentCollection] = useState(CadeStoreData);
 
   const openBottomSheet = () => {
     setBottomSheetVisible(true);
@@ -39,28 +148,18 @@ export default function MachineSliderWithButtons({red}: {red: boolean}) {
                 <MonoText>Confirm Your Transaction</MonoText>
               </View>
               <View className="flex justify-center items-center mt-10">
-                <Image
-                  style={{height: 300, width: 300}}
-                  source = {image}
-                />
+                <Image style={{height: 300, width: 300}} source={image} />
               </View>
-              <View className="flex flex-row justify-between  ml-2 mr-2">
+              <View className="flex flex-row justify-between  ml-2 mr-2 mt-5">
                 <Text
                   style={{
                     color: 'white',
                     fontFamily: 'VT323-Regular',
                     fontSize: 25,
                   }}>
-                  Quantity - 1 {name}
+                   {name}
                 </Text>
-                <Text
-                  style={{
-                    color: 'white',
-                    fontFamily: 'VT323-Regular',
-                    fontSize: 25,
-                  }}>
-                  Holder - 100
-                </Text>
+                
               </View>
               <View className="mt-3 ml-2">
                 <Text
@@ -110,11 +209,39 @@ export default function MachineSliderWithButtons({red}: {red: boolean}) {
     );
   };
 
-  const setDataForBottomSheet = (name:any , image:any) => {
-    setName(name)
-    setImage(image)
-    openBottomSheet()
-  }
+  const changeCollection = collectionName => {
+    switch (collectionName) {
+      case 'Cade':
+        setCurrentCollection(CadeStoreData);
+        break;
+      case 'Drip':
+        setCurrentCollection(DripCollectionData);
+        break;
+      case 'Soda':
+        setCurrentCollection('');
+        break;
+    }
+  };
+
+  const showNextItem = () => {
+    if (currentIndex <= CadeStoreData.length - 2) {
+      setCurrentIndex(currentIndex + 1);
+      console.log(currentIndex, CadeStoreData.length);
+    } else {
+      setCurrentIndex(0);
+    }
+  };
+
+  const showPrevItem = () => {
+    if (currentIndex != 0) {
+      setCurrentIndex(currentIndex - 1);
+    }
+  };
+  const setDataForBottomSheet = (name: any, image: any) => {
+    setName(name);
+    setImage(image);
+    openBottomSheet();
+  };
   return (
     <>
       {renderBottomSheet()}
@@ -149,10 +276,18 @@ export default function MachineSliderWithButtons({red}: {red: boolean}) {
               <View
                 style={{marginBottom: 54}}
                 className="absolute top-0 mt-8 bg-black border-4 border-white rounded-md">
-                <Image
-                  style={{height: 200, width: 200}}
-                  source={require('../assets/images/freeticket.webp')}
-                />
+                {currentCollection.map((item, index) => {
+                  if (index == currentIndex) {
+                    return (
+                      <>
+                        <Image
+                          style={{height: 200, width: 200}}
+                          source={item.img}
+                        />
+                      </>
+                    );
+                  }
+                })}
               </View>
               <View
                 className="absolute top-1/2 left-0 translate-x-10  bg-blue-500 border-4 border-black"
@@ -164,68 +299,153 @@ export default function MachineSliderWithButtons({red}: {red: boolean}) {
               <View
                 className="absolute top-1/4 bg-gray-500 border-4 border-black w-full items-center"
                 style={{height: 35, width: 350, marginTop: 110}}>
-                <MonoTextSmall>Item Name - GamePass</MonoTextSmall>
+                <MonoTextSmall>
+                  {currentCollection[currentIndex].name}
+                </MonoTextSmall>
               </View>
             </Animated.View>
           </ImageBackground>
         </View>
-        <View
-          id="button"
-          style={{
-            width: '100%',
-            alignItems: 'center',
-            marginTop: 10,
-            zIndex: -10,
-          }}>
-          <TouchableOpacity
-            className="border-2"
+        <View className="flex flex-row">
+          <View
+            className="w-1/5"
+            id="button"
             style={{
-              width: '90%',
-              height: 45,
-              borderRadius: 5,
-              justifyContent: 'center',
               alignItems: 'center',
-              backgroundColor: 'white',
-              borderColor: red ? '#EF4444' : '#EAB308',
-            }}
-            onPress={openBottomSheet}>
-            <MonoTextSmall style={{color: 'black'}}>Preview</MonoTextSmall>
+              marginTop: 10,
+              zIndex: -10,
+            }}>
+            <TouchableOpacity
+              className="border-2"
+              style={{
+                width: '90%',
+                height: 45,
+                borderRadius: 5,
+                justifyContent: 'center',
+                alignItems: 'center',
+                backgroundColor: 'white',
+                borderColor: red ? '#EF4444' : '#EAB308',
+              }}
+              onPress={showPrevItem}>
+              <MonoTextSmall style={{color: 'black'}}>{'<'}</MonoTextSmall>
+            </TouchableOpacity>
+          </View>
+          <View
+            className="w-3/5"
+            id="button"
+            style={{
+              alignItems: 'center',
+              marginTop: 10,
+              zIndex: -10,
+            }}>
+            <TouchableOpacity
+              className="border-2"
+              style={{
+                width: '90%',
+                height: 45,
+                borderRadius: 5,
+                justifyContent: 'center',
+                alignItems: 'center',
+                backgroundColor: 'white',
+                borderColor: red ? '#EF4444' : '#EAB308',
+              }}
+              onPress={() =>
+                setDataForBottomSheet(
+                  currentCollection[currentIndex].name,
+                  currentCollection[currentIndex].img,
+                )
+              }>
+              <MonoTextSmall style={{color: 'black'}}>Preview</MonoTextSmall>
+            </TouchableOpacity>
+          </View>
+          <View
+            className="w-1/5"
+            id="button"
+            style={{
+              alignItems: 'center',
+              marginTop: 10,
+              zIndex: -10,
+            }}>
+            <TouchableOpacity
+              className="border-2"
+              style={{
+                width: '90%',
+                height: 45,
+                borderRadius: 5,
+                justifyContent: 'center',
+                alignItems: 'center',
+                backgroundColor: 'white',
+                borderColor: red ? '#EF4444' : '#EAB308',
+              }}
+              onPress={showNextItem}>
+              <MonoTextSmall style={{color: 'black'}}>{'>'}</MonoTextSmall>
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        <View className="mt-3">
+          <Text
+            style={{fontFamily: 'VT323-Regular', fontSize: 28, color: 'white'}}>
+            Collections
+          </Text>
+        </View>
+        <View className="flex flex-row items-center justify-center gap-x-5 mt-3">
+          <TouchableOpacity onPress={() => changeCollection('Cade')}>
+            <Image
+              source={require('../assets/images/cade.png')}
+              style={{
+                height: 80,
+                width: 80,
+                backgroundColor: 'black',
+                borderColor: 'white',
+                borderWidth: 2,
+                borderRadius: 5,
+              }}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => changeCollection('Drip')}>
+            <Image
+              source={require('../assets/images/drip.jpg')}
+              style={{
+                height: 80,
+                width: 80,
+                backgroundColor: 'black',
+                borderColor: 'white',
+                borderWidth: 2,
+                borderRadius: 5,
+              }}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => changeCollection('Cade')}>
+            <Image
+              source={require('../assets/images/soda.jpg')}
+              style={{
+                height: 80,
+                width: 80,
+                backgroundColor: 'black',
+                borderColor: 'white',
+                borderWidth: 2,
+                borderRadius: 5,
+              }}
+            />
           </TouchableOpacity>
         </View>
+
         <View style={{zIndex: -10}}>
-          <View className="ml-5 mt-2">
-            <MonoText style={{color: 'white', textDecorationLine: 'underline'}}>
+          <View className="mt-2">
+            <Text
+              style={{
+                fontFamily: 'VT323-Regular',
+                fontSize: 28,
+                color: 'white',
+              }}>
               More Prizes
-            </MonoText>
+            </Text>
           </View>
           <View style={{zIndex: -10}}>
             <PrizeGrid />
           </View>
         </View>
-        {/* <ConnectButton title="Connect wallet" /> */}
-        {/* <View
-          id="button"
-          style={{
-            width: '100%',
-            alignItems: 'center',
-            marginTop: 10,
-            zIndex: -10,
-          }}>
-          <TouchableOpacity
-            className="border-2"
-            style={{
-              width: '90%',
-              height: 45,
-              borderRadius: 5,
-              justifyContent: 'center',
-              alignItems: 'center',
-              backgroundColor: 'white',
-              borderColor: red ? '#EF4444' : '#EAB308',
-            }}
-            onPress={() => handleOpenPress()}>
-            <MonoTextSmall style={{color: 'black'}}>Proceed</MonoTextSmall>
-          </TouchableOpacity>
-        </View> */}
       </View>
     </>
   );

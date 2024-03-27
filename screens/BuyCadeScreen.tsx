@@ -10,7 +10,7 @@ const BuyCadeScreen = () => {
     <>
       <View
         style={{ backgroundColor: "#191414" }}
-        className="min-h-screen py-2"
+        className="min-h-screen "
       >
         <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
           <View className="container px-4 md:px-6 mb-16">
