@@ -9,39 +9,48 @@ const DiscoverGames = () => {
         <View style={{margin : 10 , columnGap : 4}} className="flex flex-row justify-center items-center mt-7">
           <View>
             <Image
+            
               className="border-2 border-white"
               source={require("../assets/images/tower.jpg")}
               style={{
                 height: 100,
                 width: 100,
                 borderRadius: 5,
-                margin : 10
+                margin : 10,
+                borderColor : 'white',
+                borderWidth : 4
               }}
             />
             <MonoTextSmall>GameName</MonoTextSmall>
           </View>
           <View>
             <Image
+            
               className="border-2 border-white"
               source={require("../assets/images/tile.jpg")}
               style={{
                 height: 100,
                 width: 100,
                 borderRadius: 5,
-                margin : 10
+                margin : 10,
+                borderColor : 'white',
+                borderWidth : 4
               }}
             />
             <MonoTextSmall>GameName</MonoTextSmall>
           </View>
           <View>
             <Image
+            
               className="border-2 border-white"
               source={require("../assets/images/molegame.jpeg")}
               style={{
                 height: 100,
                 width: 100,
                 borderRadius: 5,
-                margin : 10
+                margin : 10,
+                borderColor : 'white',
+                borderWidth : 4
               }}
             />
             <MonoTextSmall>GameName</MonoTextSmall>
@@ -51,39 +60,48 @@ const DiscoverGames = () => {
         <View style={{margin : 10 , columnGap : 4}} className="flex flex-row justify-center items-center mt-7">
           <View>
             <Image
+            
               className="border-2 border-white"
               source={require("../assets/images/sf.png")}
               style={{
                 height: 100,
                 width: 100,
                 borderRadius: 5,
-                margin : 10
+                margin : 10,
+                borderColor : 'white',
+                borderWidth : 4
               }}
             />
             <MonoTextSmall>GameName</MonoTextSmall>
           </View>
           <View>
             <Image
+            
               className="border-2 border-white"
               source={require("../assets/images/coinflip.jpg")}
               style={{
                 height: 100,
                 width: 100,
                 borderRadius: 5,
-                margin : 10
+                margin : 10,
+                borderColor : 'white',
+                borderWidth : 4
               }}
             />
             <MonoTextSmall>GameName</MonoTextSmall>
           </View>
           <View>
             <Image
+            
               className="border-2 border-white"
               source={require("../assets/images/dice.jpg")}
               style={{
                 height: 100,
                 width: 100,
                 borderRadius: 5,
-                margin : 10
+                margin : 10,
+                borderColor : 'white',
+                borderWidth : 4
               }}
             />
             <MonoTextSmall>GameName</MonoTextSmall>

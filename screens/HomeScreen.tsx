@@ -26,7 +26,7 @@ import {useCadeEconomy} from '../hooks/useeconomy';
 import {Newamm} from '../constants/economy/economy';
 import {ASSOCIATED_PROGRAM_ID} from '@coral-xyz/anchor/dist/cjs/utils/token';
 import {useAnchorWallet} from '../hooks/useAnchorWallet';
-import CallSwapIns from '../components/CallInstruction/callSwapIns';
+import CallSwapIns from '../components/CallInstruction/CallSwapIns';
 
 type PropsForUsingEconomy = Readonly<{
   onComplete: () => void;
@@ -61,17 +61,17 @@ const HomeScreen = () => {
 
   return (
     <View style={{backgroundColor: '#191414'}} className="min-h-screen py-3">
-      <Text>{publicKey ? balance : 'NotConnected'}</Text>
-      <Text>{publicKey ? publicKey.toString() : 'NotConnected(p)'}</Text>
+      {/* <Text>{publicKey ? balance : 'NotConnected'}</Text>
+      <Text>{publicKey ? publicKey.toString() : 'NotConnected(p)'}</Text> */}
       <ScrollView contentContainerStyle={{flexGrow: 1}}>
         <View className="container px-4 md:px-6 mb-16">
           <View>
             <CadeCardSection />
-            <ConnectButton title="Connect wallet" />
-            <CallSwapIns
+            {/* <ConnectButton title="Connect wallet" /> */}
+            {/* <CallSwapIns
               anchorWallet={anchorWallet}
               onComplete={() => console.log('com')}
-            />
+            /> */}
             <Ceiling displayNumber={true} msg={'Tower Defence'} />
             <View className="mt-36">
               <MachineSliderWithButtons red={false} />
