@@ -31,6 +31,9 @@ import Fontisto from 'react-native-vector-icons/Fontisto';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import LoginScreen from './screens/LoginScreen';
+import {clusterApiUrl} from '@solana/web3.js';
+import {ConnectionProvider} from './components/providers/ConnectionProvider';
+import {AuthorizationProvider} from './components/providers/AuthorizationProvider';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -39,95 +42,104 @@ type SectionProps = PropsWithChildren<{
 const Tab = createBottomTabNavigator();
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
-
+  const DEVNET_ENDPOINT = clusterApiUrl('devnet');
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
   return (
-    <NavigationContainer>
-      <GestureHandlerRootView style={{flex: 1}}>
-        <Tab.Navigator
-          screenOptions={{
-            tabBarShowLabel: false,
-            headerShown: false,
-            tabBarStyle: {
-              position: 'absolute',
-              bottom: 0,
-              right: 0,
-              left: 0,
-              elevation: 0,
-              height: 60,
-              backgroundColor: '#191414',
-            },
-            tabBarActiveTintColor: 'yellow',
-          }}>
-          <Tab.Screen
-            name="Home"
-            component={HomeScreen}
-            options={{
-              tabBarLabel: 'Home',
-              tabBarIcon: ({color, size, focused}) => {
-                return (
-                  <>
-                    <Fontisto
-                      name="home"
-                      size={size}
-                      color={focused ? 'white' : 'gray'}
-                    />
-                    <Text style={{fontFamily: 'VT323-Regular', fontSize: 16}}>
-                      Home
-                    </Text>
-                  </>
-                );
-              },
-            }}
-          />
-          <Tab.Screen
-            name="Prize"
-            component={PrizeScreen}
-            options={{
-              tabBarLabel: 'Prize',
-              tabBarIcon: ({color, size, focused}) => {
-                return (
-                  <>
-                    <AntDesign
-                      name="gift"
-                      size={size}
-                      color={focused ? 'white' : 'gray'}
-                    />
-                    <Text style={{fontFamily: 'VT323-Regular', fontSize: 16}}>
-                      Prizes
-                    </Text>
-                  </>
-                );
-              },
-            }}
-          />
-          <Tab.Screen
-            name="BuyCade"
-            component={BuyCadeScreen}
-            options={{
-              tabBarLabel: 'BuyCade',
-              tabBarIcon: ({color, size, focused}) => {
-                return (
-                  <>
-                    <FontAwesome
-                      name="dollar"
-                      size={size}
-                      color={focused ? 'white' : 'gray'}
-                    />
-                    <Text style={{fontFamily: 'VT323-Regular', fontSize: 16}}>
-                      BuyCade
-                    </Text>
-                  </>
-                );
-              },
-            }}
-          />
-        </Tab.Navigator>
-      </GestureHandlerRootView>
-    </NavigationContainer>
+    <ConnectionProvider
+      config={{commitment: 'processed'}}
+      endpoint={DEVNET_ENDPOINT}>
+      <AuthorizationProvider>
+        <NavigationContainer>
+          <GestureHandlerRootView style={{flex: 1}}>
+            <Tab.Navigator
+              screenOptions={{
+                tabBarShowLabel: false,
+                headerShown: false,
+                tabBarStyle: {
+                  position: 'absolute',
+                  bottom: 0,
+                  right: 0,
+                  left: 0,
+                  elevation: 0,
+                  height: 60,
+                  backgroundColor: '#191414',
+                },
+                tabBarActiveTintColor: 'yellow',
+              }}>
+              <Tab.Screen
+                name="Home"
+                component={HomeScreen}
+                options={{
+                  tabBarLabel: 'Home',
+                  tabBarIcon: ({color, size, focused}) => {
+                    return (
+                      <>
+                        <Fontisto
+                          name="home"
+                          size={size}
+                          color={focused ? 'white' : 'gray'}
+                        />
+                        <Text
+                          style={{fontFamily: 'VT323-Regular', fontSize: 16}}>
+                          Home
+                        </Text>
+                      </>
+                    );
+                  },
+                }}
+              />
+              <Tab.Screen
+                name="Prize"
+                component={PrizeScreen}
+                options={{
+                  tabBarLabel: 'Prize',
+                  tabBarIcon: ({color, size, focused}) => {
+                    return (
+                      <>
+                        <AntDesign
+                          name="gift"
+                          size={size}
+                          color={focused ? 'white' : 'gray'}
+                        />
+                        <Text
+                          style={{fontFamily: 'VT323-Regular', fontSize: 16}}>
+                          Prizes
+                        </Text>
+                      </>
+                    );
+                  },
+                }}
+              />
+              <Tab.Screen
+                name="BuyCade"
+                component={BuyCadeScreen}
+                options={{
+                  tabBarLabel: 'BuyCade',
+                  tabBarIcon: ({color, size, focused}) => {
+                    return (
+                      <>
+                        <FontAwesome
+                          name="dollar"
+                          size={size}
+                          color={focused ? 'white' : 'gray'}
+                        />
+                        <Text
+                          style={{fontFamily: 'VT323-Regular', fontSize: 16}}>
+                          BuyCade
+                        </Text>
+                      </>
+                    );
+                  },
+                }}
+              />
+            </Tab.Navigator>
+          </GestureHandlerRootView>
+        </NavigationContainer>
+      </AuthorizationProvider>
+    </ConnectionProvider>
   );
 }
 

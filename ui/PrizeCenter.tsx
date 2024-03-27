@@ -13,6 +13,7 @@ import {MonoText, MonoTextSmall} from '../components/StylesText';
 import PrizeGrid from './PrizesGrid';
 const {height, width} = Dimensions.get('window');
 import BottomSheet from '../components/BottomSheet';
+import ConnectButton from '../components/SMSComponents/ConnectButton';
 
 export default function MachineSliderWithButtons({red}: {red: boolean}) {
   const background_image = require('../assets/images/brickwall.jpg');
@@ -201,6 +202,7 @@ export default function MachineSliderWithButtons({red}: {red: boolean}) {
             <PrizeGrid />
           </View>
         </View>
+        {/* <ConnectButton title="Connect wallet" /> */}
         {/* <View
           id="button"
           style={{

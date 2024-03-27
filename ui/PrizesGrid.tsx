@@ -10,6 +10,7 @@ import {
 import {MonoTextSmall} from '../components/StylesText';
 import BottomSheet from '../components/BottomSheet';
 import {MonoText} from '../components/StylesText';
+import AccountInfo from '../components/SMSComponents/AccountInfo';
 
 const PrizeGrid = () => {
   const [bottomSheetVisible, setBottomSheetVisible] = useState(false);
@@ -277,6 +278,7 @@ const PrizeGrid = () => {
       <View className="flex justify-center items-center">
         {renderItems(DripCollectionData)}
       </View>
+      {/* <AccountInfo /> */}
     </>
   );
 };
