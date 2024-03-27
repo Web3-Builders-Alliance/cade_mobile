@@ -1,10 +1,37 @@
-import React from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet, Image} from 'react-native';
 import {MonoTextSmall} from '../components/StylesText';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import {
+  Account,
+  useAuthorization,
+} from '../components/providers/AuthorizationProvider';
+import {useConnection} from '../components/providers/ConnectionProvider';
+import {useAnchorWallet} from '../hooks/useAnchorWallet';
+import CallSwapIns from '../components/CallInstruction/CallSwapIns';
+import ConnectButton from '../components/SMSComponents/ConnectButton';
 
 const BuyCadeGrid = ({showNext, showPrev, currentItem}) => {
+  const {connection} = useConnection();
+  const [publicKey, setPublickey] = useState<any>();
+  const {selectedAccount, authorizeSession} = useAuthorization();
+  const anchorWallet = useAnchorWallet(authorizeSession, selectedAccount);
+  const fetchAndUpdateBalance = useCallback(
+    async (account: Account) => {
+      console.log('Fetching balance for: ' + account.publicKey);
+      setPublickey(account.publicKey);
+    },
+    [connection],
+  );
+
+  useEffect(() => {
+    if (!selectedAccount) {
+      return;
+    }
+    fetchAndUpdateBalance(selectedAccount);
+  }, [fetchAndUpdateBalance, selectedAccount]);
+
   const Grid = () => {
     return (
       <>
@@ -79,7 +106,7 @@ const BuyCadeGrid = ({showNext, showPrev, currentItem}) => {
           </View>
           <View
             style={{height: 80, width: '100%'}}
-            className="absolute bottom-0 bg-r0 flex flex-row items-center">
+            className="absolute bottom-0  flex flex-row items-center">
             <View
               style={{height: 40}}
               className="w-1/5 bg-transparent flex justify-center items-center">
@@ -94,28 +121,21 @@ const BuyCadeGrid = ({showNext, showPrev, currentItem}) => {
                   backgroundColor: 'white',
                   borderColor: 'red',
                 }}
-                onPress={showPrev}
-                >
+                onPress={showPrev}>
                 <MonoTextSmall style={{color: 'black'}}>{'<'}</MonoTextSmall>
               </TouchableOpacity>
             </View>
-            <View
-              style={{height: 40}}
-              className="flex justify-center w-3/5 bg-transparent">
-              <TouchableOpacity
-                className="border-2"
-                style={{
-                  height: 40,
-                  borderRadius: 5,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  backgroundColor: 'white',
-                  borderColor: 'red',
-                }}>
-                <MonoTextSmall style={{color: 'black'}}>
-                  {currentItem.name} ({currentItem.priceUSDC+"USDC"})
-                </MonoTextSmall>
-              </TouchableOpacity>
+            <View className="flex justify-center w-3/5 bg-transparent">
+              {publicKey ? (
+                <CallSwapIns
+                  anchorWallet={anchorWallet}
+                  onComplete={() => console.log('com')}
+                  name={currentItem.name}
+                  price={currentItem.priceUSDC}
+                />
+              ) : (
+                <ConnectButton title="Connect" />
+              )}
             </View>
             <View
               style={{height: 40}}
@@ -131,8 +151,7 @@ const BuyCadeGrid = ({showNext, showPrev, currentItem}) => {
                   backgroundColor: 'white',
                   borderColor: 'red',
                 }}
-                onPress={showNext}
-                >
+                onPress={showNext}>
                 <MonoTextSmall style={{color: 'black'}}>{'>'}</MonoTextSmall>
               </TouchableOpacity>
             </View>

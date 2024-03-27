@@ -17,6 +17,8 @@ import ConnectButton from '../SMSComponents/ConnectButton';
 import {useCadeEconomy} from '../../hooks/useeconomy';
 import {Newamm} from '../../constants/economy/economy';
 import {ASSOCIATED_PROGRAM_ID} from '@coral-xyz/anchor/dist/cjs/utils/token';
+import {MonoTextSmall} from '../StylesText';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 type PropsForUsingEconomy = Readonly<{
   onComplete: () => void;
@@ -26,6 +28,8 @@ type PropsForUsingEconomy = Readonly<{
 export default function CallSwapIns({
   onComplete,
   anchorWallet,
+  name,
+  price,
 }: PropsForUsingEconomy) {
   let initializer_x_ata: PublicKey;
   let initializer_lp_ata: PublicKey;
@@ -124,19 +128,34 @@ export default function CallSwapIns({
 
   return (
     <>
-      <Button
-        title="Swap"
-        onPress={async () => {
-          try {
-            const signature = await useSwap(
-              economyProgram,
-              selectedAccount?.publicKey,
-            );
-          } catch (e) {
-            console.log(e);
-          }
-        }}
-      />
+      <View
+        style={{height: 40}}
+        className="flex justify-center bg-transparent w-max">
+        <TouchableOpacity
+          className="border-2"
+          style={{
+            height: 40,
+            borderRadius: 5,
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: 'white',
+            borderColor: 'red',
+          }}
+          onPress={async () => {
+            try {
+              const signature = await useSwap(
+                economyProgram,
+                selectedAccount?.publicKey,
+              );
+            } catch (e) {
+              console.log(e);
+            }
+          }}>
+          <MonoTextSmall style={{color: 'black'}}>
+            {name} ({price + 'USDC'})
+          </MonoTextSmall>
+        </TouchableOpacity>
+      </View>
     </>
   );
 }

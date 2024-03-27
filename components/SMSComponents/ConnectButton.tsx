@@ -4,6 +4,8 @@ import {Button, View} from 'react-native';
 
 import {useAuthorization} from '../providers/AuthorizationProvider';
 import {useConnection} from '../providers/ConnectionProvider';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { MonoTextSmall } from '../StylesText';
 
 type Props = Readonly<ComponentProps<typeof Button>>;
 
@@ -26,14 +28,29 @@ export default function ConnectButton(props: Props) {
   return (
     <>
       <View style={{
-        marginTop : -200,
-        backgroundColor : "red"
       }}>
-        <Button
+        <View
+        style={{height: 40}}
+        className="flex justify-center bg-transparent w-max">
+        <TouchableOpacity
+          className="border-2"
+          style={{
+            height: 40,
+            borderRadius: 5,
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: 'white',
+            borderColor: 'red',
+          }}
           {...props}
           disabled={authorizationInProgress}
           onPress={handleConnectPress}
-        />
+          >
+          <MonoTextSmall style={{color: 'black'}}>
+            Connect Wallet
+          </MonoTextSmall>
+        </TouchableOpacity>
+      </View>
       </View>
     </>
   );
