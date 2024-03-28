@@ -8,6 +8,7 @@ import {
   Animated,
   Image,
   ImageBackground,
+  Button
 } from 'react-native';
 import {useRef, useState} from 'react';
 import GameDescription from '../components/GameDescription';
@@ -19,7 +20,7 @@ import SkylineSkaddleImage from '../assets/images/ca33.png';
 import MoleSmashImage from '../assets/images/ca22.png';
 import TileSurviveImage from '../assets/images/ca55.png';
 import Ceiling from '../components/Ceiling';
-
+import { useNavigation } from '@react-navigation/native';
 const {height, width} = Dimensions.get('window');
 
 export default function MachineSliderWithButtons({
@@ -31,6 +32,7 @@ export default function MachineSliderWithButtons({
   showCeiling: boolean;
   margin:number
 }) {
+  const nav = useNavigation()
   const data = [
     {
       img: CoinFlipImage,
@@ -96,6 +98,7 @@ export default function MachineSliderWithButtons({
       ) : (
         <></>
       )}
+      <Button onPress={()=>nav.navigate("GameScreen")} title='MOve'/>
 
       <View
         style={{

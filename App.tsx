@@ -43,12 +43,15 @@ import {AuthorizationProvider} from './components/providers/AuthorizationProvide
 import BottomSheet from './components/BottomSheet';
 import {MonoText, MonoTextSmall} from './components/StylesText';
 import LeaderBoard from './screens/LeaderBoard';
+import {createStackNavigator} from '@react-navigation/stack';
+import ParticularGameScreen from './screens/ParticularGameScreen';
 
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
 
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 function App(): React.JSX.Element {
   const background_image = require('./assets/images/ig2.png');
   const isDarkMode = useColorScheme() === 'dark';
@@ -192,7 +195,7 @@ function App(): React.JSX.Element {
                 }}>
                 <Tab.Screen
                   name="Home"
-                  component={HomeScreen}
+                  component={StackScreens}
                   options={{
                     tabBarLabel: 'Home',
                     tabBarIcon: ({color, size, focused}) => {
@@ -313,6 +316,20 @@ function App(): React.JSX.Element {
       </ConnectionProvider>
     </>
   );
+
+  function StackScreens() {
+    return (
+      <Stack.Navigator screenOptions={{headerShown: false}}>
+        <Stack.Screen name="Arcade" component={HomeScreen} />
+        <Stack.Screen name="GameScreen" component={GameScreen} />
+        <Stack.Screen
+          options={{}}
+          name="Update"
+          component={ParticularGameScreen}
+        />
+      </Stack.Navigator>
+    );
+  }
 }
 
 export default App;

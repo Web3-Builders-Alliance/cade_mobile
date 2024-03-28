@@ -15,11 +15,12 @@ import BottomSheet from '@gorhom/bottom-sheet';
 import CadeCardMachine from '../components/CadeCardMachine';
 // import ConnectButton from "../Utils/ConnectButton";
 // import {useMobileWallet} from '../Utils/useMobileWallet'
-
+import { useNavigation } from '@react-navigation/native';
 const {height, width} = Dimensions.get('window');
 
 export default function GameMachine({red}: {red: boolean}) {
   //const {connect}  = useMobileWallet()
+  const nav = useNavigation()
   const background_image = require('../assets/images/brickwall.jpg');
   const [showBackDrop, setShowBackDrop] = useState(false);
   const snapPoints = useMemo(() => ['25%', '80%', '70%'], []);
@@ -116,7 +117,7 @@ export default function GameMachine({red}: {red: boolean}) {
               borderColor: red ? '#EF4444' : '#EAB308',
               marginTop: 20,
             }}
-            onPress={() => handleOpenPress()}
+            onPress={() => nav.navigate("Home")}
             // onPress={() => connect()}
           >
             <MonoTextSmall style={{color: 'black'}}>Play</MonoTextSmall>
