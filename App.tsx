@@ -42,7 +42,7 @@ import {ConnectionProvider} from './components/providers/ConnectionProvider';
 import {AuthorizationProvider} from './components/providers/AuthorizationProvider';
 import BottomSheet from './components/BottomSheet';
 import {MonoText, MonoTextSmall} from './components/StylesText';
-
+import LeaderBoard from './screens/LeaderBoard';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -76,10 +76,20 @@ function App(): React.JSX.Element {
             </MonoText>
           </View>
           <View className="mt-2">
-            <Text style={{color: 'white', fontFamily: 'VT323-Regular', fontSize: 22}}>
+            <Text
+              style={{
+                color: 'white',
+                fontFamily: 'VT323-Regular',
+                fontSize: 22,
+              }}>
               Card Type : Premium
             </Text>
-            <Text style={{color: 'white', fontFamily: 'VT323-Regular', fontSize: 22}}>
+            <Text
+              style={{
+                color: 'white',
+                fontFamily: 'VT323-Regular',
+                fontSize: 22,
+              }}>
               Cade Balance : 100
             </Text>
           </View>
@@ -203,33 +213,6 @@ function App(): React.JSX.Element {
                   }}
                 />
                 <Tab.Screen
-                  name="CadeCard"
-                  component={HomeScreen}
-                  options={{
-                    title: 'Card',
-                    tabBarIcon: ({color, size , focused}) => (
-                      <>
-                        <FontAwesome
-                          name="credit-card"
-                          color={focused ? 'white' : 'gray'}
-                          size={size}
-                        />
-                        <Text
-                          style={{fontFamily: 'VT323-Regular', fontSize: 16}}>
-                          CadeCard
-                        </Text>
-                      </>
-                    ),
-                  }}
-                  listeners={() => ({
-                    tabPress: e => {
-                      e.preventDefault();
-                      console.log('Herers');
-                      openBottomSheet();
-                    },
-                  })}
-                />
-                <Tab.Screen
                   name="Prize"
                   component={PrizeScreen}
                   options={{
@@ -252,6 +235,34 @@ function App(): React.JSX.Element {
                   }}
                 />
                 <Tab.Screen
+                  name="CadeCard"
+                  component={HomeScreen}
+                  options={{
+                    title: 'Card',
+                    tabBarIcon: ({color, size, focused}) => (
+                      <>
+                        <FontAwesome
+                          name="credit-card"
+                          color={focused ? 'white' : 'gray'}
+                          size={size}
+                        />
+                        <Text
+                          style={{fontFamily: 'VT323-Regular', fontSize: 16}}>
+                          CadeCard
+                        </Text>
+                      </>
+                    ),
+                  }}
+                  listeners={() => ({
+                    tabPress: e => {
+                      e.preventDefault();
+                      console.log('Herers');
+                      openBottomSheet();
+                    },
+                  })}
+                />
+
+                <Tab.Screen
                   name="BuyCade"
                   component={BuyCadeScreen}
                   options={{
@@ -267,6 +278,28 @@ function App(): React.JSX.Element {
                           <Text
                             style={{fontFamily: 'VT323-Regular', fontSize: 16}}>
                             BuyCade
+                          </Text>
+                        </>
+                      );
+                    },
+                  }}
+                />
+                <Tab.Screen
+                  name="Leaderboard"
+                  component={LeaderBoard}
+                  options={{
+                    tabBarLabel: 'LeaderBoard',
+                    tabBarIcon: ({color, size, focused}) => {
+                      return (
+                        <>
+                          <MaterialCommunityIcons
+                            name="podium"
+                            size={size}
+                            color={focused ? 'white' : 'gray'}
+                          />
+                          <Text
+                            style={{fontFamily: 'VT323-Regular', fontSize: 16}}>
+                            LeadetBoard
                           </Text>
                         </>
                       );

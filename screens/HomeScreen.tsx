@@ -72,9 +72,9 @@ const HomeScreen = () => {
               anchorWallet={anchorWallet}
               onComplete={() => console.log('com')}
             /> */}
-            <Ceiling displayNumber={true} msg={'Tower Defence'} />
-            <View className="mt-36">
-              <MachineSliderWithButtons red={false} />
+            {/* <Ceiling displayNumber={true} msg={'Tower Defence'} /> */}
+            <View className="">
+              <MachineSliderWithButtons red={false} showCeiling={true} margin={100}/>
             </View>
             <View>
               <Discover />

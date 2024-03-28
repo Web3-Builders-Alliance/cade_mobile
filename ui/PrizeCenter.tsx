@@ -157,9 +157,8 @@ export default function MachineSliderWithButtons({red}: {red: boolean}) {
                     fontFamily: 'VT323-Regular',
                     fontSize: 25,
                   }}>
-                   {name}
+                  {name}
                 </Text>
-                
               </View>
               <View className="mt-3 ml-2">
                 <Text
@@ -183,9 +182,7 @@ export default function MachineSliderWithButtons({red}: {red: boolean}) {
                     backgroundColor: 'white',
                     borderColor: red ? '#EF4444' : '#EAB308',
                   }}>
-                  <MonoTextSmall style={{color: 'black'}}>
-                    Redeem
-                  </MonoTextSmall>
+                  <MonoTextSmall style={{color: 'black'}}>Redeem</MonoTextSmall>
                 </TouchableOpacity>
                 <TouchableOpacity
                   className="border-2 mt-5"

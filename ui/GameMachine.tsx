@@ -123,7 +123,11 @@ export default function GameMachine({red}: {red: boolean}) {
           </TouchableOpacity>
         </View>
         <View className="mt-5">
-          <GameDescription red={false} />
+          <GameDescription
+            red={false}
+            name={'gameName'}
+            img={require('../assets/images/ca33.png')}
+          />
         </View>
         <View className="mt-5">
           <View>
