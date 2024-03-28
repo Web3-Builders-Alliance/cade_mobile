@@ -178,138 +178,37 @@ function App(): React.JSX.Element {
         <AuthorizationProvider>
           <NavigationContainer>
             <GestureHandlerRootView style={{flex: 1}}>
-              <Tab.Navigator
+              <Stack.Navigator
                 screenOptions={{
-                  tabBarShowLabel: false,
                   headerShown: false,
-                  tabBarStyle: {
-                    position: 'absolute',
-                    bottom: 0,
-                    right: 0,
-                    left: 0,
-                    elevation: 0,
-                    height: 60,
-                    backgroundColor: '#191414',
-                  },
-                  tabBarActiveTintColor: 'yellow',
+                 
                 }}>
-                <Tab.Screen
+                <Stack.Screen
+                  options={{
+                    headerShown: false,
+                  }}
                   name="Home"
                   component={StackScreens}
-                  options={{
-                    tabBarLabel: 'Home',
-                    tabBarIcon: ({color, size, focused}) => {
-                      return (
-                        <>
-                          <FontAwesome6
-                            name="gamepad"
-                            size={size}
-                            color={focused ? 'white' : 'gray'}
-                          />
-                          <Text
-                            style={{fontFamily: 'VT323-Regular', fontSize: 16}}>
-                            Arcade
-                          </Text>
-                        </>
-                      );
-                    },
-                  }}
                 />
-                <Tab.Screen
-                  name="Prize"
-                  component={PrizeScreen}
+                <Stack.Screen
                   options={{
-                    tabBarLabel: 'Prize',
-                    tabBarIcon: ({color, size, focused}) => {
-                      return (
-                        <>
-                          <AntDesign
-                            name="gift"
-                            size={size}
-                            color={focused ? 'white' : 'gray'}
-                          />
-                          <Text
-                            style={{fontFamily: 'VT323-Regular', fontSize: 16}}>
-                            Prizes
-                          </Text>
-                        </>
-                      );
-                    },
+                    headerShown: true,
+                    headerTintColor : "white",
+                    headerStyle : {
+                      backgroundColor : '#191414'
+                    }
                   }}
+                  name="GameScreen"
+                  component={GameScreen}
                 />
-                <Tab.Screen
-                  name="CadeCard"
-                  component={HomeScreen}
+                <Stack.Screen
                   options={{
-                    title: 'Card',
-                    tabBarIcon: ({color, size, focused}) => (
-                      <>
-                        <FontAwesome
-                          name="credit-card"
-                          color={focused ? 'white' : 'gray'}
-                          size={size}
-                        />
-                        <Text
-                          style={{fontFamily: 'VT323-Regular', fontSize: 16}}>
-                          CadeCard
-                        </Text>
-                      </>
-                    ),
+                    headerShown: true,
                   }}
-                  listeners={() => ({
-                    tabPress: e => {
-                      e.preventDefault();
-                      console.log('Herers');
-                      openBottomSheet();
-                    },
-                  })}
+                  name="ParticularGameScreen"
+                  component={ParticularGameScreen}
                 />
-
-                <Tab.Screen
-                  name="BuyCade"
-                  component={BuyCadeScreen}
-                  options={{
-                    tabBarLabel: 'BuyCade',
-                    tabBarIcon: ({color, size, focused}) => {
-                      return (
-                        <>
-                          <FontAwesome
-                            name="dollar"
-                            size={size}
-                            color={focused ? 'white' : 'gray'}
-                          />
-                          <Text
-                            style={{fontFamily: 'VT323-Regular', fontSize: 16}}>
-                            BuyCade
-                          </Text>
-                        </>
-                      );
-                    },
-                  }}
-                />
-                <Tab.Screen
-                  name="Leaderboard"
-                  component={LeaderBoard}
-                  options={{
-                    tabBarLabel: 'LeaderBoard',
-                    tabBarIcon: ({color, size, focused}) => {
-                      return (
-                        <>
-                          <MaterialCommunityIcons
-                            name="podium"
-                            size={size}
-                            color={focused ? 'white' : 'gray'}
-                          />
-                          <Text
-                            style={{fontFamily: 'VT323-Regular', fontSize: 16}}>
-                            LeadetBoard
-                          </Text>
-                        </>
-                      );
-                    },
-                  }}
-                />
-              </Tab.Navigator>
+              </Stack.Navigator>
             </GestureHandlerRootView>
           </NavigationContainer>
         </AuthorizationProvider>
@@ -319,15 +218,132 @@ function App(): React.JSX.Element {
 
   function StackScreens() {
     return (
-      <Stack.Navigator screenOptions={{headerShown: false}}>
-        <Stack.Screen name="Arcade" component={HomeScreen} />
-        <Stack.Screen name="GameScreen" component={GameScreen} />
-        <Stack.Screen
-          options={{}}
-          name="Update"
-          component={ParticularGameScreen}
+      <Tab.Navigator
+        screenOptions={{
+          tabBarShowLabel: false,
+          headerShown: false,
+          tabBarStyle: {
+            position: 'absolute',
+            bottom: 0,
+            right: 0,
+            left: 0,
+            elevation: 0,
+            height: 60,
+            backgroundColor: '#191414',
+          },
+          tabBarActiveTintColor: 'yellow',
+        }}>
+        <Tab.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{
+            tabBarLabel: 'Home',
+            tabBarIcon: ({color, size, focused}) => {
+              return (
+                <>
+                  <FontAwesome6
+                    name="gamepad"
+                    size={size}
+                    color={focused ? 'white' : 'gray'}
+                  />
+                  <Text style={{fontFamily: 'VT323-Regular', fontSize: 16}}>
+                    Arcade
+                  </Text>
+                </>
+              );
+            },
+          }}
         />
-      </Stack.Navigator>
+        <Tab.Screen
+          name="Prize"
+          component={PrizeScreen}
+          options={{
+            tabBarLabel: 'Prize',
+            tabBarIcon: ({color, size, focused}) => {
+              return (
+                <>
+                  <AntDesign
+                    name="gift"
+                    size={size}
+                    color={focused ? 'white' : 'gray'}
+                  />
+                  <Text style={{fontFamily: 'VT323-Regular', fontSize: 16}}>
+                    Prizes
+                  </Text>
+                </>
+              );
+            },
+          }}
+        />
+        <Tab.Screen
+          name="CadeCard"
+          component={HomeScreen}
+          options={{
+            title: 'Card',
+            tabBarIcon: ({color, size, focused}) => (
+              <>
+                <FontAwesome
+                  name="credit-card"
+                  color={focused ? 'white' : 'gray'}
+                  size={size}
+                />
+                <Text style={{fontFamily: 'VT323-Regular', fontSize: 16}}>
+                  CadeCard
+                </Text>
+              </>
+            ),
+          }}
+          listeners={() => ({
+            tabPress: e => {
+              e.preventDefault();
+              console.log('Herers');
+              openBottomSheet();
+            },
+          })}
+        />
+        <Tab.Screen
+          name="BuyCade"
+          component={BuyCadeScreen}
+          options={{
+            tabBarLabel: 'BuyCade',
+            tabBarIcon: ({color, size, focused}) => {
+              return (
+                <>
+                  <FontAwesome
+                    name="dollar"
+                    size={size}
+                    color={focused ? 'white' : 'gray'}
+                  />
+                  <Text style={{fontFamily: 'VT323-Regular', fontSize: 16}}>
+                    BuyCade
+                  </Text>
+                </>
+              );
+            },
+          }}
+        />
+        <Tab.Screen
+          name="Leaderboard"
+          component={LeaderBoard}
+          options={{
+            tabBarLabel: 'LeaderBoard',
+            tabBarIcon: ({color, size, focused}) => {
+              return (
+                <>
+                  <MaterialCommunityIcons
+                    name="podium"
+                    size={size}
+                    color={focused ? 'white' : 'gray'}
+                  />
+                  <Text style={{fontFamily: 'VT323-Regular', fontSize: 16}}>
+                    LeadetBoard
+                  </Text>
+                </>
+              );
+            },
+          }}
+        />
+      </Tab.Navigator>
     );
   }
 }

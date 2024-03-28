@@ -117,7 +117,7 @@ export default function GameMachine({red}: {red: boolean}) {
               borderColor: red ? '#EF4444' : '#EAB308',
               marginTop: 20,
             }}
-            onPress={() => nav.navigate("Home")}
+            onPress={() => nav.navigate("ParticularGameScreen")}
             // onPress={() => connect()}
           >
             <MonoTextSmall style={{color: 'black'}}>Play</MonoTextSmall>

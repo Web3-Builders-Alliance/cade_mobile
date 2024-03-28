@@ -1,8 +1,10 @@
 import {View, Text, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {MonoText, MonoTextSmall} from './StylesText';
+import {useNavigation} from '@react-navigation/native';
 
-const GameDescription = ({red, name, img,maker}) => {
+const GameDescription = ({red, name, img, maker}) => {
+  const nav = useNavigation();
   return (
     <View
       style={{
@@ -31,12 +33,13 @@ const GameDescription = ({red, name, img,maker}) => {
               width: 100,
               height: 40,
               borderRadius: 4,
-              borderColor:"white",
-              borderWidth : 2,
+              borderColor: 'white',
+              borderWidth: 2,
               justifyContent: 'center',
               alignItems: 'center',
               backgroundColor: 'white',
-            }}>
+            }}
+            onPress={() => nav.navigate('GameScreen')}>
             <MonoTextSmall style={{color: 'black'}}>Play</MonoTextSmall>
           </TouchableOpacity>
         </View>

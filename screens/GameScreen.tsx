@@ -9,10 +9,10 @@ const GameScreen = () => {
   return (
     <>
       <ScrollView>
-        <View>
+        <View className='z-10'>
           <GameScreenCeiling displayNumber={true} msg="GameName" />
         </View>
-        <View>
+        <View style={{backgroundColor : "#191414"}}>
           <GameMachine red={false} />
         </View>
       </ScrollView>
