@@ -184,7 +184,7 @@ export default function MachineSliderWithButtons({red}: {red: boolean}) {
                     borderColor: red ? '#EF4444' : '#EAB308',
                   }}>
                   <MonoTextSmall style={{color: 'black'}}>
-                    Mint as NFT
+                    Redeem
                   </MonoTextSmall>
                 </TouchableOpacity>
                 <TouchableOpacity
@@ -386,7 +386,7 @@ export default function MachineSliderWithButtons({red}: {red: boolean}) {
         <View className="mt-3">
           <Text
             style={{fontFamily: 'VT323-Regular', fontSize: 28, color: 'white'}}>
-            Collections
+            Our Collections
           </Text>
         </View>
         <View className="flex flex-row items-center justify-center gap-x-5 mt-3">
@@ -398,7 +398,7 @@ export default function MachineSliderWithButtons({red}: {red: boolean}) {
                 width: 80,
                 backgroundColor: 'black',
                 borderColor: 'white',
-                borderWidth: 2,
+                borderWidth: 0.2,
                 borderRadius: 5,
               }}
             />
@@ -411,7 +411,7 @@ export default function MachineSliderWithButtons({red}: {red: boolean}) {
                 width: 80,
                 backgroundColor: 'black',
                 borderColor: 'white',
-                borderWidth: 2,
+                borderWidth: 0.2,
                 borderRadius: 5,
               }}
             />
@@ -424,7 +424,20 @@ export default function MachineSliderWithButtons({red}: {red: boolean}) {
                 width: 80,
                 backgroundColor: 'black',
                 borderColor: 'white',
-                borderWidth: 2,
+                borderWidth: 0.2,
+                borderRadius: 5,
+              }}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => changeCollection('Cade')}>
+            <Image
+              source={require('../assets/images/wba.jpg')}
+              style={{
+                height: 80,
+                width: 80,
+                backgroundColor: 'black',
+                borderColor: 'white',
+                borderWidth: 0.2,
                 borderRadius: 5,
               }}
             />

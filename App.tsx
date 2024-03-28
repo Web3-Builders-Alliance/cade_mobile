@@ -1,11 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import type {PropsWithChildren} from 'react';
 import {
+  Image,
+  ImageBackground,
   SafeAreaView,
   ScrollView,
   StatusBar,
   StyleSheet,
   Text,
+  TouchableOpacity,
   useColorScheme,
   View,
 } from 'react-native';
@@ -24,16 +27,22 @@ import PrizeScreen from './screens/PrizeScreen';
 import BuyCadeScreen from './screens/BuyCadeScreen';
 import GameScreen from './screens/GameScreen';
 import {NavigationContainer} from '@react-navigation/native';
-import {MaterialCommunityIcons} from '@expo/vector-icons';
 import {ApplicationProvider, Layout} from '@ui-kitten/components';
 import {Button, Icon} from '@ui-kitten/components';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
+import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
 import LoginScreen from './screens/LoginScreen';
 import {clusterApiUrl} from '@solana/web3.js';
 import {ConnectionProvider} from './components/providers/ConnectionProvider';
 import {AuthorizationProvider} from './components/providers/AuthorizationProvider';
+import BottomSheet from './components/BottomSheet';
+import {MonoText, MonoTextSmall} from './components/StylesText';
+
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -41,105 +50,235 @@ type SectionProps = PropsWithChildren<{
 
 const Tab = createBottomTabNavigator();
 function App(): React.JSX.Element {
+  const background_image = require('./assets/images/ig2.png');
   const isDarkMode = useColorScheme() === 'dark';
   const DEVNET_ENDPOINT = clusterApiUrl('devnet');
+  const [bottomSheetVisible, setBottomSheetVisible] = useState(false);
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
+  const openBottomSheet = () => {
+    setBottomSheetVisible(true);
+  };
+
+  const closeBottomSheet = () => {
+    setBottomSheetVisible(false);
+  };
+
   return (
-    <ConnectionProvider
-      config={{commitment: 'processed'}}
-      endpoint={DEVNET_ENDPOINT}>
-      <AuthorizationProvider>
-        <NavigationContainer>
-          <GestureHandlerRootView style={{flex: 1}}>
-            <Tab.Navigator
-              screenOptions={{
-                tabBarShowLabel: false,
-                headerShown: false,
-                tabBarStyle: {
-                  position: 'absolute',
-                  bottom: 0,
-                  right: 0,
-                  left: 0,
-                  elevation: 0,
-                  height: 60,
-                  backgroundColor: '#191414',
-                },
-                tabBarActiveTintColor: 'yellow',
-              }}>
-              <Tab.Screen
-                name="Home"
-                component={HomeScreen}
-                options={{
-                  tabBarLabel: 'Home',
-                  tabBarIcon: ({color, size, focused}) => {
-                    return (
-                      <>
-                        <Fontisto
-                          name="home"
-                          size={size}
-                          color={focused ? 'white' : 'gray'}
-                        />
-                        <Text
-                          style={{fontFamily: 'VT323-Regular', fontSize: 16}}>
-                          Home
-                        </Text>
-                      </>
-                    );
+    <>
+      <BottomSheet visible={bottomSheetVisible} onClose={closeBottomSheet}>
+        <ScrollView nestedScrollEnabled={true}>
+          <View>
+            <MonoText style={{textDecorationLine: 'underline'}}>
+              CadeCard #132
+            </MonoText>
+          </View>
+          <View className="mt-2">
+            <Text style={{color: 'white', fontFamily: 'VT323-Regular', fontSize: 22}}>
+              Card Type : Premium
+            </Text>
+            <Text style={{color: 'white', fontFamily: 'VT323-Regular', fontSize: 22}}>
+              Cade Balance : 100
+            </Text>
+          </View>
+          <View
+            className="relative"
+            style={{
+              width: '100%',
+              height: 230,
+              backgroundColor: 'gray',
+              marginTop: 20,
+              borderRadius: 7,
+              borderColor: 'white',
+              borderWidth: 2,
+            }}>
+            <ImageBackground
+              style={{flex: 1}}
+              borderRadius={5}
+              source={background_image}>
+              <View className="absolute top-0 left-0 ml-5 mt-5">
+                <Image
+                  source={require('./assets/images/cadenew.png')}
+                  className="w-12 h-12 rounded-full border border-white"
+                />
+              </View>
+              <View className="absolute right-0 top-0 mr-5 mt-5">
+                <MonoTextSmall>44Su...5nqz</MonoTextSmall>
+              </View>
+              <View className="absolute bottom-0 left-0 ml-5 mb-5">
+                <MonoText style={{textDecorationLine: 'underline'}}>
+                  UserName
+                  <MonoText></MonoText>
+                </MonoText>
+              </View>
+            </ImageBackground>
+          </View>
+          <View className="items-center mt-5">
+            {/* <Link href={"/(tabs)/BuyCade"}> */}
+            <TouchableOpacity
+              className="border-2"
+              style={{
+                width: '90%',
+                height: 45,
+                borderRadius: 5,
+                justifyContent: 'center',
+                alignItems: 'center',
+                backgroundColor: 'white',
+                borderColor: 'red',
+              }}
+              onPress={() => closeBottomSheet()}>
+              <MonoTextSmall style={{color: 'black'}}>
+                Refil Cade{' '}
+                <MaterialCommunityIcons
+                  name="gas-station"
+                  size={24}
+                  color="black"
+                />
+              </MonoTextSmall>
+            </TouchableOpacity>
+            {/* </Link> */}
+          </View>
+          <View className="items-center mt-5">
+            <TouchableOpacity
+              className="border-2"
+              style={{
+                width: '90%',
+                height: 45,
+                borderRadius: 5,
+                justifyContent: 'center',
+                alignItems: 'center',
+                backgroundColor: 'white',
+                borderColor: 'red',
+              }}
+              onPress={() => closeBottomSheet()}>
+              <MonoTextSmall style={{color: 'black'}}>Close</MonoTextSmall>
+            </TouchableOpacity>
+          </View>
+        </ScrollView>
+      </BottomSheet>
+
+      <ConnectionProvider
+        config={{commitment: 'processed'}}
+        endpoint={DEVNET_ENDPOINT}>
+        <AuthorizationProvider>
+          <NavigationContainer>
+            <GestureHandlerRootView style={{flex: 1}}>
+              <Tab.Navigator
+                screenOptions={{
+                  tabBarShowLabel: false,
+                  headerShown: false,
+                  tabBarStyle: {
+                    position: 'absolute',
+                    bottom: 0,
+                    right: 0,
+                    left: 0,
+                    elevation: 0,
+                    height: 60,
+                    backgroundColor: '#191414',
                   },
-                }}
-              />
-              <Tab.Screen
-                name="Prize"
-                component={PrizeScreen}
-                options={{
-                  tabBarLabel: 'Prize',
-                  tabBarIcon: ({color, size, focused}) => {
-                    return (
-                      <>
-                        <AntDesign
-                          name="gift"
-                          size={size}
-                          color={focused ? 'white' : 'gray'}
-                        />
-                        <Text
-                          style={{fontFamily: 'VT323-Regular', fontSize: 16}}>
-                          Prizes
-                        </Text>
-                      </>
-                    );
-                  },
-                }}
-              />
-              <Tab.Screen
-                name="BuyCade"
-                component={BuyCadeScreen}
-                options={{
-                  tabBarLabel: 'BuyCade',
-                  tabBarIcon: ({color, size, focused}) => {
-                    return (
+                  tabBarActiveTintColor: 'yellow',
+                }}>
+                <Tab.Screen
+                  name="Home"
+                  component={HomeScreen}
+                  options={{
+                    tabBarLabel: 'Home',
+                    tabBarIcon: ({color, size, focused}) => {
+                      return (
+                        <>
+                          <FontAwesome6
+                            name="gamepad"
+                            size={size}
+                            color={focused ? 'white' : 'gray'}
+                          />
+                          <Text
+                            style={{fontFamily: 'VT323-Regular', fontSize: 16}}>
+                            Arcade
+                          </Text>
+                        </>
+                      );
+                    },
+                  }}
+                />
+                <Tab.Screen
+                  name="CadeCard"
+                  component={HomeScreen}
+                  options={{
+                    title: 'Card',
+                    tabBarIcon: ({color, size , focused}) => (
                       <>
                         <FontAwesome
-                          name="dollar"
-                          size={size}
+                          name="credit-card"
                           color={focused ? 'white' : 'gray'}
+                          size={size}
                         />
                         <Text
                           style={{fontFamily: 'VT323-Regular', fontSize: 16}}>
-                          BuyCade
+                          CadeCard
                         </Text>
                       </>
-                    );
-                  },
-                }}
-              />
-            </Tab.Navigator>
-          </GestureHandlerRootView>
-        </NavigationContainer>
-      </AuthorizationProvider>
-    </ConnectionProvider>
+                    ),
+                  }}
+                  listeners={() => ({
+                    tabPress: e => {
+                      e.preventDefault();
+                      console.log('Herers');
+                      openBottomSheet();
+                    },
+                  })}
+                />
+                <Tab.Screen
+                  name="Prize"
+                  component={PrizeScreen}
+                  options={{
+                    tabBarLabel: 'Prize',
+                    tabBarIcon: ({color, size, focused}) => {
+                      return (
+                        <>
+                          <AntDesign
+                            name="gift"
+                            size={size}
+                            color={focused ? 'white' : 'gray'}
+                          />
+                          <Text
+                            style={{fontFamily: 'VT323-Regular', fontSize: 16}}>
+                            Prizes
+                          </Text>
+                        </>
+                      );
+                    },
+                  }}
+                />
+                <Tab.Screen
+                  name="BuyCade"
+                  component={BuyCadeScreen}
+                  options={{
+                    tabBarLabel: 'BuyCade',
+                    tabBarIcon: ({color, size, focused}) => {
+                      return (
+                        <>
+                          <FontAwesome
+                            name="dollar"
+                            size={size}
+                            color={focused ? 'white' : 'gray'}
+                          />
+                          <Text
+                            style={{fontFamily: 'VT323-Regular', fontSize: 16}}>
+                            BuyCade
+                          </Text>
+                        </>
+                      );
+                    },
+                  }}
+                />
+              </Tab.Navigator>
+            </GestureHandlerRootView>
+          </NavigationContainer>
+        </AuthorizationProvider>
+      </ConnectionProvider>
+    </>
   );
 }
 

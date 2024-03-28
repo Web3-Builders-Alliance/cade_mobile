@@ -71,16 +71,7 @@ const PrizeGrid = () => {
                   Holder - 100
                 </Text>
               </View>
-              <View className="mt-3 ml-2">
-                <Text
-                  style={{
-                    color: 'white',
-                    fontFamily: 'VT323-Regular',
-                    fontSize: 25,
-                  }}>
-                  Holder - 100
-                </Text>
-              </View>
+              
               <View className="flex flex-col items-center mt-5">
                 <TouchableOpacity
                   className="border-2"
