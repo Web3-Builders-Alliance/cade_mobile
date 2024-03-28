@@ -11,7 +11,7 @@ const GameDescription = ({red, name, img,maker}) => {
         width: 'auto',
         borderColor: red ? '#EF4444' : '#EAB308',
       }}
-      className="flex justify-center items-center flex-row w-96 border-4 border-yellow-500 mb-3 rounded-lg">
+      className="flex justify-center items-center flex-row w-96 border border-yellow-500 mb-3 rounded-lg">
       <View className="flex flex-col w-2/5 -translate-y-2">
         <View className="h-3/4">
           <Image
@@ -27,11 +27,12 @@ const GameDescription = ({red, name, img,maker}) => {
         </View>
         <View className="h-1/4 items-center">
           <TouchableOpacity
-            className="border-2 border-white"
             style={{
               width: 100,
               height: 40,
-              borderRadius: 8,
+              borderRadius: 4,
+              borderColor:"white",
+              borderWidth : 2,
               justifyContent: 'center',
               alignItems: 'center',
               backgroundColor: 'white',

@@ -6,11 +6,9 @@ const DiscoverGames = () => {
   const Grid = () => {
     return (
       <>
-        <View style={{margin : 10 , columnGap : 4}} className="flex flex-row justify-center items-center mt-7">
+        <View  className="flex flex-row justify-center items-center mt-5 gap-x-4">
           <View>
             <Image
-            
-              className="border-2 border-white"
               source={require("../assets/images/tower.jpg")}
               style={{
                 height: 100,
@@ -18,15 +16,15 @@ const DiscoverGames = () => {
                 borderRadius: 5,
                 margin : 10,
                 borderColor : 'white',
-                borderWidth : 4
+                
               }}
             />
+            <View className="items-center">
             <MonoTextSmall>GameName</MonoTextSmall>
+            </View>
           </View>
           <View>
             <Image
-            
-              className="border-2 border-white"
               source={require("../assets/images/tile.jpg")}
               style={{
                 height: 100,
@@ -34,15 +32,15 @@ const DiscoverGames = () => {
                 borderRadius: 5,
                 margin : 10,
                 borderColor : 'white',
-                borderWidth : 4
+                
               }}
             />
+             <View className="items-center">
             <MonoTextSmall>GameName</MonoTextSmall>
+            </View>
           </View>
           <View>
             <Image
-            
-              className="border-2 border-white"
               source={require("../assets/images/molegame.jpeg")}
               style={{
                 height: 100,
@@ -50,18 +48,18 @@ const DiscoverGames = () => {
                 borderRadius: 5,
                 margin : 10,
                 borderColor : 'white',
-                borderWidth : 4
+                
               }}
             />
+             <View className="items-center">
             <MonoTextSmall>GameName</MonoTextSmall>
+            </View>
           </View>
         </View>
 
-        <View style={{margin : 10 , columnGap : 4}} className="flex flex-row justify-center items-center mt-7">
+        <View className="flex flex-row justify-center items-center mt-7 gap-x-4">
           <View>
             <Image
-            
-              className="border-2 border-white"
               source={require("../assets/images/sf.png")}
               style={{
                 height: 100,
@@ -69,15 +67,15 @@ const DiscoverGames = () => {
                 borderRadius: 5,
                 margin : 10,
                 borderColor : 'white',
-                borderWidth : 4
+                
               }}
             />
+             <View className="items-center">
             <MonoTextSmall>GameName</MonoTextSmall>
+            </View>
           </View>
           <View>
             <Image
-            
-              className="border-2 border-white"
               source={require("../assets/images/coinflip.jpg")}
               style={{
                 height: 100,
@@ -85,15 +83,14 @@ const DiscoverGames = () => {
                 borderRadius: 5,
                 margin : 10,
                 borderColor : 'white',
-                borderWidth : 4
               }}
             />
+             <View className="items-center">
             <MonoTextSmall>GameName</MonoTextSmall>
+            </View>
           </View>
           <View>
             <Image
-            
-              className="border-2 border-white"
               source={require("../assets/images/dice.jpg")}
               style={{
                 height: 100,
@@ -101,10 +98,12 @@ const DiscoverGames = () => {
                 borderRadius: 5,
                 margin : 10,
                 borderColor : 'white',
-                borderWidth : 4
+                
               }}
             />
+             <View className="items-center">
             <MonoTextSmall>GameName</MonoTextSmall>
+            </View>
           </View>
         </View>
       </>
