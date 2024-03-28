@@ -14,8 +14,35 @@ import PrizeGrid from './PrizesGrid';
 const {height, width} = Dimensions.get('window');
 import BottomSheet from '../components/BottomSheet';
 import ConnectButton from '../components/SMSComponents/ConnectButton';
+import {useConnection} from '../components/providers/ConnectionProvider';
+import {
+  Account,
+  useAuthorization,
+} from '../components/providers/AuthorizationProvider';
+import {useAnchorWallet} from '../hooks/useAnchorWallet';
+import CallPrizeClaim from '../components/CallInstruction/CallPrizeClaimIns';
+import {PublicKey} from '@solana/web3.js';
 
 export default function MachineSliderWithButtons({red}: {red: boolean}) {
+  const {connection} = useConnection();
+  const [publicKey, setPublickey] = useState<any>();
+  const {selectedAccount, authorizeSession} = useAuthorization();
+  const anchorWallet = useAnchorWallet(authorizeSession, selectedAccount);
+  const fetchAndUpdateBalance = useCallback(
+    async (account: Account) => {
+      console.log('Fetching balance for: ' + account.publicKey);
+      setPublickey(account.publicKey);
+    },
+    [connection],
+  );
+
+  useEffect(() => {
+    if (!selectedAccount) {
+      return;
+    }
+    fetchAndUpdateBalance(selectedAccount);
+  }, [fetchAndUpdateBalance, selectedAccount]);
+
   const DripCollectionData = [
     {
       name: 'havea Stamp',
@@ -171,19 +198,30 @@ export default function MachineSliderWithButtons({red}: {red: boolean}) {
                 </Text>
               </View>
               <View className="flex flex-col items-center mt-5">
-                <TouchableOpacity
-                  className="border-2"
-                  style={{
-                    width: '90%',
-                    height: 45,
-                    borderRadius: 5,
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    backgroundColor: 'white',
-                    borderColor: red ? '#EF4444' : '#EAB308',
-                  }}>
-                  <MonoTextSmall style={{color: 'black'}}>Redeem</MonoTextSmall>
-                </TouchableOpacity>
+                <View style={{width: '90%'}}>
+                  {publicKey ? (
+                    <>
+                      <CallPrizeClaim
+                        anchorWallet={anchorWallet}
+                        onComplete={() => console.log('DONE')}
+                        config={
+                          new PublicKey(
+                            '9RA5sBfFVrEXn7PYccNLhuB2k8fBFKy6CX5jjNZH92XT',
+                          )
+                        }
+                        mint={
+                          new PublicKey(
+                            'BjwKL4x9TjoBgzkgBW14bzn1ocu7HX8up63qXG9AFWE9',
+                          )
+                        }
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <ConnectButton title="Connect Wallet" />
+                    </>
+                  )}
+                </View>
                 <TouchableOpacity
                   className="border-2 mt-5"
                   style={{
@@ -193,7 +231,7 @@ export default function MachineSliderWithButtons({red}: {red: boolean}) {
                     justifyContent: 'center',
                     alignItems: 'center',
                     backgroundColor: 'white',
-                    borderColor: red ? '#EF4444' : '#EAB308',
+                    borderColor: 'red',
                   }}
                   onPress={closeBottomSheet}>
                   <MonoTextSmall style={{color: 'black'}}>Cancel</MonoTextSmall>

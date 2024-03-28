@@ -1,4 +1,4 @@
-import {View, Text, ScrollView, Alert, Button} from 'react-native';
+import {View, Text, ScrollView, Alert, Button, TouchableOpacity} from 'react-native';
 import React, {useCallback, useEffect, useState} from 'react';
 import {Program} from '@coral-xyz/anchor';
 import {
@@ -18,7 +18,6 @@ import {useCadeEconomy} from '../../hooks/useeconomy';
 import {Newamm} from '../../constants/economy/economy';
 import {ASSOCIATED_PROGRAM_ID} from '@coral-xyz/anchor/dist/cjs/utils/token';
 import {MonoTextSmall} from '../StylesText';
-import {TouchableOpacity} from 'react-native-gesture-handler';
 
 type PropsForUsingEconomy = Readonly<{
   onComplete: () => void;
