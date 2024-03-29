@@ -13,7 +13,7 @@ const BuyCadeScreen = () => {
         className="min-h-screen "
       >
         <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-          <View className="container px-4 md:px-6 mb-16">
+          <View className="container px-4 md:px-6 mb-32">
             <View>
               <LeftCeiling blue={false} msg={"Buy Cade"} />
               <View className="relative mt-36">

@@ -46,7 +46,6 @@ import {MonoText, MonoTextSmall} from './components/StylesText';
 import LeaderBoard from './screens/LeaderBoard';
 import {createStackNavigator} from '@react-navigation/stack';
 import ParticularGameScreen from './screens/ParticularGameScreen';
-import HeaderBackButton from '@react-navigation/stack';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -225,14 +224,6 @@ function App(): React.JSX.Element {
                 />
                 <Stack.Screen
                   options={{
-                    // headerLeft: props => (
-                    //   <HeaderBackButton
-                    //     {...props}
-                    //     onPress={() => {
-                    //       console.log('AHHHHHHHH');
-                    //     }}
-                    //   />
-                    // ),
                     headerShown: true,
                     headerTintColor: 'white',
                     headerStyle: {
@@ -292,6 +283,11 @@ function App(): React.JSX.Element {
           name="Prize"
           component={PrizeScreen}
           options={{
+            headerShown: true,
+            headerTintColor: 'white',
+            headerStyle: {
+              backgroundColor: '#191414',
+            },
             tabBarLabel: 'Prize',
             tabBarIcon: ({color, size, focused}) => {
               return (
@@ -339,6 +335,11 @@ function App(): React.JSX.Element {
           name="BuyCade"
           component={BuyCadeScreen}
           options={{
+            headerShown: true,
+            headerTintColor: 'white',
+            headerStyle: {
+              backgroundColor: '#191414',
+            },
             tabBarLabel: 'BuyCade',
             tabBarIcon: ({color, size, focused}) => {
               return (

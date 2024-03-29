@@ -188,22 +188,7 @@ export default function CallPayForGame({
               </TouchableOpacity>
             </View>
 
-            <View className="flex flex-col items-center mt-5">
-              <TouchableOpacity
-                className="border-2 mt-5"
-                style={{
-                  width: '90%',
-                  height: 45,
-                  borderRadius: 5,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  backgroundColor: 'white',
-                  borderColor: 'red',
-                }}
-                onPress={closeBottomSheet}>
-                <MonoTextSmall style={{color: 'black'}}>OK</MonoTextSmall>
-              </TouchableOpacity>
-            </View>
+            
           </View>
         </ScrollView>
       </BottomSheet>

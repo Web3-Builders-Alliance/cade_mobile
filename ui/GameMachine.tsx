@@ -126,7 +126,9 @@ export default function GameMachine({red}: {red: boolean}) {
             </>
           ):(
             <>
+            <View className='mt-2'>
             <ConnectButton title='Connect Wallet' />
+            </View>
             </>
           )}
           
