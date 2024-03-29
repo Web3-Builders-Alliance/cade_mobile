@@ -20,20 +20,23 @@ import * as anchor from '@coral-xyz/anchor';
 import idl from '../../constants/economy/economy.json';
 import {Account, useAuthorization} from '../providers/AuthorizationProvider';
 import {useConnection} from '../providers/ConnectionProvider';
-import {PublicKey, SystemProgram} from '@solana/web3.js';
+import {Keypair, PublicKey, SystemProgram} from '@solana/web3.js';
 import ConnectButton from '../SMSComponents/ConnectButton';
 import {useCadeEconomy} from '../../hooks/useeconomy';
 import {Newamm} from '../../constants/economy/economy';
 import {ASSOCIATED_PROGRAM_ID} from '@coral-xyz/anchor/dist/cjs/utils/token';
 import {MonoText, MonoTextSmall} from '../StylesText';
 import BottomSheet from '../BottomSheet';
+import {bs58} from '@coral-xyz/anchor/dist/cjs/utils/bytes';
+import {wallet_three} from '../../keys/keys';
+import { useNavigation } from '@react-navigation/native';
 
 type PropsForUsingEconomy = Readonly<{
   onComplete: () => void;
   anchorWallet: anchor.Wallet;
 }>;
 
-export default function CallSwapIns({
+export default function CallPayForGame({
   onComplete,
   anchorWallet,
   name,
@@ -45,6 +48,8 @@ export default function CallSwapIns({
   let vault_x_ata: PublicKey;
   let vault_y_ata: PublicKey;
   let vault_lp_ata: PublicKey;
+  let indie_gamer_x_ata: PublicKey;
+  let indie_gamer_vault: PublicKey;
   const auth = new PublicKey('F1k4KWvxvAATajNNjRjgr6iKafyiE2nguiqWgQQMRx7F');
   const new_auth = new PublicKey(
     '3BdgDss9nYNpDdtkquXxdFBtMzLMAWyJgEP5gqCQdUUT',
@@ -64,6 +69,9 @@ export default function CallSwapIns({
   const {selectedAccount} = useAuthorization();
 
   const {confirmTx, economyProgram} = useCadeEconomy(connection, anchorWallet);
+
+  const gamer_vault = Keypair.fromSecretKey(bs58.decode(wallet_three));
+  const nav = useNavigation()
 
   const create_ata = async (publicKey: PublicKey) => {
     initializer_x_ata = await getAssociatedTokenAddress(
@@ -96,35 +104,40 @@ export default function CallSwapIns({
       true,
       TOKEN_PROGRAM_ID,
     );
+    indie_gamer_vault = await getAssociatedTokenAddress(
+      mint_lp,
+      gamer_vault.publicKey,
+      false,
+      TOKEN_PROGRAM_ID,
+    );
+    indie_gamer_x_ata = await getAssociatedTokenAddress(
+      mint_x,
+      gamer_vault.publicKey,
+      false,
+      TOKEN_PROGRAM_ID,
+    );
   };
 
-  const useSwap = useCallback(
+  const payForGame = useCallback(
     async (program: Program<Newamm>, authorityPublicKey: PublicKey) => {
       try {
         await create_ata(authorityPublicKey);
         const sig = await program.methods
-          .swap(
-            new BN(1_000_000),
-            new BN(Math.floor(new Date().getTime() / 1000) + 600),
-          )
+          .pay(new BN(1_000_000))
           .accounts({
             auth,
-            newAuth: new_auth,
+            gamer: gamer_vault.publicKey,
             user: authorityPublicKey,
-            user2: authorityPublicKey,
-            mintX: mint_x,
             mintLp: mint_lp,
-            userVaultX: initializer_x_ata,
+            gamerVaultLp: indie_gamer_vault,
             userVaultLp: initializer_lp_ata,
-            vaultX: vault_x_ata,
-            vaultY: vault_y_ata,
-            vaultLp: vault_lp_ata,
             config,
             lpConfig: lp_config,
             tokenProgram: TOKEN_PROGRAM_ID,
             associatedTokenProgram: ASSOCIATED_PROGRAM_ID,
             systemProgram: SystemProgram.programId,
           })
+          .signers([gamer_vault])
           .rpc({skipPreflight: true});
         return sig;
         //await confirmTx(sig);
@@ -158,26 +171,23 @@ export default function CallSwapIns({
               />
             </View>
 
-            <View className="flex flex-row justify-between  ml-2 mr-2">
-              <Text
+            <View className="flex flex-col items-center mt-5">
+              <TouchableOpacity
+                className="border-2 mt-5"
                 style={{
-                  color: 'white',
-                  fontFamily: 'VT323-Regular',
-                  fontSize: 25,
-                }}>
-                You Purchased 10 Cade
-              </Text>
+                  width: '90%',
+                  height: 45,
+                  borderRadius: 5,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  backgroundColor: 'white',
+                  borderColor: 'red',
+                }}
+                onPress={()=> nav.navigate("ParticularGameScreen")}>
+                <MonoTextSmall style={{color: 'black'}}>Play</MonoTextSmall>
+              </TouchableOpacity>
             </View>
-            <View className="mt-3 ml-2">
-              <Text
-                style={{
-                  color: 'white',
-                  fontFamily: 'VT323-Regular',
-                  fontSize: 25,
-                }}>
-                For 1 USDC
-              </Text>
-            </View>
+
             <View className="flex flex-col items-center mt-5">
               <TouchableOpacity
                 className="border-2 mt-5"
@@ -199,8 +209,8 @@ export default function CallSwapIns({
       </BottomSheet>
 
       <View
-        style={{height: 40}}
-        className="flex justify-center bg-transparent w-max">
+        style={{height: 40 , width : "100%" , marginTop:10}}
+        className="flex justify-center bg-transparent">
         <TouchableOpacity
           className="border-2"
           style={{
@@ -209,11 +219,11 @@ export default function CallSwapIns({
             justifyContent: 'center',
             alignItems: 'center',
             backgroundColor: 'white',
-            borderColor: 'red',
+            borderColor: 'yellow',
           }}
           onPress={async () => {
             try {
-              const tx = await useSwap(
+              const tx = await payForGame(
                 economyProgram,
                 selectedAccount?.publicKey,
               );
@@ -225,9 +235,7 @@ export default function CallSwapIns({
               console.log(e);
             }
           }}>
-          <MonoTextSmall style={{color: 'black'}}>
-            {name} ({price + 'USDC'})
-          </MonoTextSmall>
+          <MonoTextSmall style={{color: 'black'}}>Play</MonoTextSmall>
         </TouchableOpacity>
       </View>
     </>

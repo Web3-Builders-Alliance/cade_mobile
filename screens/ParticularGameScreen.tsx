@@ -27,7 +27,7 @@ const ParticularGameScreen = () => {
   const changeScreenOr = () => {
     Orientation.lockToLandscape();
   };
-  
+
   const [play, setPlay] = useState(false);
 
   const playNow = () => {
@@ -58,7 +58,9 @@ const ParticularGameScreen = () => {
         </>
       ) : (
         <>
-          <Button onPress={() => playNow()} title="Play" />
+          <View style={{backgroundColor:"#191414"}} className='min-h-screen flex justify-center text-black p-10'>
+            <Button color={"gray"} onPress={() => playNow()} title="Play Now"/>
+          </View>
         </>
       )}
     </>

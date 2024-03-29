@@ -5,7 +5,7 @@ import {
   Image,
   ImageBackground,
 } from 'react-native';
-import React, {useCallback, useMemo, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import GameLightBoard from '../components/GameLightBoard';
 import {MonoText, MonoTextSmall} from '../components/StylesText';
 import GameDescription from '../components/GameDescription';
@@ -15,12 +15,37 @@ import BottomSheet from '@gorhom/bottom-sheet';
 import CadeCardMachine from '../components/CadeCardMachine';
 // import ConnectButton from "../Utils/ConnectButton";
 // import {useMobileWallet} from '../Utils/useMobileWallet'
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
+import {
+  Account,
+  useAuthorization,
+} from '../components/providers/AuthorizationProvider';
+import {useAnchorWallet} from '../hooks/useAnchorWallet';
+import {useConnection} from '../components/providers/ConnectionProvider';
+import CallPayForGame from '../components/CallInstruction/CallPayForGame';
+import ConnectButton from '../components/SMSComponents/ConnectButton';
 const {height, width} = Dimensions.get('window');
 
 export default function GameMachine({red}: {red: boolean}) {
-  //const {connect}  = useMobileWallet()
-  const nav = useNavigation()
+  const nav = useNavigation();
+  const {connection} = useConnection();
+  const [publicKey, setPublickey] = useState<any>();
+  const {selectedAccount, authorizeSession} = useAuthorization();
+  const anchorWallet = useAnchorWallet(authorizeSession, selectedAccount);
+  const fetchAndUpdateBalance = useCallback(
+    async (account: Account) => {
+      console.log('Fetching balance for: ' + account.publicKey);
+      setPublickey(account.publicKey);
+    },
+    [connection],
+  );
+
+  useEffect(() => {
+    if (!selectedAccount) {
+      return;
+    }
+    fetchAndUpdateBalance(selectedAccount);
+  }, [fetchAndUpdateBalance, selectedAccount]);
   const background_image = require('../assets/images/brickwall.jpg');
   const [showBackDrop, setShowBackDrop] = useState(false);
   const snapPoints = useMemo(() => ['25%', '80%', '70%'], []);
@@ -91,31 +116,27 @@ export default function GameMachine({red}: {red: boolean}) {
             </View>
           </ImageBackground>
         </View>
-        <View>
-          <TouchableOpacity
-            className="border-2"
-            style={{
-              width: 350,
-              height: 45,
-              borderRadius: 5,
-              justifyContent: 'center',
-              alignItems: 'center',
-              backgroundColor: 'white',
-              borderColor: red ? '#EF4444' : '#EAB308',
-              marginTop: 20,
-            }}
-            onPress={() => nav.navigate("ParticularGameScreen")}
-            // onPress={() => connect()}
-          >
-            <MonoTextSmall style={{color: 'black'}}>Play</MonoTextSmall>
-          </TouchableOpacity>
+        <View className='w-full'>
+          {publicKey ? (
+            <>
+            <CallPayForGame
+            anchorWallet={anchorWallet}
+            onComplete={() => console.log('DONE')}
+          />
+            </>
+          ):(
+            <>
+            <ConnectButton title='Connect Wallet' />
+            </>
+          )}
+          
         </View>
         <View className="mt-5">
           <GameDescription
             red={false}
             name={'Tower Defence'}
             img={require('../assets/images/tower.jpg')}
-            maker={"@marchedev"}
+            maker={'@marchedev'}
           />
         </View>
         <View className="mt-5">
