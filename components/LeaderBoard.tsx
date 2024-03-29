@@ -7,7 +7,7 @@ const LeaderBoard = ({ red }: { red: boolean }) => {
     <View
       style={{
         backgroundColor: "#0F172A",
-        height: 190,
+        height: 200,
         width: "auto",
         marginTop : 15,
         borderColor: red ? "#EF4444" : "#EAB308",

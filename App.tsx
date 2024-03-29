@@ -181,7 +181,6 @@ function App(): React.JSX.Element {
               <Stack.Navigator
                 screenOptions={{
                   headerShown: false,
-                 
                 }}>
                 <Stack.Screen
                   options={{
@@ -193,10 +192,10 @@ function App(): React.JSX.Element {
                 <Stack.Screen
                   options={{
                     headerShown: true,
-                    headerTintColor : "white",
-                    headerStyle : {
-                      backgroundColor : '#191414'
-                    }
+                    headerTintColor: 'white',
+                    headerStyle: {
+                      backgroundColor: '#191414',
+                    },
                   }}
                   name="GameScreen"
                   component={GameScreen}
@@ -204,6 +203,10 @@ function App(): React.JSX.Element {
                 <Stack.Screen
                   options={{
                     headerShown: true,
+                    headerTintColor: 'white',
+                    headerStyle: {
+                      backgroundColor: '#191414',
+                    },
                   }}
                   name="ParticularGameScreen"
                   component={ParticularGameScreen}

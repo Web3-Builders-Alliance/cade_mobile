@@ -50,19 +50,6 @@ export default function GameMachine({red}: {red: boolean}) {
 
   return (
     <>
-      <BottomSheet
-        ref={bottomSheetRef}
-        enablePanDownToClose={true}
-        backdropComponent={renderBackdrop}
-        handleIndicatorStyle={{backgroundColor: 'white'}}
-        backgroundStyle={{backgroundColor: '#191414'}}
-        index={-1}
-        snapPoints={snapPoints}>
-        <View className="flex justify-center items-center">
-          <CadeCardMachine closeButton={handleClosePress} />
-        </View>
-      </BottomSheet>
-
       <View
         style={{
           flex: 1,
@@ -83,12 +70,12 @@ export default function GameMachine({red}: {red: boolean}) {
             style={{flex: 1}}
             borderRadius={5}
             source={background_image}>
-            <View className="flex justify-center items-center">
+            <View className="flex justify-center items-center mr-2">
               <GameLightBoard />
             </View>
             <View
               style={{
-                width: width - 30,
+                width: width - 10,
                 height: height / 2 - 50,
                 justifyContent: 'center',
                 alignItems: 'center',
@@ -126,8 +113,9 @@ export default function GameMachine({red}: {red: boolean}) {
         <View className="mt-5">
           <GameDescription
             red={false}
-            name={'gameName'}
-            img={require('../assets/images/ca33.png')}
+            name={'Tower Defence'}
+            img={require('../assets/images/tower.jpg')}
+            maker={"@marchedev"}
           />
         </View>
         <View className="mt-5">

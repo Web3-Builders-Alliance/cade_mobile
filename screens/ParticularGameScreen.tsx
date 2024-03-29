@@ -10,6 +10,7 @@ const ParticularGameScreen = () => {
           zIndex: -1,
           height: Dimensions.get('window').height,
           width: Dimensions.get('window').width,
+          backgroundColor : '#191414'
         }}>
         <WebView
           source={{
