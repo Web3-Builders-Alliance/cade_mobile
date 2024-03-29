@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import type {PropsWithChildren} from 'react';
 import {
   Image,
@@ -11,6 +11,9 @@ import {
   TouchableOpacity,
   useColorScheme,
   View,
+  Button,
+  Alert,
+  BackHandler,
 } from 'react-native';
 
 import {
@@ -28,14 +31,12 @@ import BuyCadeScreen from './screens/BuyCadeScreen';
 import GameScreen from './screens/GameScreen';
 import {NavigationContainer} from '@react-navigation/native';
 import {ApplicationProvider, Layout} from '@ui-kitten/components';
-import {Button, Icon} from '@ui-kitten/components';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-
 import LoginScreen from './screens/LoginScreen';
 import {clusterApiUrl} from '@solana/web3.js';
 import {ConnectionProvider} from './components/providers/ConnectionProvider';
@@ -45,6 +46,7 @@ import {MonoText, MonoTextSmall} from './components/StylesText';
 import LeaderBoard from './screens/LeaderBoard';
 import {createStackNavigator} from '@react-navigation/stack';
 import ParticularGameScreen from './screens/ParticularGameScreen';
+import HeaderBackButton from '@react-navigation/stack';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -68,6 +70,27 @@ function App(): React.JSX.Element {
   const closeBottomSheet = () => {
     setBottomSheetVisible(false);
   };
+
+  useEffect(() => {
+    const backAction = () => {
+      Alert.alert('Hold on!', 'Are you sure you want to go back?', [
+        {
+          text: 'Cancel',
+          onPress: () => null,
+          style: 'cancel',
+        },
+        {text: 'YES', onPress: () => BackHandler.exitApp()},
+      ]);
+      return true;
+    };
+
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      backAction,
+    );
+
+    return () => backHandler.remove();
+  }, []);
 
   return (
     <>
@@ -202,6 +225,14 @@ function App(): React.JSX.Element {
                 />
                 <Stack.Screen
                   options={{
+                    // headerLeft: props => (
+                    //   <HeaderBackButton
+                    //     {...props}
+                    //     onPress={() => {
+                    //       console.log('AHHHHHHHH');
+                    //     }}
+                    //   />
+                    // ),
                     headerShown: true,
                     headerTintColor: 'white',
                     headerStyle: {
