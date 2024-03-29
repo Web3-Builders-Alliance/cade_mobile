@@ -1,4 +1,12 @@
-import {View, Text, ScrollView, Alert, Button, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  ScrollView,
+  Alert,
+  Button,
+  TouchableOpacity,
+  Image,
+} from 'react-native';
 import React, {useCallback, useEffect, useState} from 'react';
 import {Program} from '@coral-xyz/anchor';
 import {
@@ -16,8 +24,9 @@ import ConnectButton from '../SMSComponents/ConnectButton';
 import {usePrizeManager} from '../../hooks/usePrizeManager';
 import {Prizemanager} from '../../constants/prize/prize';
 import {ASSOCIATED_PROGRAM_ID} from '@coral-xyz/anchor/dist/cjs/utils/token';
-import {MonoTextSmall} from '../StylesText';
+import {MonoText, MonoTextSmall} from '../StylesText';
 import {publicKey} from '@coral-xyz/anchor/dist/cjs/utils';
+import BottomSheet from '../BottomSheet';
 
 type PropsForPrizeManager = Readonly<{
   onComplete: () => void;
@@ -32,6 +41,7 @@ export default function CallPrizeClaim({
   config,
   mint,
 }: PropsForPrizeManager) {
+  const [bottomSheetVisible, setBottomSheetVisible] = useState(false);
   const {connection} = useConnection();
   const {selectedAccount} = useAuthorization();
   const {confirmTx, prizerProgram} = usePrizeManager(connection, anchorWallet);
@@ -72,7 +82,7 @@ export default function CallPrizeClaim({
               systemProgram: SystemProgram.programId,
             })
             .rpc({skipPreflight: true});
-          await confirmTx(sig);
+          return sig;
         } catch (e) {
           console.log(e);
         }
@@ -80,11 +90,60 @@ export default function CallPrizeClaim({
     },
     [],
   );
+
+  const openBottomSheet = () => {
+    setBottomSheetVisible(true);
+  };
+
+  const closeBottomSheet = () => {
+    setBottomSheetVisible(false);
+  };
   return (
     <>
-      <View
-        style={{height: 40}}
-        className="flex justify-center bg-transparent">
+      <BottomSheet visible={bottomSheetVisible} onClose={closeBottomSheet}>
+        <ScrollView nestedScrollEnabled={true}>
+          <View>
+            <View>
+              <MonoText>Congratulations 🎉</MonoText>
+            </View>
+            <View className="flex justify-center items-center bg-red-1d00">
+              <Image
+                source={require('../../assets/images/treasure.png')}
+                style={{width: 200, height: 200}}
+              />
+            </View>
+
+            <View className="flex flex-row justify-between  ml-2 mr-2">
+              <Text
+                style={{
+                  color: 'white',
+                  fontFamily: 'VT323-Regular',
+                  fontSize: 25,
+                }}>
+                You Calimed Your Prize Sucessfully
+              </Text>
+            </View>
+            <View className="flex flex-col items-center mt-5">
+              <TouchableOpacity
+                className="border-2 mt-5"
+                style={{
+                  width: '90%',
+                  height: 45,
+                  borderRadius: 5,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  backgroundColor: 'white',
+                  borderColor: 'red',
+                }}
+                onPress={closeBottomSheet}>
+                <MonoTextSmall style={{color: 'black'}}>OK</MonoTextSmall>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </ScrollView>
+      </BottomSheet>
+
+      <View style={{height: 40}} className="flex justify-center bg-transparent">
         <TouchableOpacity
           className="border-2"
           style={{
@@ -97,10 +156,14 @@ export default function CallPrizeClaim({
           }}
           onPress={async () => {
             try {
-              const signature = await claim_prize(
+              const tx = await claim_prize(
                 prizerProgram,
                 selectedAccount?.publicKey,
               );
+              if (tx) {
+                console.log(tx);
+                openBottomSheet();
+              }
             } catch (e) {
               console.log(e);
             }

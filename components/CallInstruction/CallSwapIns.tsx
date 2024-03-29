@@ -1,4 +1,12 @@
-import {View, Text, ScrollView, Alert, Button, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  ScrollView,
+  Alert,
+  Button,
+  TouchableOpacity,
+  Image,
+} from 'react-native';
 import React, {useCallback, useEffect, useState} from 'react';
 import {Program} from '@coral-xyz/anchor';
 import {
@@ -17,7 +25,8 @@ import ConnectButton from '../SMSComponents/ConnectButton';
 import {useCadeEconomy} from '../../hooks/useeconomy';
 import {Newamm} from '../../constants/economy/economy';
 import {ASSOCIATED_PROGRAM_ID} from '@coral-xyz/anchor/dist/cjs/utils/token';
-import {MonoTextSmall} from '../StylesText';
+import {MonoText, MonoTextSmall} from '../StylesText';
+import BottomSheet from '../BottomSheet';
 
 type PropsForUsingEconomy = Readonly<{
   onComplete: () => void;
@@ -30,6 +39,7 @@ export default function CallSwapIns({
   name,
   price,
 }: PropsForUsingEconomy) {
+  const [bottomSheetVisible, setBottomSheetVisible] = useState(false);
   let initializer_x_ata: PublicKey;
   let initializer_lp_ata: PublicKey;
   let vault_x_ata: PublicKey;
@@ -116,8 +126,8 @@ export default function CallSwapIns({
             systemProgram: SystemProgram.programId,
           })
           .rpc({skipPreflight: true});
-        await confirmTx(sig);
-        await console.log(sig.toString());
+        return sig;
+        //await confirmTx(sig);
       } catch (error) {
         console.log(error);
       }
@@ -125,8 +135,69 @@ export default function CallSwapIns({
     [],
   );
 
+  const openBottomSheet = () => {
+    setBottomSheetVisible(true);
+  };
+
+  const closeBottomSheet = () => {
+    setBottomSheetVisible(false);
+  };
+
   return (
     <>
+      <BottomSheet visible={bottomSheetVisible} onClose={closeBottomSheet}>
+        <ScrollView nestedScrollEnabled={true}>
+          <View>
+            <View>
+              <MonoText>Awsome 🎉</MonoText>
+            </View>
+            <View className="flex justify-center items-center bg-red-1d00">
+              <Image
+                source={require('../../assets/images/cadenew.png')}
+                style={{width: 200, height: 200}}
+              />
+            </View>
+
+            <View className="flex flex-row justify-between  ml-2 mr-2">
+              <Text
+                style={{
+                  color: 'white',
+                  fontFamily: 'VT323-Regular',
+                  fontSize: 25,
+                }}>
+                You Purchased 10 Cade
+              </Text>
+            </View>
+            <View className="mt-3 ml-2">
+              <Text
+                style={{
+                  color: 'white',
+                  fontFamily: 'VT323-Regular',
+                  fontSize: 25,
+                }}>
+                For 1 USDC
+              </Text>
+            </View>
+            <View className="flex flex-col items-center mt-5">
+              <TouchableOpacity
+                className="border-2 mt-5"
+                style={{
+                  width: '90%',
+                  height: 45,
+                  borderRadius: 5,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  backgroundColor: 'white',
+                  borderColor: 'red',
+                }}
+                onPress={closeBottomSheet}>
+                <MonoTextSmall style={{color: 'black'}}>OK</MonoTextSmall>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </ScrollView>
+      </BottomSheet>
+
       <View
         style={{height: 40}}
         className="flex justify-center bg-transparent w-max">
@@ -142,10 +213,14 @@ export default function CallSwapIns({
           }}
           onPress={async () => {
             try {
-              const signature = await useSwap(
+              const tx = await useSwap(
                 economyProgram,
                 selectedAccount?.publicKey,
               );
+              if (tx) {
+                console.log('DOne');
+                openBottomSheet();
+              }
             } catch (e) {
               console.log(e);
             }
