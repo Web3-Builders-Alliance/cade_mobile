@@ -219,6 +219,10 @@ function App(): React.JSX.Element {
                     headerStyle: {
                       backgroundColor: '#191414',
                     },
+                    headerTitleStyle: {
+                      fontFamily: 'VT323-Regular',
+                      fontSize: 28,
+                    },
                   }}
                   name="GameScreen"
                   component={GameScreen}
@@ -229,6 +233,10 @@ function App(): React.JSX.Element {
                     headerTintColor: 'white',
                     headerStyle: {
                       backgroundColor: '#191414',
+                    },
+                    headerTitleStyle: {
+                      fontFamily: 'VT323-Regular',
+                      fontSize: 28,
                     },
                   }}
                   name="ParticularGameScreen"
@@ -289,6 +297,10 @@ function App(): React.JSX.Element {
             headerStyle: {
               backgroundColor: '#191414',
             },
+            headerTitleStyle: {
+              fontFamily: 'VT323-Regular',
+              fontSize: 28,
+            },
             tabBarLabel: 'Prize',
             tabBarIcon: ({color, size, focused}) => {
               return (
@@ -341,6 +353,10 @@ function App(): React.JSX.Element {
             headerStyle: {
               backgroundColor: '#191414',
             },
+            headerTitleStyle: {
+              fontFamily: 'VT323-Regular',
+              fontSize: 28,
+            },
             tabBarLabel: 'BuyCade',
             tabBarIcon: ({color, size, focused}) => {
               return (
@@ -359,7 +375,7 @@ function App(): React.JSX.Element {
           }}
         />
         <Tab.Screen
-          name="Leaderboard"
+          name="RedeemCade"
           component={RedeemCade}
           options={{
             headerShown: true,
@@ -367,7 +383,10 @@ function App(): React.JSX.Element {
             headerStyle: {
               backgroundColor: '#191414',
             },
-            tabBarLabel: 'LeaderBoard',
+            headerTitleStyle: {
+              fontFamily: 'VT323-Regular',
+              fontSize: 28,
+            },
             tabBarIcon: ({color, size, focused}) => {
               return (
                 <>
