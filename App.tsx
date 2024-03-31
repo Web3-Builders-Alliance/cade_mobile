@@ -37,13 +37,14 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import LoginScreen from './screens/LoginScreen';
 import {clusterApiUrl} from '@solana/web3.js';
 import {ConnectionProvider} from './components/providers/ConnectionProvider';
 import {AuthorizationProvider} from './components/providers/AuthorizationProvider';
 import BottomSheet from './components/BottomSheet';
 import {MonoText, MonoTextSmall} from './components/StylesText';
-import LeaderBoard from './screens/LeaderBoard';
+import RedeemCade from './screens/RedeemCade';
 import {createStackNavigator} from '@react-navigation/stack';
 import ParticularGameScreen from './screens/ParticularGameScreen';
 
@@ -359,7 +360,7 @@ function App(): React.JSX.Element {
         />
         <Tab.Screen
           name="Leaderboard"
-          component={LeaderBoard}
+          component={RedeemCade}
           options={{
             headerShown: true,
             headerTintColor: 'white',
@@ -370,13 +371,13 @@ function App(): React.JSX.Element {
             tabBarIcon: ({color, size, focused}) => {
               return (
                 <>
-                  <MaterialCommunityIcons
-                    name="podium"
+                  <MaterialIcons
+                    name="redeem"
                     size={size}
                     color={focused ? 'white' : 'gray'}
                   />
                   <Text style={{fontFamily: 'VT323-Regular', fontSize: 16}}>
-                    LeadetBoard
+                    RedeemCade
                   </Text>
                 </>
               );

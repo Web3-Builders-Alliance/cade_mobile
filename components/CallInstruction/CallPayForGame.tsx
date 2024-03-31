@@ -194,12 +194,12 @@ export default function CallPayForGame({
       </BottomSheet>
 
       <View
-        style={{height: 40 , width : "100%" , marginTop:10}}
+        style={{height: 40 , width : "100%" , marginTop:16}}
         className="flex justify-center bg-transparent">
         <TouchableOpacity
           className="border-2"
           style={{
-            height: 40,
+            height: 50,
             borderRadius: 5,
             justifyContent: 'center',
             alignItems: 'center',

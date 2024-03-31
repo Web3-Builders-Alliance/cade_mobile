@@ -11,7 +11,7 @@ import {
 } from '../components/providers/AuthorizationProvider';
 import ConnectButton from '../components/SMSComponents/ConnectButton';
 
-const LeaderBoard = () => {
+const RedeemCade = () => {
   //
   const {connection} = useConnection();
   const [publicKey, setPublickey] = useState<any>();
@@ -175,4 +175,4 @@ const LeaderBoard = () => {
   );
 };
 
-export default LeaderBoard;
+export default RedeemCade;

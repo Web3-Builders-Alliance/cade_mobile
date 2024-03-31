@@ -113,7 +113,7 @@ const BuyCadeGrid = ({showNext, showPrev, currentItem}) => {
               <TouchableOpacity
                 className="border-2"
                 style={{
-                  height: 40,
+                  height: 50,
                   width: '80%',
                   borderRadius: 5,
                   justifyContent: 'center',
@@ -143,7 +143,7 @@ const BuyCadeGrid = ({showNext, showPrev, currentItem}) => {
               <TouchableOpacity
                 className="border-2"
                 style={{
-                  height: 40,
+                  height: 50,
                   width: '80%',
                   borderRadius: 5,
                   justifyContent: 'center',

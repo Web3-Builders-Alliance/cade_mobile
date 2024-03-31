@@ -95,7 +95,7 @@ export default function GameMachine({red}: {red: boolean}) {
             style={{flex: 1}}
             borderRadius={5}
             source={background_image}>
-            <View className="flex justify-center items-center mr-2">
+            <View className="flex justify-center items-center mr-4">
               <GameLightBoard />
             </View>
             <View
