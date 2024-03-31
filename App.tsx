@@ -361,6 +361,11 @@ function App(): React.JSX.Element {
           name="Leaderboard"
           component={LeaderBoard}
           options={{
+            headerShown: true,
+            headerTintColor: 'white',
+            headerStyle: {
+              backgroundColor: '#191414',
+            },
             tabBarLabel: 'LeaderBoard',
             tabBarIcon: ({color, size, focused}) => {
               return (

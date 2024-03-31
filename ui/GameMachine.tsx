@@ -116,22 +116,21 @@ export default function GameMachine({red}: {red: boolean}) {
             </View>
           </ImageBackground>
         </View>
-        <View className='w-full'>
+        <View className="w-full">
           {publicKey ? (
             <>
-            <CallPayForGame
-            anchorWallet={anchorWallet}
-            onComplete={() => console.log('DONE')}
-          />
+              <CallPayForGame
+                anchorWallet={anchorWallet}
+                onComplete={() => console.log('DONE')}
+              />
             </>
-          ):(
+          ) : (
             <>
-            <View className='mt-2'>
-            <ConnectButton title='Connect Wallet' />
-            </View>
+              <View className="mt-2">
+                <ConnectButton title="Connect Wallet" />
+              </View>
             </>
           )}
-          
         </View>
         <View className="mt-5">
           <GameDescription
