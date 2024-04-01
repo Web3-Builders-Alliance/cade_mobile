@@ -230,6 +230,17 @@ function App(): React.JSX.Element {
                       backgroundColor: '#191414',
                     },
                   }}
+                  name="LoginScreen"
+                  component={LoginScreen}
+                />
+                <Stack.Screen
+                  options={{
+                    headerShown: true,
+                    headerTintColor: 'white',
+                    headerStyle: {
+                      backgroundColor: '#191414',
+                    },
+                  }}
                   name="ParticularGameScreen"
                   component={ParticularGameScreen}
                 />

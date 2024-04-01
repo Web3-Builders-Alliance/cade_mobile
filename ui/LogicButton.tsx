@@ -9,8 +9,13 @@ import React from 'react';
 import {MonoTextSmall} from '../components/StylesText';
 //import { Link } from "expo-router";
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+import {useNavigation} from '@react-navigation/native';
 
 const LoginButton = () => {
+  const navigation = useNavigation();
+  const handleLoginPress = () => {
+    navigation.navigate('LoginScreen'); // Navigate back to the previous screen (LoginScreen)
+  };
   return (
     <View
       style={{
@@ -23,7 +28,7 @@ const LoginButton = () => {
         paddingLeft: 12,
       }}>
       {/* <Link href="../screens/HomeScreen" asChild> */}
-      <Pressable>
+      <Pressable onPress={handleLoginPress}>
         <MonoTextSmall
           style={{
             textAlign: 'center',
