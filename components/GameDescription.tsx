@@ -46,7 +46,7 @@ const GameDescription = ({red, name, img, maker}) => {
       </View>
       <View className="w-3/5 flex flex-col">
         <View className="h-2/5">
-          <MonoText style={{color: 'red', textDecorationLine: 'underline'}}>
+          <MonoText style={{color: 'red'}}>
             {name}
           </MonoText>
         </View>

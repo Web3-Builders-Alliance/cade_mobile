@@ -149,7 +149,7 @@ export default function CallSwapIns({
         <ScrollView nestedScrollEnabled={true}>
           <View>
             <View>
-              <MonoText>Awsome 🎉</MonoText>
+              <MonoText>Awesome 🎉</MonoText>
             </View>
             <View className="flex justify-center items-center bg-red-1d00">
               <Image

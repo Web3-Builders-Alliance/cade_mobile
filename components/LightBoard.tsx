@@ -56,22 +56,7 @@ const LightBoard = ({
         style={{backgroundColor: '#262626'}}
         className="relative h-40 w-80 lg:w-96 bg-transparent flex items-center justify-center rounded-xl border-4 border-white">
         <View className="flex flex-row justify-center items-center absolute top-0 left-0 right-0 bottom-0">
-          {displayNumber ? (
-            <>
-              <View
-                className={`ml-2 w-1/3 h-24 flex justify-center items-center bg-red-500 rounded-lg`}>
-                <Text
-                  style={{fontFamily: 'VT323-Regular'}}
-                  className="text-6xl text-yellow-300">
-                  1
-                </Text>
-              </View>
-            </>
-          ) : (
-            <></>
-          )}
-
-          <View className="w-2/3 h-max flex justify-center items-center">
+          <View className="w-full h-max flex justify-center items-center">
             <Text
               style={{fontFamily: 'VT323-Regular'}}
               className="text-5xl  text-yellow-300 break-words min-w-0 ml-2">

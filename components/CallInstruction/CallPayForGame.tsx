@@ -162,7 +162,7 @@ export default function CallPayForGame({
         <ScrollView nestedScrollEnabled={true}>
           <View>
             <View>
-              <MonoText>Awsome 🎉</MonoText>
+              <MonoText>Awesome 🎉</MonoText>
             </View>
             <View className="flex justify-center items-center bg-red-1d00">
               <Image
@@ -181,7 +181,7 @@ export default function CallPayForGame({
                   justifyContent: 'center',
                   alignItems: 'center',
                   backgroundColor: 'white',
-                  borderColor: 'red',
+                  borderColor: 'yellow',
                 }}
                 onPress={()=> nav.navigate("ParticularGameScreen")}>
                 <MonoTextSmall style={{color: 'black'}}>Play</MonoTextSmall>

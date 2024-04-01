@@ -6,6 +6,8 @@ import {
   Dimensions,
   ScrollView,
   View,
+  Image,
+  TouchableOpacity,
 } from 'react-native';
 import WebView from 'react-native-webview';
 import Orientation, {
@@ -14,6 +16,8 @@ import Orientation, {
   LANDSCAPE,
 } from 'react-native-orientation-locker';
 import {useNavigation} from '@react-navigation/native';
+import {MonoTextSmall} from '../components/StylesText';
+
 const ParticularGameScreen = () => {
   const ff = false;
   const navigation = useNavigation();
@@ -49,7 +53,7 @@ const ParticularGameScreen = () => {
               }}>
               <WebView
                 source={{
-                  uri: 'https://659954a22f4c4ed2eae1abd7--voluble-gingersnap-b006a8.netlify.app/',
+                  uri: 'https://659823a39ed589203e611bf2--super-rabanadas-6274f7.netlify.app/',
                 }}
                 style={{marginTop: 0}}
               />
@@ -58,8 +62,31 @@ const ParticularGameScreen = () => {
         </>
       ) : (
         <>
-          <View style={{backgroundColor:"#191414"}} className='min-h-screen flex justify-center text-black p-10'>
-            <Button color={"gray"} onPress={() => playNow()} title="Play Now"/>
+          <View
+            style={{backgroundColor: '#191414'}}
+            className="min-h-screen flex justify-center text-black items-center">
+            <View className="items-center">
+              <Image
+                source={require('../assets/images/skygame.jpg')}
+                style={{width: 400, height: 400}}
+              />
+            </View>
+            <View style={{width: '90%'}} className="mt-10 items-center">
+              <TouchableOpacity
+                className="border-2 mt-5"
+                style={{
+                  width: '90%',
+                  height: 45,
+                  borderRadius: 5,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  backgroundColor: 'white',
+                  borderColor: 'yellow',
+                }}
+                onPress={() => playNow()}>
+                <MonoTextSmall style={{color: 'black'}}>Play</MonoTextSmall>
+              </TouchableOpacity>
+            </View>
           </View>
         </>
       )}
