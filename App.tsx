@@ -46,7 +46,7 @@ import BottomSheet from './components/BottomSheet';
 import {MonoText, MonoTextSmall} from './components/StylesText';
 import RedeemCade from './screens/RedeemCade';
 import {createStackNavigator} from '@react-navigation/stack';
-import ParticularGameScreen from './screens/ParticularGameScreen';
+import Play from './screens/Play';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -239,8 +239,8 @@ function App(): React.JSX.Element {
                       fontSize: 28,
                     },
                   }}
-                  name="ParticularGameScreen"
-                  component={ParticularGameScreen}
+                  name="Play"
+                  component={Play}
                 />
               </Stack.Navigator>
             </GestureHandlerRootView>

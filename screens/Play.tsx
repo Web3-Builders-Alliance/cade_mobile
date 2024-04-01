@@ -18,7 +18,7 @@ import Orientation, {
 import {useNavigation} from '@react-navigation/native';
 import {MonoTextSmall} from '../components/StylesText';
 
-const ParticularGameScreen = () => {
+const Play = () => {
   const ff = false;
   const navigation = useNavigation();
   useEffect(() => {
@@ -94,4 +94,4 @@ const ParticularGameScreen = () => {
   );
 };
 
-export default ParticularGameScreen;
+export default Play;

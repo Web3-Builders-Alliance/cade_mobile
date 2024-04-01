@@ -183,7 +183,7 @@ export default function CallPayForGame({
                   backgroundColor: 'white',
                   borderColor: 'yellow',
                 }}
-                onPress={()=> nav.navigate("ParticularGameScreen")}>
+                onPress={()=> nav.navigate("Play")}>
                 <MonoTextSmall style={{color: 'black'}}>Play</MonoTextSmall>
               </TouchableOpacity>
             </View>
