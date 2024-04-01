@@ -34,7 +34,7 @@ export default function ConnectButton(props: Props) {
         <TouchableOpacity
           className="border-2"
           style={{
-            height: 40,
+            height: 50,
             borderRadius: 5,
             justifyContent: 'center',
             alignItems: 'center',

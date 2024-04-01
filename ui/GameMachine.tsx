@@ -95,7 +95,7 @@ export default function GameMachine({red}: {red: boolean}) {
             style={{flex: 1}}
             borderRadius={5}
             source={background_image}>
-            <View className="flex justify-center items-center mr-2">
+            <View className="flex justify-center items-center">
               <GameLightBoard />
             </View>
             <View
@@ -111,34 +111,33 @@ export default function GameMachine({red}: {red: boolean}) {
                   height: 350,
                   width: 350,
                 }}
-                source={require('../assets/images/ca11.png')}
+                source={require('../assets/images/ca33.png')}
               />
             </View>
           </ImageBackground>
         </View>
-        <View className='w-full'>
+        <View className="w-full">
           {publicKey ? (
             <>
-            <CallPayForGame
-            anchorWallet={anchorWallet}
-            onComplete={() => console.log('DONE')}
-          />
+              <CallPayForGame
+                anchorWallet={anchorWallet}
+                onComplete={() => console.log('DONE')}
+              />
             </>
-          ):(
+          ) : (
             <>
-            <View className='mt-2'>
-            <ConnectButton title='Connect Wallet' />
-            </View>
+              <View className="mt-5">
+                <ConnectButton title="Connect Wallet" />
+              </View>
             </>
           )}
-          
         </View>
         <View className="mt-5">
           <GameDescription
             red={false}
-            name={'Tower Defence'}
-            img={require('../assets/images/tower.jpg')}
-            maker={'@marchedev'}
+            name={'City Stride'}
+            img={require('../assets/images/skygame.jpg')}
+            maker={'@007Ahzam'}
           />
         </View>
         <View className="mt-5">

@@ -37,15 +37,16 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import LoginScreen from './screens/LoginScreen';
 import {clusterApiUrl} from '@solana/web3.js';
 import {ConnectionProvider} from './components/providers/ConnectionProvider';
 import {AuthorizationProvider} from './components/providers/AuthorizationProvider';
 import BottomSheet from './components/BottomSheet';
 import {MonoText, MonoTextSmall} from './components/StylesText';
-import LeaderBoard from './screens/LeaderBoard';
+import RedeemCade from './screens/RedeemCade';
 import {createStackNavigator} from '@react-navigation/stack';
-import ParticularGameScreen from './screens/ParticularGameScreen';
+import Play from './screens/Play';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -218,6 +219,10 @@ function App(): React.JSX.Element {
                     headerStyle: {
                       backgroundColor: '#191414',
                     },
+                    headerTitleStyle: {
+                      fontFamily: 'VT323-Regular',
+                      fontSize: 28,
+                    },
                   }}
                   name="GameScreen"
                   component={GameScreen}
@@ -228,6 +233,10 @@ function App(): React.JSX.Element {
                     headerTintColor: 'white',
                     headerStyle: {
                       backgroundColor: '#191414',
+                    },
+                    headerTitleStyle: {
+                      fontFamily: 'VT323-Regular',
+                      fontSize: 28,
                     },
                   }}
                   name="LoginScreen"
@@ -241,8 +250,8 @@ function App(): React.JSX.Element {
                       backgroundColor: '#191414',
                     },
                   }}
-                  name="ParticularGameScreen"
-                  component={ParticularGameScreen}
+                  name="Play"
+                  component={Play}
                 />
               </Stack.Navigator>
             </GestureHandlerRootView>
@@ -299,6 +308,10 @@ function App(): React.JSX.Element {
             headerStyle: {
               backgroundColor: '#191414',
             },
+            headerTitleStyle: {
+              fontFamily: 'VT323-Regular',
+              fontSize: 28,
+            },
             tabBarLabel: 'Prize',
             tabBarIcon: ({color, size, focused}) => {
               return (
@@ -351,6 +364,10 @@ function App(): React.JSX.Element {
             headerStyle: {
               backgroundColor: '#191414',
             },
+            headerTitleStyle: {
+              fontFamily: 'VT323-Regular',
+              fontSize: 28,
+            },
             tabBarLabel: 'BuyCade',
             tabBarIcon: ({color, size, focused}) => {
               return (
@@ -369,20 +386,28 @@ function App(): React.JSX.Element {
           }}
         />
         <Tab.Screen
-          name="Leaderboard"
-          component={LeaderBoard}
+          name="RedeemCade"
+          component={RedeemCade}
           options={{
-            tabBarLabel: 'LeaderBoard',
+            headerShown: true,
+            headerTintColor: 'white',
+            headerStyle: {
+              backgroundColor: '#191414',
+            },
+            headerTitleStyle: {
+              fontFamily: 'VT323-Regular',
+              fontSize: 28,
+            },
             tabBarIcon: ({color, size, focused}) => {
               return (
                 <>
-                  <MaterialCommunityIcons
-                    name="podium"
+                  <MaterialIcons
+                    name="redeem"
                     size={size}
                     color={focused ? 'white' : 'gray'}
                   />
                   <Text style={{fontFamily: 'VT323-Regular', fontSize: 16}}>
-                    LeadetBoard
+                    RedeemCade
                   </Text>
                 </>
               );

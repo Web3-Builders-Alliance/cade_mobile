@@ -23,14 +23,14 @@ export const machineData = [
       },
       {
         img: "../assets/images/ca33.pngf",
-        name: "Skyline Skaddle",
+        name: "City Stride",
         maker: "@benzonak",
         machineNumber: 3,
         color: "green-400"
       },
       {
         img: "../assets/images/ca22.pngf",
-        name: "Mole Smash",
+        name: "Rat Splat",
         maker: "@benzonak",
         machineNumber: 2,
         color: "orange-500"

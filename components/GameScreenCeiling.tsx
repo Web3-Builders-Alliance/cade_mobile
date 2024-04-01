@@ -36,10 +36,10 @@ const GameScreenCeiling = ({
             style={{ height: 120, width: 62 }}
           />
         </View>
-        <View className="absolute left-1/4 translate-x-10 top-1/2">
+        <View className="absolute left-1/4 translate-x-8 top-1/2">
           <View
             style={{ height: 110, width: 150 }}
-            className="bg-red-500 border-4 border-white items-center flex justify-center rounded-lg"
+            className="bg-green-400 border-4 border-white items-center flex justify-center rounded-lg"
           >
             <View>
               <Text

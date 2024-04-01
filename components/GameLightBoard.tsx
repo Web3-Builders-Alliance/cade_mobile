@@ -7,9 +7,9 @@ const GameLightBoard = () => {
     <>
       <View>
         <View className="mt-24">
-          <LightBoard displayNumber={true} msg="GameName" />
+          <LightBoard displayNumber={true} msg="City Stride" />
         </View>
-        <View className="flex justify-between flex-row ml-10 mr-10">
+        <View className="flex justify-between flex-row ml-16 mr-16">
           <View className="flex justify-start items-start">
             <ImageBackground
               className="flex justify-start items-start bg-red-100"

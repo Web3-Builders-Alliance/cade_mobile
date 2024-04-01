@@ -162,7 +162,7 @@ export default function CallPayForGame({
         <ScrollView nestedScrollEnabled={true}>
           <View>
             <View>
-              <MonoText>Awsome 🎉</MonoText>
+              <MonoText>Awesome 🎉</MonoText>
             </View>
             <View className="flex justify-center items-center bg-red-1d00">
               <Image
@@ -181,9 +181,9 @@ export default function CallPayForGame({
                   justifyContent: 'center',
                   alignItems: 'center',
                   backgroundColor: 'white',
-                  borderColor: 'red',
+                  borderColor: 'yellow',
                 }}
-                onPress={()=> nav.navigate("ParticularGameScreen")}>
+                onPress={()=> nav.navigate("Play")}>
                 <MonoTextSmall style={{color: 'black'}}>Play</MonoTextSmall>
               </TouchableOpacity>
             </View>
@@ -194,12 +194,12 @@ export default function CallPayForGame({
       </BottomSheet>
 
       <View
-        style={{height: 40 , width : "100%" , marginTop:10}}
+        style={{height: 40 , width : "100%" , marginTop:16}}
         className="flex justify-center bg-transparent">
         <TouchableOpacity
           className="border-2"
           style={{
-            height: 40,
+            height: 50,
             borderRadius: 5,
             justifyContent: 'center',
             alignItems: 'center',
