@@ -3,6 +3,12 @@ import React from 'react';
 import {MonoText, MonoTextSmall} from './StylesText';
 
 const LeaderBoard = ({red}: {red: boolean}) => {
+  const styles = {
+    text: {
+      color: 'white', // Set text color to white
+    },
+  };
+
   return (
     <View
       style={{
@@ -16,52 +22,55 @@ const LeaderBoard = ({red}: {red: boolean}) => {
       <View className="flex flex-col">
         <View className="flex justify-center flex-row mt-2">
           <View className="w-1/3 items-center">
-            <MonoTextSmall style={{textDecorationLine: 'underline'}}>
+            <MonoTextSmall
+              style={{textDecorationLine: 'underline', color: 'white'}}>
               Sno
             </MonoTextSmall>
           </View>
           <View className="w-1/3 items-center">
-            <MonoTextSmall style={{textDecorationLine: 'underline'}}>
+            <MonoTextSmall
+              style={{textDecorationLine: 'underline', color: 'white'}}>
               PlayerName
             </MonoTextSmall>
           </View>
           <View className="w-1/3 items-center">
-            <MonoTextSmall style={{textDecorationLine: 'underline'}}>
+            <MonoTextSmall
+              style={{textDecorationLine: 'underline', color: 'white'}}>
               Points
             </MonoTextSmall>
           </View>
         </View>
         <View className="flex justify-center flex-row mt-5">
           <View className="w-1/3 items-center">
-            <MonoTextSmall>1</MonoTextSmall>
+            <MonoTextSmall style={styles.text}>1</MonoTextSmall>
           </View>
           <View className="w-1/3 items-center">
-            <MonoTextSmall>User1</MonoTextSmall>
+            <MonoTextSmall style={styles.text}>User1</MonoTextSmall>
           </View>
           <View className="w-1/3 items-center">
-            <MonoTextSmall>500</MonoTextSmall>
-          </View>
-        </View>
-        <View className="flex justify-center flex-row mt-5">
-          <View className="w-1/3 items-center">
-            <MonoTextSmall>2</MonoTextSmall>
-          </View>
-          <View className="w-1/3 items-center">
-            <MonoTextSmall>User2</MonoTextSmall>
-          </View>
-          <View className="w-1/3 items-center">
-            <MonoTextSmall>200</MonoTextSmall>
+            <MonoTextSmall style={styles.text}>500</MonoTextSmall>
           </View>
         </View>
         <View className="flex justify-center flex-row mt-5">
           <View className="w-1/3 items-center">
-            <MonoTextSmall>3</MonoTextSmall>
+            <MonoTextSmall style={styles.text}>2</MonoTextSmall>
           </View>
           <View className="w-1/3 items-center">
-            <MonoTextSmall>User3</MonoTextSmall>
+            <MonoTextSmall style={styles.text}>User2</MonoTextSmall>
           </View>
           <View className="w-1/3 items-center">
-            <MonoTextSmall>100</MonoTextSmall>
+            <MonoTextSmall style={styles.text}>200</MonoTextSmall>
+          </View>
+        </View>
+        <View className="flex justify-center flex-row mt-5">
+          <View className="w-1/3 items-center">
+            <MonoTextSmall style={styles.text}>3</MonoTextSmall>
+          </View>
+          <View className="w-1/3 items-center">
+            <MonoTextSmall style={styles.text}>User3</MonoTextSmall>
+          </View>
+          <View className="w-1/3 items-center">
+            <MonoTextSmall style={styles.text}>100</MonoTextSmall>
           </View>
         </View>
       </View>
