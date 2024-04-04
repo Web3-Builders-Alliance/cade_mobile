@@ -41,6 +41,7 @@ export default function MachineSliderWithButtons({
       machineNumber: 4,
       color: 'orange-400',
       gameImage: require('../assets/images/coinflip.jpg'),
+      desc: 'A retro coin flip game of digital twist on a classic 50/50 chance.',
     },
     {
       img: FourInLineImage,
@@ -49,6 +50,7 @@ export default function MachineSliderWithButtons({
       machineNumber: 6,
       color: 'blue-500',
       gameImage: require('../assets/images/sf.png'),
+      desc: 'A classic strategy game of aligning four tokens in a row.',
     },
     {
       img: TowerDefenceImage,
@@ -57,6 +59,7 @@ export default function MachineSliderWithButtons({
       machineNumber: 1,
       color: 'red-500',
       gameImage: require('../assets/images/tower.jpg'),
+      desc: 'Game where the goal is to defend your base by enemy.',
     },
     {
       img: SkylineSkaddleImage,
@@ -65,6 +68,7 @@ export default function MachineSliderWithButtons({
       machineNumber: 3,
       color: 'green-400',
       gameImage: require('../assets/images/skygame.jpg'),
+      desc: 'Navigate a vibrant skyline leaping between skyscrapers.',
     },
     {
       img: MoleSmashImage,
@@ -73,6 +77,7 @@ export default function MachineSliderWithButtons({
       machineNumber: 2,
       color: 'orange-500',
       gameImage: require('../assets/images/molegame.jpeg'),
+      desc: 'Hit every mole with your hammer when it comes out.',
     },
     {
       img: TileSurviveImage,
@@ -81,6 +86,7 @@ export default function MachineSliderWithButtons({
       machineNumber: 5,
       color: 'green-400',
       gameImage: require('../assets/images/tile.jpg'),
+      desc: 'Luck based game to reach to the end by jumping on the tiles.',
     },
   ];
 
@@ -164,6 +170,7 @@ export default function MachineSliderWithButtons({
             name={data[currentIndex].name}
             img={data[currentIndex].gameImage}
             maker={data[currentIndex].maker}
+            desc = {data[currentIndex].desc}
           />
         </View>
         <View

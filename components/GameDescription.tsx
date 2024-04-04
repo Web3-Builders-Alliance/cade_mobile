@@ -3,13 +3,13 @@ import React from 'react';
 import {MonoText, MonoTextSmall} from './StylesText';
 import {useNavigation} from '@react-navigation/native';
 
-const GameDescription = ({red, name, img, maker}) => {
+const GameDescription = ({red, name, img, maker, desc}) => {
   const nav = useNavigation();
   return (
     <View
       style={{
         backgroundColor: '#0F172A',
-        height: 185,
+        height: 200,
         width: 'auto',
         borderColor: red ? '#EF4444' : '#EAB308',
       }}
@@ -45,15 +45,11 @@ const GameDescription = ({red, name, img, maker}) => {
         </View>
       </View>
       <View className="w-3/5 flex flex-col">
-        <View className="h-2/5">
-          <MonoText style={{color: 'red'}}>
-            {name}
-          </MonoText>
+        <View className="h-1/5 bg-red-100e">
+          <Text style={{color: 'white',fontFamily:'VT323-Regular',fontSize:30}}>{name}</Text>
         </View>
-        <View className="h-2/5">
-          <MonoTextSmall style={{color: 'white'}}>
-            Lorem Ipsum is simply dummy MonoTextSmall
-          </MonoTextSmall>
+        <View className="h-3/5 bg-green-300d flex justify-center">
+          <MonoTextSmall style={{color: 'white'}}>{desc}</MonoTextSmall>
         </View>
         <View className="h-1/5">
           <MonoTextSmall style={{color: 'white'}}>By- {maker}</MonoTextSmall>
