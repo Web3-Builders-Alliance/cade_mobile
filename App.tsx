@@ -162,7 +162,7 @@ function App(): React.JSX.Element {
                 justifyContent: 'center',
                 alignItems: 'center',
                 backgroundColor: 'white',
-                borderColor: 'red',
+                borderColor: 'yellow',
               }}
               onPress={() => closeBottomSheet()}>
               <MonoTextSmall style={{color: 'black'}}>
@@ -186,7 +186,7 @@ function App(): React.JSX.Element {
                 justifyContent: 'center',
                 alignItems: 'center',
                 backgroundColor: 'white',
-                borderColor: 'red',
+                borderColor: 'yellow',
               }}
               onPress={() => closeBottomSheet()}>
               <MonoTextSmall style={{color: 'black'}}>Close</MonoTextSmall>

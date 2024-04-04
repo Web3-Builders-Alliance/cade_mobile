@@ -14,7 +14,7 @@ const Discover = () => {
     <View>
       <LeftCeiling blue={true} msg={"Discover More"} />
       <View className="flex justify-center items-start mt-36">
-        <View className="ml-5 mt-2">
+        <View className="mt-4">
           <MonoText style={{textDecorationLine : "underline"}}>All Games</MonoText>
         </View>
         <GridButtonLayout />

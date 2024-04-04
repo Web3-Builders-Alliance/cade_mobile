@@ -45,9 +45,9 @@ export default function MachineSliderWithButtons({red}: {red: boolean}) {
 
   const DripCollectionData = [
     {
-      name: 'havea Stamp',
-      img: require('../assets/images/drip1.png'),
-      price: '5',
+      name: 'Comic NFT',
+      img: require('../assets/images/drip2.jpg'),
+      price: '10',
       collectionName: 'Drip',
       collectionImage: require('../assets/images/drip.jpg'),
       info: {
@@ -56,9 +56,9 @@ export default function MachineSliderWithButtons({red}: {red: boolean}) {
       },
     },
     {
-      name: 'Comic NFT',
-      img: require('../assets/images/drip2.jpg'),
-      price: '10',
+      name: 'havea Stamp',
+      img: require('../assets/images/drip1.png'),
+      price: '5',
       collectionName: 'Drip',
       collectionImage: require('../assets/images/drip.jpg'),
       info: {
@@ -155,7 +155,8 @@ export default function MachineSliderWithButtons({red}: {red: boolean}) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [image, setImage] = useState();
   const [name, setName] = useState();
-  const [currentCollection, setCurrentCollection] = useState(CadeStoreData);
+  const [currentCollection, setCurrentCollection] =
+    useState(DripCollectionData);
 
   const openBottomSheet = () => {
     setBottomSheetVisible(true);
@@ -231,7 +232,7 @@ export default function MachineSliderWithButtons({red}: {red: boolean}) {
                     justifyContent: 'center',
                     alignItems: 'center',
                     backgroundColor: 'white',
-                    borderColor: 'red',
+                    borderColor: 'yellow',
                   }}
                   onPress={closeBottomSheet}>
                   <MonoTextSmall style={{color: 'black'}}>Cancel</MonoTextSmall>

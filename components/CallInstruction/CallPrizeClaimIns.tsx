@@ -133,7 +133,7 @@ export default function CallPrizeClaim({
                   justifyContent: 'center',
                   alignItems: 'center',
                   backgroundColor: 'white',
-                  borderColor: 'red',
+                  borderColor: 'yellow',
                 }}
                 onPress={closeBottomSheet}>
                 <MonoTextSmall style={{color: 'black'}}>OK</MonoTextSmall>
@@ -152,7 +152,7 @@ export default function CallPrizeClaim({
             justifyContent: 'center',
             alignItems: 'center',
             backgroundColor: 'white',
-            borderColor: 'red',
+            borderColor: 'yellow',
           }}
           onPress={async () => {
             try {

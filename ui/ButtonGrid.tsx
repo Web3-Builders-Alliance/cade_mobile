@@ -26,7 +26,7 @@ const ButtonGrid = () => {
           backgroundColor: 'white',
         }}>
         <MonoTextSmall style={{textAlign: 'center', color: 'black'}}>
-          Buy
+          Redeem
         </MonoTextSmall>
       </TouchableOpacity>
       <TouchableOpacity

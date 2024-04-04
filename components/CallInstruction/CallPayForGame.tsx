@@ -29,7 +29,7 @@ import {MonoText, MonoTextSmall} from '../StylesText';
 import BottomSheet from '../BottomSheet';
 import {bs58} from '@coral-xyz/anchor/dist/cjs/utils/bytes';
 import {wallet_three} from '../../keys/keys';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 
 type PropsForUsingEconomy = Readonly<{
   onComplete: () => void;
@@ -71,7 +71,7 @@ export default function CallPayForGame({
   const {confirmTx, economyProgram} = useCadeEconomy(connection, anchorWallet);
 
   const gamer_vault = Keypair.fromSecretKey(bs58.decode(wallet_three));
-  const nav = useNavigation()
+  const nav = useNavigation();
 
   const create_ata = async (publicKey: PublicKey) => {
     initializer_x_ata = await getAssociatedTokenAddress(
@@ -183,18 +183,16 @@ export default function CallPayForGame({
                   backgroundColor: 'white',
                   borderColor: 'yellow',
                 }}
-                onPress={()=> nav.navigate("Play")}>
+                onPress={() => nav.navigate('Play')}>
                 <MonoTextSmall style={{color: 'black'}}>Play</MonoTextSmall>
               </TouchableOpacity>
             </View>
-
-            
           </View>
         </ScrollView>
       </BottomSheet>
 
       <View
-        style={{height: 40 , width : "100%" , marginTop:16}}
+        style={{height: 40, width: '100%', marginTop: 16}}
         className="flex justify-center bg-transparent">
         <TouchableOpacity
           className="border-2"
