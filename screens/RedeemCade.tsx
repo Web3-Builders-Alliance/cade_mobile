@@ -80,9 +80,9 @@ const RedeemCade = () => {
               style={{width: 150, height: 150, borderRadius: 100}}
             />
           </View>
-          <View className="flex justify-center flex-col items-center">
+          <View className="flex justify-center flex-col items-start ml-5">
             <Text style={{fontFamily: 'VT323-Regular', fontSize: 24}}>
-              Name - GameDevName
+              Name - David
             </Text>
             <Text style={{fontFamily: 'VT323-Regular', fontSize: 24}}>
               Games Published - 1

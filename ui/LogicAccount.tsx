@@ -39,7 +39,7 @@ const LoginAccount = () => {
           className="border-2 mt-5"
           style={{
             width: '80%',
-            height: 45,
+            height: 50,
             borderRadius: 5,
             justifyContent: 'center',
             alignItems: 'center',
@@ -58,7 +58,7 @@ const LoginAccount = () => {
           className="border-2 mt-5"
           style={{
             width: '80%',
-            height: 45,
+            height: 50,
             borderRadius: 5,
             justifyContent: 'center',
             alignItems: 'center',
