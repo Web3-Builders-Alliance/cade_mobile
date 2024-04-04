@@ -43,8 +43,11 @@ const LoginAccount = () => {
             borderRadius: 5,
             justifyContent: 'center',
             alignItems: 'center',
-            backgroundColor: 'white',
-            fontFamily: 'monospace',
+            backgroundColor: 'gray',
+            fontFamily: 'VT323-Regular',
+            borderColor: 'white',
+            fontSize: 20,
+            paddingLeft: 10,
           }}
           onChangeText={text => setUsername(text)}
           value={username}
@@ -59,30 +62,20 @@ const LoginAccount = () => {
             borderRadius: 5,
             justifyContent: 'center',
             alignItems: 'center',
-            backgroundColor: 'white',
-            fontFamily: 'monospace',
+            backgroundColor: 'gray',
+            borderColor: 'white',
+            fontFamily: 'VT323-Regular',
+            fontSize: 20,
+            paddingLeft: 10,
           }}
           onChangeText={text => setPassword(text)}
           value={password}
           placeholder="Enter Password"
           secureTextEntry
         />
+
         <TouchableOpacity
-          className="border-2 mt-5"
-          style={{
-            width: '60%',
-            height: 45,
-            borderRadius: 5,
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-          onPress={() => nav.navigate('Home')}>
-          <MonoTextSmall style={{color: 'white'}}>
-            Forgot Password?
-          </MonoTextSmall>
-        </TouchableOpacity>
-        <TouchableOpacity
-          className="border-2 mt-5"
+          className="border-2 mt-8"
           style={{
             width: '60%',
             height: 45,
@@ -94,9 +87,28 @@ const LoginAccount = () => {
           onPress={() => nav.navigate('Home')}>
           <MonoTextSmall style={{color: 'black'}}>Sign In</MonoTextSmall>
         </TouchableOpacity>
-        <MonoTextSmall>Or Continue With</MonoTextSmall>
+        <TouchableOpacity
+          className="mt-2"
+          style={{
+            width: '60%',
+            height: 45,
+            borderRadius: 5,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+          onPress={() => nav.navigate('Home')}>
+          <MonoTextSmall
+            style={{color: 'white', textDecorationLine: 'underline'}}>
+            Forgot Password?
+          </MonoTextSmall>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => nav.navigate('Home')} className="mt-5">
+          <MonoTextSmall style={{textDecorationLine: 'underline'}}>
+            Skip for now
+          </MonoTextSmall>
+        </TouchableOpacity>
         <View
-          style={{flexDirection: 'row', alignItems: 'center', marginTop: 10}}>
+          style={{flexDirection: 'row', alignItems: 'center', marginTop: 40}}>
           <View style={{flex: 1, height: 1, backgroundColor: 'white'}} />
           <MonoTextSmall style={{marginHorizontal: 10, color: 'white'}}>
             Or Continue With

@@ -141,11 +141,11 @@ function App(): React.JSX.Element {
                 />
               </View>
               <View className="absolute right-0 top-0 mr-5 mt-5">
-                <MonoTextSmall>44Su...5nqz</MonoTextSmall>
+                <MonoTextSmall>44n5....q5S</MonoTextSmall>
               </View>
               <View className="absolute bottom-0 left-0 ml-5 mb-5">
                 <MonoText style={{textDecorationLine: 'underline'}}>
-                  UserName
+                  Bryant
                   <MonoText></MonoText>
                 </MonoText>
               </View>
@@ -248,6 +248,10 @@ function App(): React.JSX.Element {
                     headerTintColor: 'white',
                     headerStyle: {
                       backgroundColor: '#191414',
+                    },
+                    headerTitleStyle: {
+                      fontFamily: 'VT323-Regular',
+                      fontSize: 28,
                     },
                   }}
                   name="Play"

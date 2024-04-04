@@ -45,7 +45,7 @@ const LeaderBoard = ({red}: {red: boolean}) => {
             <MonoTextSmall style={styles.text}>1</MonoTextSmall>
           </View>
           <View className="w-1/3 items-center">
-            <MonoTextSmall style={styles.text}>User1</MonoTextSmall>
+            <MonoTextSmall style={styles.text}>Jack</MonoTextSmall>
           </View>
           <View className="w-1/3 items-center">
             <MonoTextSmall style={styles.text}>500</MonoTextSmall>
@@ -56,7 +56,7 @@ const LeaderBoard = ({red}: {red: boolean}) => {
             <MonoTextSmall style={styles.text}>2</MonoTextSmall>
           </View>
           <View className="w-1/3 items-center">
-            <MonoTextSmall style={styles.text}>User2</MonoTextSmall>
+            <MonoTextSmall style={styles.text}>Emily</MonoTextSmall>
           </View>
           <View className="w-1/3 items-center">
             <MonoTextSmall style={styles.text}>200</MonoTextSmall>
@@ -67,7 +67,7 @@ const LeaderBoard = ({red}: {red: boolean}) => {
             <MonoTextSmall style={styles.text}>3</MonoTextSmall>
           </View>
           <View className="w-1/3 items-center">
-            <MonoTextSmall style={styles.text}>User3</MonoTextSmall>
+            <MonoTextSmall style={styles.text}>Michael</MonoTextSmall>
           </View>
           <View className="w-1/3 items-center">
             <MonoTextSmall style={styles.text}>100</MonoTextSmall>

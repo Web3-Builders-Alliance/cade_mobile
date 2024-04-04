@@ -8,7 +8,7 @@ import PrizeCenter from '../ui/PrizeCenter';
 const LoginScreen = () => {
   return (
     <>
-      <View style={{backgroundColor: '#191414'}} className="min-h-screen py-12">
+      <View style={{backgroundColor: '#191414'}} className="min-h-screen">
         <ScrollView contentContainerStyle={{flexGrow: 1}}>
           <View className="container px-4 md:px-6 mb-32">
             <View>

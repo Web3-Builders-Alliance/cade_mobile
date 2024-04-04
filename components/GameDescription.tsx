@@ -33,7 +33,7 @@ const GameDescription = ({red, name, img, maker, desc}) => {
               width: 100,
               height: 40,
               borderRadius: 4,
-              borderColor: 'white',
+              borderColor: `${red ? 'red' : 'yellow'}`,
               borderWidth: 2,
               justifyContent: 'center',
               alignItems: 'center',
@@ -46,7 +46,10 @@ const GameDescription = ({red, name, img, maker, desc}) => {
       </View>
       <View className="w-3/5 flex flex-col">
         <View className="h-1/5 bg-red-100e">
-          <Text style={{color: 'white',fontFamily:'VT323-Regular',fontSize:30}}>{name}</Text>
+          <Text
+            style={{color: 'white', fontFamily: 'VT323-Regular', fontSize: 30}}>
+            {name}
+          </Text>
         </View>
         <View className="h-3/5 bg-green-300d flex justify-center">
           <MonoTextSmall style={{color: 'white'}}>{desc}</MonoTextSmall>

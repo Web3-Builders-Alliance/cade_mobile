@@ -26,11 +26,11 @@ const CadeCard = () => {
               </View>
             </View>
             <View className="absolute right-0 mt-3 mr-5">
-              <MonoTextSmall>44Su...5nqz</MonoTextSmall>
+              <MonoTextSmall>444n5....q5S</MonoTextSmall>
             </View>
           </View>
             <View className="absolute left-0 top-1/2 translate-y-5 ml-5">
-              <MonoTextSmall style={{textDecorationLine : "underline"}}>USER</MonoTextSmall>
+              <MonoTextSmall style={{textDecorationLine : "underline"}}>Bryant</MonoTextSmall>
             </View>
         </ImageBackground>
       </View>

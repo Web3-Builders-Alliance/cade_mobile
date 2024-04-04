@@ -138,6 +138,7 @@ export default function GameMachine({red}: {red: boolean}) {
             name={'City Stride'}
             img={require('../assets/images/skygame.jpg')}
             maker={'@007Ahzam'}
+            desc={"Navigate a vibrant skyline leaping between skyscrapers."}
           />
         </View>
         <View className="mt-5">
