@@ -125,7 +125,7 @@ export default function CallSwapIns({
             associatedTokenProgram: ASSOCIATED_PROGRAM_ID,
             systemProgram: SystemProgram.programId,
           })
-          .rpc({skipPreflight: true});
+          .rpc();
         return sig;
         //await confirmTx(sig);
       } catch (error) {

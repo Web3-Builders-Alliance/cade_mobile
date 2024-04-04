@@ -125,7 +125,7 @@ export default function MachineSliderWithButtons({red}: {red: boolean}) {
       },
     },
     {
-      name: 'Chest',
+      name: 'GamePass',
       img: require('../assets/images/freeticket.webp'),
       desc: 'Open Chest for Exited Suprizes',
       price: '5',
@@ -137,7 +137,7 @@ export default function MachineSliderWithButtons({red}: {red: boolean}) {
       },
     },
     {
-      name: 'CadeGamePass',
+      name: 'BlindChest',
       img: require('../assets/images/treasure.png'),
       desc: 'Sol Loaded Lottery Tickets for Periodic Drawings',
       price: '3',

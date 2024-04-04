@@ -230,7 +230,7 @@ const PrizeGrid = () => {
       },
     },
     {
-      name: 'Chest',
+      name: 'GamePass',
       img: require('../assets/images/freeticket.webp'),
       desc: 'Open Chest for Exited Suprizes',
       price: '5',
@@ -242,7 +242,7 @@ const PrizeGrid = () => {
       },
     },
     {
-      name: 'CadeGamePass',
+      name: 'BlindChest',
       img: require('../assets/images/treasure.png'),
       desc: 'Sol Loaded Lottery Tickets for Periodic Drawings',
       price: '3',
