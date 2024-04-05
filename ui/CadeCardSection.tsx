@@ -5,7 +5,7 @@ import CadeCard from '../components/CadeCard';
 import ButtonGrid from './ButtonGrid';
 import LoginButton from './LogicButton';
 
-export default function CadeCardSection() {
+const CadeCardSection = ({account}) => {
   return (
     <View style={{backgroundColor: '#191414'}} className="h-64 w-max">
       <View className="flex flex-row justify-between items-left ">
@@ -16,8 +16,10 @@ export default function CadeCardSection() {
       </View>
       <ButtonGrid />
       <View className="flex justify-center items-center">
-        <CadeCard />
+        <CadeCard account={account} />
       </View>
     </View>
   );
-}
+};
+
+export default CadeCardSection;

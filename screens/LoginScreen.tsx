@@ -1,6 +1,6 @@
 import {View, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
-import LoginAccount from '../ui/LogicAccount';
+import LoginAccount from '../ui/LoginAccount';
 import {ScrollView} from 'react-native';
 import LeftCeiling from '../components/LeftCeiling';
 import PrizeCenter from '../ui/PrizeCenter';
