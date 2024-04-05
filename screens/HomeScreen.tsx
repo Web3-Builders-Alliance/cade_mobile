@@ -57,7 +57,7 @@ const HomeScreen = () => {
       return;
     }
     fetchAndUpdateBalance(selectedAccount);
-  }, [fetchAndUpdateBalance, selectedAccount]);
+  }, [fetchAndUpdateBalance, selectedAccount, publicKey]);
 
   return (
     <View style={{backgroundColor: '#191414'}} className="min-h-screen py-3">
@@ -66,7 +66,7 @@ const HomeScreen = () => {
       <ScrollView contentContainerStyle={{flexGrow: 1}}>
         <View className="container px-4 md:px-6 mb-16">
           <View>
-            <CadeCardSection />
+            <CadeCardSection account={publicKey ? publicKey.toString() : ''} />
             {/* <ConnectButton title="Connect wallet" /> */}
             {/* <CallSwapIns
               anchorWallet={anchorWallet}
@@ -74,7 +74,11 @@ const HomeScreen = () => {
             /> */}
             {/* <Ceiling displayNumber={true} msg={'Tower Defence'} /> */}
             <View className="">
-              <MachineSliderWithButtons red={false} showCeiling={true} margin={100}/>
+              <MachineSliderWithButtons
+                red={false}
+                showCeiling={true}
+                margin={100}
+              />
             </View>
             <View>
               <Discover />
