@@ -148,6 +148,21 @@ const LoginAccount = () => {
             Forgot Password?
           </MonoTextSmall>
         </TouchableOpacity>
+        <TouchableOpacity
+          className="mt-2"
+          style={{
+            width: '60%',
+            height: 45,
+            borderRadius: 5,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+          onPress={() => nav.navigate('SignUpScreen')}>
+          <MonoTextSmall
+            style={{color: 'white', textDecorationLine: 'underline'}}>
+            Sign Up
+          </MonoTextSmall>
+        </TouchableOpacity>
         <TouchableOpacity onPress={() => nav.navigate('Home')} className="mt-5">
           <MonoTextSmall style={{textDecorationLine: 'underline'}}>
             Skip for now

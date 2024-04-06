@@ -47,6 +47,7 @@ import {MonoText, MonoTextSmall} from './components/StylesText';
 import RedeemCade from './screens/RedeemCade';
 import {createStackNavigator} from '@react-navigation/stack';
 import Play from './screens/Play';
+import SignUpScreen from './screens/SignUpScreen';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -256,6 +257,21 @@ function App(): React.JSX.Element {
                   }}
                   name="Play"
                   component={Play}
+                />
+                <Stack.Screen
+                  options={{
+                    headerShown: true,
+                    headerTintColor: 'white',
+                    headerStyle: {
+                      backgroundColor: '#191414',
+                    },
+                    headerTitleStyle: {
+                      fontFamily: 'VT323-Regular',
+                      fontSize: 28,
+                    },
+                  }}
+                  name="SignUpScreen"
+                  component={SignUpScreen}
                 />
               </Stack.Navigator>
             </GestureHandlerRootView>
