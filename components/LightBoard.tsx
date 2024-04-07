@@ -42,13 +42,13 @@ const LightBoard = ({
 
   const [showText, setShowText] = useState(true);
 
-  useEffect(() => {
-    // Change the state every second or the time given by User.
-    const interval = setInterval(() => {
-      setShowText(showText => !showText);
-    }, 500);
-    return () => clearInterval(interval);
-  }, []);
+  // useEffect(() => {
+  //   // Change the state every second or the time given by User.
+  //   const interval = setInterval(() => {
+  //     setShowText(showText => !showText);
+  //   }, 500);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   return (
     <View>

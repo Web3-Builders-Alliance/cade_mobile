@@ -53,7 +53,7 @@ const Play = () => {
               }}>
               <WebView
                 source={{
-                  uri: 'https://659823a39ed589203e611bf2--super-rabanadas-6274f7.netlify.app/',
+                  uri: 'https://659955b6f50dbf90d203c2de--meek-manatee-6d37fc.netlify.app/',
                 }}
                 style={{marginTop: 0}}
               />

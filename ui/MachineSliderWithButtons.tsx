@@ -129,7 +129,7 @@ export default function MachineSliderWithButtons({
                   return (
                     <>
                       <Image
-                        className="mt-14"
+                        className="mt-14 ml-7"
                         style={{
                           height: 350,
                           width: 350,
