@@ -19,8 +19,10 @@ Cade is a arcade platform, where blockchain-based games can function with a stru
 
 # Other Cade Repos
 
-Cade Web - https://github.com/Web3-Builders-Alliance/cade_v2
+Cade Web - https://github.com/Web3-Builders-Alliance/cade-web
+
 Cade Economy - https://github.com/Web3-Builders-Alliance/cade_economy
+
 Cade Unity-Games - https://github.com/Web3-Builders-Alliance/cade-unity-game
 
 # Features
@@ -38,5 +40,5 @@ Cade Unity-Games - https://github.com/Web3-Builders-Alliance/cade-unity-game
 # PitchDeck And DemoVideo
 
 <ul>
-<li><a href="https://docs.google.com/presentation/d/1ywg0dvkAf_Dhk9IUoVil0YdqrFN0M5Ny-MujCt0wzpU/edit?usp=sharing">Pitch Deck</a></li>
+<li><a href="https://docs.google.com/presentation/d/15jDaBoUCIgDeViFjmpAaFZZ9jZCdeOZEwCEqQSRjFBo/edit?usp=sharing">Pitch Deck</a></li>
 <li><a href="https://www.youtube.com/watch?v=msKD14lSPtg">Demo Video</a></li>
