@@ -4,29 +4,27 @@
   <img src="https://badgen.net/badge/docs/1.0/purple">
   <img src="https://badgen.net/badge/contributions/open/purple">
 </div>
-<h1 align="center">'Cade</h1>
+<h1 align="center">Cade</h1>
 <div align="center">
   <h3>Reimagining Web3 Gaming.</h3>
-  <div align="center">
-    <a href="#">Website</a>
-    •
-    <a href="https://twitter.com/gg_cade">Twitter</a>
-
-  </div>
 </div>
  
-# Whats 'Cade
+# Whats Cade
 
-Social gaming platform on @Solana providing a FUN GamEx, prizes, leaderboards, pfps, and a Developer SDK to plug into the platform.
+The Ultimate Social Gaming Platform, and Indie Game Launchpad on @Solana
 
 # Overview
 
-'Cade is a decentralized arcade platform, where blockchain-based games can function with a structured marketplace, rewards and social layer. In addition to providing our own games, we aim to provide a place for developers to self-publish their games and plug into our system, thereby providing distribution, incentives, and social with little effort on their end, allowing them to focus on creating awesome games for players to enjoy. The project is from the Q4 Artisan Cohort from WBA.
+Cade is a arcade platform, where blockchain-based games can function with a structured marketplace, rewards and social layer. In addition to providing our own games, we aim to provide a place for developers to self-publish their games and plug into our system, thereby providing distribution, incentives, and social with little effort on their end, allowing them to focus on creating awesome games for players to enjoy. The project is from the Q4 Artisan Cohort from WBA.
 
-# 'Cade Programs Repo
-Github - https://github.com/Web3-Builders-Alliance/cade-programs
+# Other Cade Repos
+
+Cade Web - https://github.com/Web3-Builders-Alliance/cade_v2
+Cade Economy - https://github.com/Web3-Builders-Alliance/cade_economy
+Cade Unity-Games - https://github.com/Web3-Builders-Alliance/cade-unity-game
 
 # Features
+
 <ul>
 <li>Social Profiles and Avatars</li>
 <li>Platfrom Wide LeaderBoards</li>
@@ -38,9 +36,7 @@ Github - https://github.com/Web3-Builders-Alliance/cade-programs
 </ul>
 
 # PitchDeck And DemoVideo
+
 <ul>
 <li><a href="https://docs.google.com/presentation/d/1ywg0dvkAf_Dhk9IUoVil0YdqrFN0M5Ny-MujCt0wzpU/edit?usp=sharing">Pitch Deck</a></li>
 <li><a href="https://www.youtube.com/watch?v=msKD14lSPtg">Demo Video</a></li>
-
-
-
