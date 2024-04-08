@@ -1,9 +1,4 @@
 <img src="https://i.imgur.com/N6oQbzv.png">
-<div align="center">
-  <img src="https://badgen.net/badge/version/1.0/purple">
-  <img src="https://badgen.net/badge/docs/1.0/purple">
-  <img src="https://badgen.net/badge/contributions/open/purple">
-</div>
 <h1 align="center">Cade</h1>
 <div align="center">
   <h3>Reimagining Web3 Gaming.</h3>
@@ -19,7 +14,7 @@ Cade is a arcade platform, where blockchain-based games can function with a stru
 
 # Other Cade Repos
 
-Cade Web - https://github.com/Web3-Builders-Alliance/cade-web
+Cade Web - https://github.com/Web3-Builders-Alliance/cade_web
 
 Cade Economy - https://github.com/Web3-Builders-Alliance/cade_economy
 
@@ -41,4 +36,4 @@ Cade Unity-Games - https://github.com/Web3-Builders-Alliance/cade-unity-game
 
 <ul>
 <li><a href="https://docs.google.com/presentation/d/15jDaBoUCIgDeViFjmpAaFZZ9jZCdeOZEwCEqQSRjFBo/edit?usp=sharing">Pitch Deck</a></li>
-<li><a href="https://www.youtube.com/watch?v=msKD14lSPtg">Demo Video</a></li>
+<li><a href="https://www.youtube.com/watch?v=IrQuomKKppA">Demo Video</a></li>
