@@ -1,5 +1,5 @@
 <img src="https://i.imgur.com/N6oQbzv.png">
-<h1 align="center">Cade</h1>
+<h1 align="center">Cade Mobile</h1>
 <div align="center">
   <h3>Reimagining Web3 Gaming.</h3>
 </div>
