@@ -10,8 +10,7 @@ The Ultimate Social Gaming Platform, and Indie Game Launchpad on @Solana
 
 # Overview
 
-Cade is a arcade platform, where blockchain-based games can function with a structured marketplace, rewards and social layer. In addition to providing our own games, we aim to provide a place for developers to self-publish their games and plug into our system, thereby providing distribution, incentives, and social with little effort on their end, allowing them to focus on creating awesome games for players to enjoy. The project is from the Q4 Artisan Cohort from WBA.
-
+Cade is a arcade platform, where blockchain-based games can function with a structured marketplace, rewards and social layer. In addition to providing our own games, we aim to provide a place for developers to self-publish their games and plug into our system, thereby providing distribution, incentives, and social with little effort on their end, allowing them to focus on creating awesome games for players to enjoy.
 # Other Cade Repos
 
 Cade Web - https://github.com/Web3-Builders-Alliance/cade_web
