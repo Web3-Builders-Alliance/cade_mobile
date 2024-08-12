@@ -1,4 +1,4 @@
-<img src="https://i.imgur.com/N6oQbzv.png">
+<img src="https://firebasestorage.googleapis.com/v0/b/zakibhai-82e1f.appspot.com/o/cademobile.jpg?alt=media&token=e80282d3-025e-48ae-82e9-5f793c2f9922">
 <h1 align="center">Cade Mobile</h1>
 <div align="center">
   <h3>Reimagining Web3 Gaming.</h3>
@@ -32,8 +32,3 @@ Cade Unity-Games - https://github.com/Web3-Builders-Alliance/cade-unity-game
 <li>Points ,Prizes and Rewards</li>
 </ul>
 
-# PitchDeck And DemoVideo
-
-<ul>
-<li><a href="https://docs.google.com/presentation/d/15jDaBoUCIgDeViFjmpAaFZZ9jZCdeOZEwCEqQSRjFBo/edit?usp=sharing">Pitch Deck</a></li>
-<li><a href="https://www.youtube.com/watch?v=IrQuomKKppA">Demo Video</a></li>
